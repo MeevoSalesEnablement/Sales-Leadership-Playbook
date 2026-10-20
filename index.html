@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meevo Sales Playbook 2027</title>
+<style>
+:root{
+  --charcoal:#232426;--charcoal-2:#444444;--gray:#B4B4B4;
+  --ocean:#204855;--ocean-2:#216479;--ocean-3:#A6C1C9;
+  --terra:#A75F37;--terra-2:#E29D63;--terra-3:#F3D8C1;
+  --mauve:#4B3951;--mauve-2:#806C85;--mauve-3:#CCC4CE;
+  --sage:#9A997B;--sage-3:#D7D6CA;--rose:#BF9982;--rose-3:#D9C2B4;
+  --ivory:#F8F7F5;--white:#fff;--line:#E6E3DE;
+  --sidebar:280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Source Sans Pro","Source Sans 3",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--charcoal);background:var(--ivory);line-height:1.55;font-size:16px}
+a{color:var(--ocean-2);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:var(--ocean-2)}
+h1,h2,h3,h4{font-weight:600;line-height:1.2;margin:0 0 .5em}
+h1{font-size:2rem}h2{font-size:1.6rem;color:var(--ocean);padding-bottom:.4rem;border-bottom:2px solid var(--ocean-3);margin-bottom:1.2rem}
+h3{font-size:1.2rem;color:var(--charcoal);margin-top:1.6rem}
+h4{font-size:1rem;color:var(--ocean-2);margin-top:1.2rem;text-transform:uppercase;letter-spacing:.04em;font-size:.85rem}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 1em;padding-left:1.3em}
+li{margin-bottom:.3em}
+code{background:#eee;padding:.1em .35em;border-radius:3px;font-size:.9em}
+/* layout */
+.topbar{position:fixed;top:0;left:0;right:0;height:60px;background:var(--ocean);color:#fff;display:flex;align-items:center;padding:0 20px;gap:16px;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.topbar .brand{font-weight:700;font-size:1.1rem;letter-spacing:.02em;white-space:nowrap}
+.topbar .brand span{opacity:.75;font-weight:400;margin-left:8px;font-size:.9rem}
+.search{flex:1;max-width:560px;margin-left:auto;position:relative}
+.search input{width:100%;height:38px;border-radius:19px;border:0;padding:0 42px 0 16px;font-size:.95rem;font-family:inherit;background:rgba(255,255,255,.95);color:var(--charcoal)}
+.search .count{position:absolute;right:36px;top:9px;font-size:.8rem;color:var(--charcoal-2)}
+.role-toggle{display:flex;gap:4px;background:rgba(255,255,255,.12);border-radius:19px;padding:3px}
+.role-toggle button{border:0;background:transparent;color:#fff;padding:6px 14px;border-radius:16px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;opacity:.8}
+.role-toggle button.active{background:#fff;color:var(--ocean);opacity:1}
+.menu-btn{display:none;border:0;background:transparent;color:#fff;font-size:1.4rem;cursor:pointer}
+.sidebar{position:fixed;top:60px;left:0;bottom:0;width:var(--sidebar);background:#fff;border-right:1px solid var(--line);overflow-y:auto;padding:18px 0 40px;z-index:40}
+.sidebar .grp.hidden-by-search{display:none}.sidebar .grp{padding:14px 18px 4px;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--charcoal-2);font-weight:700}
+.sidebar a{display:block;padding:7px 18px 7px 22px;color:var(--charcoal);font-size:.93rem;border-left:3px solid transparent;border-bottom:0}
+.sidebar a:hover{background:var(--ivory)}
+.sidebar a.active{border-left-color:var(--ocean);color:var(--ocean);font-weight:600;background:#f1f4f5}
+.sidebar a.hidden-by-search{display:none}
+main{margin-left:var(--sidebar);padding:84px 40px 80px;max-width:1180px}
+section.page{background:#fff;border:1px solid var(--line);border-radius:10px;padding:32px 36px;margin-bottom:28px;scroll-margin-top:76px}
+section.page.hide{display:none}
+section.page.hero{background:linear-gradient(135deg,var(--ocean) 0%,var(--ocean-2) 100%);color:#fff;border:0}
+.hero h1{color:#fff;margin-bottom:.3em}
+.hero p{font-size:1.1rem;opacity:.95;max-width:760px;color:#fff}.hero p.mini{color:#fff;font-size:.85rem}
+.hero .pill{display:inline-block;background:rgba(255,255,255,.18);padding:4px 12px;border-radius:14px;font-size:.8rem;margin-right:8px;margin-bottom:12px}
+.hero a{color:#fff;border-bottom:1px solid rgba(255,255,255,.5)}
+/* components */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin:1em 0}
+.grid.two{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.card{background:var(--ivory);border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+.card h3,.card h4{margin-top:0}
+.card.link-card{background:#fff;transition:box-shadow .15s}
+.card.link-card:hover{box-shadow:0 3px 12px rgba(32,72,85,.12)}
+.card .meta{font-size:.8rem;color:var(--charcoal-2)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-right:6px;color:#fff;background:var(--ocean)}
+.tag.sdr{background:var(--terra)}.tag.ae{background:var(--mauve)}.tag.all{background:var(--sage)}
+.tag.salon{background:var(--mauve)}.tag.spa{background:var(--terra)}.tag.medspa{background:var(--ocean)}.tag.school{background:var(--charcoal)}.tag.ss{background:var(--rose)}
+.callout{border-left:4px solid var(--ocean);background:#f1f5f7;padding:12px 16px;border-radius:0 6px 6px 0;margin:1em 0}
+.callout.warn{border-left-color:var(--terra);background:#fbf3ec}
+.callout.todo{border-left-color:var(--terra-2);background:var(--terra-3);font-size:.95rem}
+.callout.todo::before{content:"NEEDS INPUT · ";font-weight:700;color:var(--terra);font-size:.75rem;letter-spacing:.06em}
+.callout.quote{border-left-color:var(--mauve-2);background:#f5f2f6;font-style:italic}
+table{width:100%;border-collapse:collapse;margin:1em 0;font-size:.93rem;background:#fff}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--ocean);color:#fff;font-weight:600;font-size:.85rem;letter-spacing:.03em}
+tr:nth-child(even) td{background:#fafaf8}
+table.compact td,table.compact th{padding:6px 9px;font-size:.87rem}
+.heat td.best{background:#204855;color:#fff;font-weight:700}
+.heat td.strong{background:#216479;color:#fff}
+.heat td.good{background:#A6C1C9}
+.heat td.mod{background:#E4ECEF}
+.heat td.low{background:#F3F3F1;color:#777}
+.heat td.excl{background:#F3D8C1;color:#A75F37;font-weight:600}
+.heat td.na{color:#bbb}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{position:relative;padding-left:44px;margin-bottom:12px}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--ocean);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+.kpi{display:flex;gap:14px;flex-wrap:wrap;margin:1em 0}
+.kpi div{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi b{display:block;font-size:1.4rem;color:var(--ocean)}
+.kpi span{font-size:.82rem;color:var(--charcoal-2)}
+details{border:1px solid var(--line);border-radius:8px;background:#fff;margin:10px 0;padding:0}
+details summary{cursor:pointer;padding:12px 16px;font-weight:600;color:var(--ocean);list-style:none;display:flex;align-items:center;gap:10px}
+details summary::before{content:"▸";transition:transform .15s;color:var(--gray)}
+details[open] summary::before{transform:rotate(90deg)}
+details .body{padding:0 18px 16px}
+.linklist{list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.linklist li{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin:0}
+.linklist li a{font-weight:600;display:block}
+.linklist li small{color:var(--charcoal-2)}
+.linklist li .ext{font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.05em}
+.persona{border-top:4px solid var(--mauve)}
+.persona .who{font-size:.85rem;color:var(--charcoal-2);margin-bottom:6px}
+mark{background:#FDE9A8;padding:0 2px;border-radius:2px}
+.mini{font-size:.85rem;color:var(--charcoal-2)}
+.owner{font-size:.8rem;color:var(--charcoal-2);margin-top:1.5em;padding-top:.8em;border-top:1px dashed var(--line)}
+.noresults{display:none;padding:40px;text-align:center;color:var(--charcoal-2)}
+footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:var(--charcoal-2)}
+@media (max-width:900px){
+  .sidebar{transform:translateX(-100%);transition:transform .2s}
+  .sidebar.open{transform:none}
+  main,footer{margin-left:0;padding-left:18px;padding-right:18px}
+  .menu-btn{display:block}
+  .topbar .brand span{display:none}
+  .role-toggle{display:none}
+  section.page{padding:20px}
+}
+@media print{.topbar,.sidebar{display:none}main{margin:0;padding:0}section.page{border:0;page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <div class="brand">Meevo Sales Playbook <span>2027 · AE &amp; SDR Reference Hub</span></div>
+  <div class="role-toggle" id="roleToggle">
+    <button class="active" data-role="all">Everyone</button>
+    <button data-role="sdr">SDR</button>
+    <button data-role="ae">AE</button>
+  </div>
+  <div class="search">
+    <input id="q" type="search" placeholder="Search the playbook… (e.g. Vagaro, SQO, MeevoPay, inbound lead)" autocomplete="off">
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<nav class="sidebar" id="nav">
+  <div class="grp">Start here</div>
+  <a href="#start">Welcome &amp; how to use this</a>
+  <a href="#team">Leadership &amp; sales org</a>
+  <a href="#segments">Segments &amp; business types</a>
+  <a href="#ask">Who do I ask?</a>
+  <div class="grp">Your role</div>
+  <a href="#sdr">SDR playbook</a>
+  <a href="#ae">AE playbook</a>
+  <a href="#inbound">Inbound lead expectations</a>
+  <a href="#pipeline">Pipeline &amp; stage rules</a>
+  <a href="#kpis">Funnel &amp; KPI definitions</a>
+  <div class="grp">Who we sell to</div>
+  <a href="#icp">ICP &amp; targeting tiers</a>
+  <a href="#personas">Buyer personas</a>
+  <a href="#core">Core: Salon, Spa, Salon &amp; Spa, School</a>
+  <a href="#medspa">MedSpa</a>
+  <div class="grp">How we win</div>
+  <a href="#value">Value framework &amp; proof points</a>
+  <a href="#competitors">Competitors &amp; displacement</a>
+  <a href="#talktracks">Talk tracks &amp; training</a>
+  <div class="grp">Tools &amp; process</div>
+  <a href="#tools">Enablement sites &amp; dashboards</a>
+  <a href="#salesforce">Salesforce processes</a>
+  <a href="#outreach">Outreach &amp; other tools</a>
+  <a href="#pricing">Pricing, MeevoPay, MeevoTips</a>
+  <a href="#implementation">Integrations &amp; implementation</a>
+  <div class="grp">Working at Meevo</div>
+  <a href="#onboarding">New-hire ramp (30/60/90)</a>
+  <a href="#comp">Comp, quota &amp; policies</a>
+  <a href="#faq">FAQ</a>
+  <a href="#changelog">Owners &amp; change log</a>
+</nav>
+
+<main id="main">
+
+<!-- ============================ START HERE ============================ -->
+<section class="page hero" id="start" data-role="all">
+  <span class="pill">Sales Playbook 2027</span><span class="pill">Internal · Proprietary &amp; Confidential</span>
+  <h1>If you have a question about your job, check here first.</h1>
+  <p>This is the single reference hub for the Meevo sales organization — Account Executives and Sales Development Representatives across Core (Salon, Spa, Salon &amp; Spa, School) and MedSpa. It brings together who we sell to, how we win, the processes we follow, the tools we use, and where to go when you need more.</p>
+  <p><strong>How to use it:</strong> use the search bar for anything specific (a competitor, a stage name, a tool), use the <em>SDR / AE</em> toggle to show only what applies to your role, or browse the left-hand navigation. Anything marked <em>Needs input</em> is still being finalized by the owner listed.</p>
+  <p class="mini" style="opacity:.85">Built from the MedSpa Sales Playbook (Dec '25), Meevo ICP Targeting Guide v2 (FY2026), Meevo GTM KPI Definitions v10.13, Meevo persona library, Crayon battlecards, and Clozd win/loss research. Last updated October 2026.</p>
+</section>
+
+<section class="page" id="team" data-role="all">
+  <h2>Leadership &amp; sales organization</h2>
+  <h3>Meet your leadership team</h3>
+  <div class="grid">
+    <div class="card"><h4>Chief Sales Officer</h4><strong>Aaron Verasammy</strong><div class="meta">Owns GTM strategy, KPI definitions, ICP</div></div>
+    <div class="card"><h4>Director of Sales</h4><strong>Nicole Fabre</strong><div class="meta">Core sales; multi-location account management</div></div>
+    <div class="card"><h4>MedSpa Sales Manager</h4><strong>Melanie Hull</strong><div class="meta">MedSpa AE team; playbook owner</div></div>
+    <div class="card"><h4>Core AE Manager</h4><strong>Taylor Meeker</strong><div class="meta">Core AE team</div></div>
+    <div class="card"><h4>SDR Manager</h4><strong>Avery Baccala</strong><div class="meta">SDR team; inbound &amp; outbound motion</div></div>
+    <div class="card"><h4>VP of Enterprise</h4><strong>Dan Wiser</strong><div class="meta">Enterprise &amp; Mid-Market Large</div></div>
+    <div class="card"><h4>SE Manager</h4><strong>Ryan Burns</strong><div class="meta">Technical Sales Engineers; data review tickets</div></div>
+    <div class="card"><h4>Sales Enablement</h4><strong>Terry Moorehead</strong><div class="meta">Training, onboarding, enablement content</div></div>
+  </div>
+
+  <h3>Sales structure</h3>
+  <p><strong>CSO → Director of Sales → Department Sales Manager → Reps.</strong> The roles you'll work alongside:</p>
+  <table>
+    <tr><th style="width:26%">Role</th><th>What they do</th></tr>
+    <tr><td><strong>Account Executive (AE)</strong></td><td>Perform demos, close deals, manage prospect accounts through the sales pipeline.</td></tr>
+    <tr><td><strong>Sales Development Representative (SDR)</strong></td><td>Outbound prospect to book meetings, manage inbound leads, qualify prospects.</td></tr>
+    <tr><td><strong>Technical Sales Engineer (TSE)</strong></td><td>Demonstrate the product and solution prospects' technical needs.</td></tr>
+    <tr><td><strong>Customer Success Manager (CSM)</strong></td><td>Handles existing clients, ensuring they are maximizing Meevo's functionality.</td></tr>
+    <tr><td><strong>Customer Account Executive (CAE)</strong></td><td>Responsible for upsells to existing Meevo customers.</td></tr>
+  </table>
+  <div class="callout">
+    <strong>Team names in Salesforce.</strong> Opportunity owner roles are stamped as <em>Account Executive Team 1</em> (Core), <em>Account Executive Team 3</em> (MedSpa), <em>SDR Team / SDR Team East / SDR Team West</em>, <em>ENT Team Manager</em> (Dan Wiser's Enterprise motion), plus manager roles. These stamps drive every GTM report — make sure your opps are created under the right role.
+  </div>
+</section>
+
+<section class="page" id="segments" data-role="all">
+  <h2>Segments &amp; business types</h2>
+  <p>Every account carries a <strong>business type</strong> (what they do) and a <strong>business segment</strong> (how big they are). Both drive who works the account, how it is reported, and what you lead with.</p>
+  <h3>Business types</h3>
+  <div class="grid">
+    <div class="card"><span class="tag salon">Salon</span><span class="tag spa">Spa</span><span class="tag ss">Salon &amp; Spa</span><span class="tag school">School</span><h3 style="margin-top:10px">Core</h3><p class="mini">Worked by the Core AE team (AE Team 1) and the SDR team. Core ICP is SMB-Large and above.</p></div>
+    <div class="card"><span class="tag medspa">MedSpa</span><h3 style="margin-top:10px">MedSpa</h3><p class="mini">Any business offering medical spa services — injectables, laser, IV therapy, wellness-hybrid medspas, and salons/spas that offer medspa services. Worked by AE Team 3. MedSpa is ICP at <em>every</em> segment size, including Solo.</p></div>
+  </div>
+  <h3>Business segments</h3>
+  <table>
+    <tr><th>Segment</th><th>Definition</th><th>Notes</th></tr>
+    <tr><td><strong>Solo</strong></td><td>Single service provider / operator</td><td>MedSpa only. All other Solo = hard DQ. Rolls into SMB-Small for reporting.</td></tr>
+    <tr><td><strong>SMB Small</strong></td><td>1 location, 1–5 employees</td><td>Volume segment; standard SDR cadence. ICP for MedSpa.</td></tr>
+    <tr><td><strong>SMB Large</strong></td><td>1 location, 5+ / 6+ employees</td><td><strong>Core ICP sweet spot.</strong> Highest Demo:Win rates.</td></tr>
+    <tr><td><strong>Mid-Market Small</strong></td><td>2–10 locations</td><td>Highest deal value (~$18,650 plug rate incl. MeevoPay + MeevoTips). Watch conversion drops.</td></tr>
+    <tr><td><strong>Mid-Market Large</strong></td><td>11–25 locations</td><td>Senior AE; complex deal motion. Being consolidated into the MMS motion for H2-2026.</td></tr>
+    <tr><td><strong>Enterprise</strong></td><td>25+ locations</td><td>Dan Wiser's territory; enterprise deal motion.</td></tr>
+  </table>
+  <p class="mini">Segment source of truth is the account-level <code>Business_Segment__c</code> field in Salesforce. Solo and SMB-Undefined are folded into SMB-Small for all reporting.</p>
+</section>
+
+<section class="page" id="ask" data-role="all">
+  <h2>Who do I ask?</h2>
+  <table>
+    <tr><th style="width:40%">If your question is about…</th><th>Go to</th></tr>
+    <tr><td>Multi-location account management, Core deal strategy</td><td>Nicole Fabre (Director of Sales)</td></tr>
+    <tr><td>A MedSpa deal, MedSpa positioning, this playbook</td><td>Melanie Hull (MedSpa Sales Manager)</td></tr>
+    <tr><td>Core AE process, demos, pipeline</td><td>Taylor Meeker (Core AE Manager)</td></tr>
+    <tr><td>Outreach sequences, inbound lead handling, SDR cadence</td><td>Avery Baccala (SDR Manager)</td></tr>
+    <tr><td>Enterprise / 25+ location deals</td><td>Dan Wiser (VP of Enterprise)</td></tr>
+    <tr><td>Technical questions, data review tickets, conversions</td><td>Ryan Burns (SE Manager) and the TSE team</td></tr>
+    <tr><td>Training, certification, onboarding content</td><td>Terry Moorehead (Sales Enablement)</td></tr>
+    <tr><td>KPI definitions, ICP tiers, reporting methodology</td><td>Aaron Verasammy (CSO)</td></tr>
+    <tr><td>MeevoPay rates, terminals, chargebacks</td><td>Meevo Merchant Services team (see <a href="#pricing">Pricing &amp; MeevoPay</a>)</td></tr>
+    <tr><td>Competitor intel that isn't in a battlecard</td><td>Post it in the Teams channel <strong>Sales Group Team › Competitor Intel</strong> and tag Sales Enablement, or use the Field alert box on the <a href="#tools">Battlecards dashboard</a> to email every rep instantly. Crayon is the source of record</td></tr>
+  </table>
+  <h3>Teams channels</h3>
+  <table class="compact">
+    <tr><th>Channel</th><th>Use it for</th></tr>
+    <tr><td>Sales Group Team › General</td><td>Day-to-day sales questions and announcements</td></tr>
+    <tr><td>Sales Group Team › Competitor Intel</td><td>Anything you hear from clients or prospects about a competitor</td></tr>
+    <tr><td>Sales Group Team › The Sales Spa New Hire Onboarding (Enablement)</td><td>Onboarding questions, tips and tricks to get deals across the line</td></tr>
+    <tr><td>Meevo Release Calendar</td><td>What is shipping and when</td></tr>
+  </table>
+  <div class="callout todo" data-ni="NI01">Confirm the channel for deal desk / quote approvals and the channel for product questions. Owner: Terry Moorehead.</div>
+</section>
+
+<!-- ============================ ROLES ============================ -->
+<section class="page" id="sdr" data-role="sdr">
+  <h2><span class="tag sdr">SDR</span> SDR playbook</h2>
+  <p><strong>Mission:</strong> generate qualified pipeline. You own two lanes — <strong>inbound</strong> (accept, validate, and convert demo requests fast) and <strong>outbound</strong> (prospect target accounts into booked meetings). You are credited for every downstream outcome (SAL, SQL, SQO, Won, ARR) on the logos you originate, via the Orig-SDR trace.</p>
+
+  <h3>What you're measured on</h3>
+  <div class="kpi">
+    <div><b>SAL</b><span>Sales Accepted Lead — first meeting <em>set</em> (opp created, Stage = Suspect)</span></div>
+    <div><b>SQL</b><span>First meeting <em>held</em> (Moved to Discovery date stamped)</span></div>
+    <div><b>MQL:SAL</b><span>Inbound conversion — how many demo requests you turn into meetings</span></div>
+    <div><b>Speed to lead</b><span>Accept and call inbound leads within 5 minutes</span></div>
+  </div>
+  <div class="callout todo" data-ni="NI02">Add current monthly SAL / SQL targets, activity minimums (calls, emails, sequences), and how they differ by Inbound vs Outbound lane. Owner: Avery Baccala.</div>
+
+  <h3>A day in the life</h3>
+  <ol class="steps">
+    <li><strong>Start in Outreach.</strong> Clear your task queue — calls first, then emails. Follow <a href="https://app.tango.us/app/workflow/SDR-Day---Day-Management---Outreach-588568a8f2b84ac49c50971aa530b296" data-link="L001" target="_blank">Day-to-Day Management in Outreach</a>.</li>
+    <li><strong>Work inbound immediately as it arrives.</strong> Accept in CRM, validate, call within 5 minutes. Full process in <a href="#inbound">Inbound lead expectations</a>. New MQLs go into sequence: <a href="https://app.tango.us/app/workflow/Adding-new-MQL-to-Sequence-ada562074c05454ca2f83155debab9b1" data-link="L002" target="_blank">Adding an MQL to Sequence</a>.</li>
+    <li><strong>Prospect target accounts.</strong> Prioritize ICP tier and segment (see <a href="#icp">ICP &amp; targeting</a>). SMB-Large + Vagaro displacement is the highest-yield outbound motion. Bulk-add from account views: <a href="https://app.tango.us/app/workflow/Using-Account-View-to-Bulk-Add-to-Sequence-02186c106c8b474b867c7ef6cd35afef" data-link="L003" target="_blank">Account Views to Bulk Add to Sequence</a>.</li>
+    <li><strong>Personalize with the persona and pain.</strong> Open with a pain in the buyer's words (see <a href="#personas">Personas</a> and the pain library under <a href="#core">Core</a> / <a href="#medspa">MedSpa</a>). Name the incumbent software in the second line, never the first.</li>
+    <li><strong>Book it live.</strong> When you reach a decision-maker, book the intro call or demo on the spot, confirm verbally and in writing, send the calendar invite, and add to the confirmation sequence.</li>
+    <li><strong>Log everything in Salesforce.</strong> Create the Account, Contact (with role), and Opportunity correctly — see <a href="#salesforce">Salesforce processes</a>. Notes should capture reason for interest, key pains, timeline, and current software.</li>
+    <li><strong>Hand off cleanly.</strong> Confirm the AE owner, make sure the opp stage and notes are correct, and remove the prospect from the prospecting sequence.</li>
+  </ol>
+
+  <h3>Qualification: what a good meeting looks like</h3>
+  <ul>
+    <li>Business is legitimate (name, website, or Google listing) and an ICP business type — Salon, Spa, Salon &amp; Spa, MedSpa, School.</li>
+    <li>Segment confirmed: providers and locations. Remember Solo is MedSpa-only.</li>
+    <li>Decision-maker or strong influencer on the call (owner, multi-location operator, GM/practice manager, medical director).</li>
+    <li>Current software identified plus one or two meaningful business challenges (KPIs, efficiency, growth, compliance).</li>
+    <li>Not an Exclude sub-type (Resort/Hotel Spa, Plastic Surgery, Hair Replacement, Other &gt; Other) and not a hard disqualifier (see <a href="#icp">ICP</a>).</li>
+  </ul>
+  <p>Mindset: <em>information alone doesn't close deals — conversations do.</em> Use the <a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQAFLTznIfWjQ5rqrEc6Rq5MAZHqKlIbP17zuCWJ7Tzg7N8?e=zTW3n9" data-link="L004" target="_blank">Inbound Qualification Training &amp; Talk Tracks</a> with a Challenger mindset.</p>
+
+  <h3>Renewal timing intelligence</h3>
+  <p>When you learn the current platform, ask <em>"When does your current contract renew?"</em> and record the renewal date, current annual spend, and satisfaction in CRM.</p>
+  <table class="compact">
+    <tr><th>Time to renewal</th><th>Motion</th></tr>
+    <tr><td>6+ months</td><td>Nurture, build the relationship</td></tr>
+    <tr><td>3–6 months</td><td>Active discovery and demo</td></tr>
+    <tr><td>0–3 months</td><td>Aggressive close motion</td></tr>
+    <tr><td>Just renewed</td><td>Park 9 months; re-engage 90 days before the next renewal</td></tr>
+  </table>
+  <p class="owner">Owner: Avery Baccala · Related: <a href="#inbound">Inbound lead expectations</a> · <a href="#outreach">Outreach</a> · <a href="#kpis">KPI definitions</a></p>
+</section>
+
+<section class="page" id="ae" data-role="ae">
+  <h2><span class="tag ae">AE</span> AE playbook</h2>
+  <p><strong>Mission:</strong> run discovery, deliver a demo that ties Meevo to the prospect's stated pains, and close. You own the opportunity from SAL to Closed Won, including quoting, MeevoPay and MeevoTips attach, and a clean handoff to Conversions and Implementation.</p>
+
+  <h3>What you're measured on</h3>
+  <div class="kpi">
+    <div><b>SQO</b><span>Demo conducted — Moved to Negotiate date stamped</span></div>
+    <div><b>D:W</b><span>Demo-to-Win rate: Won logos ÷ Demoed logos (FY25 org baseline 38.1%)</span></div>
+    <div><b>Software ARR</b><span>Quota attainment and comp use the Software ARR lens</span></div>
+    <div><b>Total ARR</b><span>Software + MeevoPay + MeevoTips — what the board sees</span></div>
+  </div>
+  <div class="callout todo" data-ni="NI03">Add current quota, ARR targets by segment, MeevoPay/MeevoTips attach expectations, and demo-volume minimums. Owner: Taylor Meeker (Core) / Melanie Hull (MedSpa) / Dan Wiser (ENT).</div>
+
+  <h3>The deal motion</h3>
+  <ol class="steps">
+    <li><strong>Prep.</strong> Before every call, review the SDR's notes, the persona (<a href="#personas">who you're talking to</a>), segment, current software, and the matching Crayon battlecard. Pull the <a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQD1YYNFgZALT5sI2xaa0qb_AfsZQhGutyDVrIhgZWh81n8?e=5hCz9Z" data-link="L005" target="_blank">Discovery Questions</a>.</li>
+    <li><strong>Discovery.</strong> Uncover reporting gaps, client-experience issues, operational inefficiencies, and (MedSpa) charting, inventory and compliance needs. Get the prospect deep enough to <em>raise</em> objections — logos that raise functionality, onboarding and pricing questions convert 2–3.5x better than silent ones. Stamp the Moved to Discovery date.</li>
+    <li><strong>Demo.</strong> Show the workflow that solves the pains they named, not a feature tour. Lead with reporting — it gets a positive reaction in 52% of demos and is a top win driver (hero reports: MA200, Growth Indicators, Goals Dashboard, DE40). Keep MedSpa evaluations anchored in front-of-house productivity (scheduling, checkout, memberships) — our win rate drops when the buyer fixates on EMR depth.</li>
+    <li><strong>Multi-thread.</strong> For SMB-Large and Mid-Market, include the GM/practice manager and remember the finance gatekeeper who won't be on the demo — arm your champion with cost/ROI.</li>
+    <li><strong>Quote.</strong> Build the quote in Salesforce (recall, send, discounts — see <a href="#salesforce">Salesforce processes</a>). Run the MeevoPay rate calculator on every deal. Stamp Moved to Negotiate.</li>
+    <li><strong>Close.</strong> Confirm attendees, agenda and outcomes for every next step; every open account gets a touch at least every 3 business days.</li>
+    <li><strong>Handoff.</strong> Client-facing conversion checklists and data review tickets go to the TSE team (Ryan Burns). See <a href="#implementation">Integrations &amp; implementation</a>.</li>
+  </ol>
+
+  <h3>Demo principles that correlate with wins</h3>
+  <ul>
+    <li><strong>Reporting and ease of use are the validated win drivers</strong> (Clozd) — lead with them. Price is the loss lever — neutralize it early; don't lead on discount.</li>
+    <li><strong>Quality of support, responsiveness and follow-up</strong> are the most-mentioned positive drivers in Clozd interviews — your follow-up cadence is part of the product.</li>
+    <li><strong>Interface modernity</strong> and <strong>pricing transparency</strong> skew negative in interviews — address UI head-on with speed and role-specific views, and be clear and simple on pricing.</li>
+    <li>Owner-operators respond to hours saved per week and take-home dollars, not "efficiency" or "enterprise-grade" anything. Multi-location operators want live multi-location reporting, not slideware.</li>
+  </ul>
+  <p class="owner">Owners: Taylor Meeker, Melanie Hull, Dan Wiser · Related: <a href="#pipeline">Pipeline rules</a> · <a href="#value">Value framework</a> · <a href="#competitors">Competitors</a></p>
+</section>
+
+<section class="page" id="inbound" data-role="sdr">
+  <h2><span class="tag sdr">SDR</span> Inbound lead expectations</h2>
+  <p>Inbound = a demo-request MQL (GetDemo / Demo Form). Speed and follow-through are everything. There are two paths depending on whether the prospect booked a call.</p>
+
+  <h3>Part 1 — Intro call booked (15-minute intro call)</h3>
+  <ol class="steps">
+    <li><strong>Lead acceptance &amp; validation (within 5 minutes).</strong> Accept the lead immediately in CRM. Verify the business is legitimate (business name, website or Google listing), an industry fit (salon, spa, medspa), and a decision-maker or strong influencer. If legitimate: convert Lead → Account + Contact and confirm correct ownership (AE assigned). <em>Outcome: the lead is now a Sales Accepted Lead (SAL).</em></li>
+    <li><strong>Immediate outreach (within 5 minutes of acceptance).</strong> Call first. If no answer, leave a short voicemail and send a confirmation email plus calendar confirmation. Goals: confirm the intro call time, try to move it sooner if availability exists, set expectations for the call.</li>
+    <li><strong>Intro call execution (15 minutes).</strong> Use the Inbound Qualification Script with a Challenger mindset. Confirm business type, size and role; identify current software and high-level dissatisfaction or growth friction; uncover 1–2 meaningful business challenges (KPIs, efficiency, growth, compliance); validate fit. If time allows, treat it as light discovery: reporting gaps, client-experience issues, operational inefficiencies, MedSpa-specific needs (charting, inventory, compliance).</li>
+    <li><strong>Control the close: book the demo live on the call.</strong> Immediately after: send the calendar invite and add the prospect to the Demo Confirmation Sequence. Confirm date/time, attendees, agenda and outcomes. CRM: Stage → Demo Scheduled; notes updated with pains and goals.</li>
+  </ol>
+
+  <h3>Part 2 — Prospect requests more information (no call booked)</h3>
+  <ol class="steps">
+    <li><strong>Lead acceptance &amp; validation (within 5 minutes).</strong> Accept immediately; verify business type/fit and web presence. If legitimate, convert Lead → Account + Contact. <em>Outcome: SAL.</em></li>
+    <li><strong>Add to the Inbound Demo Request Sequence.</strong> This ensures structured multi-touch follow-up, consistent messaging and task accountability.</li>
+    <li><strong>Immediate call attempt.</strong> Call right after enrolling. If no answer, leave a voicemail aligned to their request. Objective: shift from passive interest to a scheduled conversation.</li>
+    <li><strong>Follow the sequence and complete every task</strong> — calls and emails. Personalize with their business type, likely KPIs (growth, retention, productivity) and common switching triggers.</li>
+    <li><strong>Book the intro call or demo on the spot</strong> once live contact is made; confirm next steps verbally and in writing. Then remove the prospect from the inbound sequence, send the calendar invite, and add to the appropriate confirmation sequence. CRM: stage updated (Intro Scheduled or Demo Scheduled); notes reflect reason for interest, key pains and timeline indicators.</li>
+  </ol>
+  <div class="callout warn"><strong>What counts as inbound in reporting:</strong> a logo is Inbound only when it is linked to a demo-request MQL (the opp is created within 180 days of the MQL date). Everything else — including scored/nurture MQLs and all outbound — reports in the Outbound lane. Marketing owns MQL:SAL on the inbound lane; the outbound funnel starts at SAL.</div>
+  <p class="owner">Owner: Avery Baccala · Training: <a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQAFLTznIfWjQ5rqrEc6Rq5MAZHqKlIbP17zuCWJ7Tzg7N8?e=zTW3n9" data-link="L006" target="_blank">Inbound Qualification Training and Talk Tracks</a></p>
+</section>
+
+<section class="page" id="pipeline" data-role="ae">
+  <h2><span class="tag ae">AE</span><span class="tag sdr">SDR</span> Pipeline &amp; stage rules</h2>
+  <h3>Stage anchors</h3>
+  <table>
+    <tr><th>Stage / event</th><th>Funnel meaning</th><th>Salesforce anchor</th></tr>
+    <tr><td>Suspect</td><td><strong>SAL</strong> — first meeting set</td><td>Opportunity created (Create Date); Stage = Suspect</td></tr>
+    <tr><td>Intro Scheduled / Demo Scheduled</td><td>Meeting booked, not yet held</td><td>Stage updated by SDR at booking</td></tr>
+    <tr><td>Discovery</td><td><strong>SQL</strong> — first meeting held</td><td><em>Moved to Discovery Date</em> filled in</td></tr>
+    <tr><td>Negotiate</td><td><strong>SQO</strong> — demo conducted</td><td><em>Moved to Negotiate Date</em> filled in</td></tr>
+    <tr><td>Closed Won</td><td>Won (requires ARR &gt; $0)</td><td>Won = Yes and ARR &gt; 0</td></tr>
+    <tr><td>Closed Lost</td><td>Lost</td><td>Lost = Yes</td></tr>
+  </table>
+  <div class="callout warn">Stamp dates in order. An opp with a Negotiate date and a blank Discovery date is a data-entry error and breaks reporting — every SQO must have passed SQL first.</div>
+
+  <h3>Hygiene rules</h3>
+  <ul>
+    <li><strong>Every open account gets a touch at least every 3 business days.</strong></li>
+    <li><strong>Opp still in Suspect 14 days after a demo no-show → Closed Lost.</strong></li>
+    <li>Every contact on an account must have an associated role in the business.</li>
+    <li>Record current software (and "Other" free-text) accurately — it drives competitor reporting. Record the contract renewal date whenever you learn it.</li>
+    <li>Never create test or dummy opps under a real GTM role; they inflate SAL counts.</li>
+  </ul>
+  <h3>Stage overviews</h3>
+  <p>Full stage-by-stage definitions and exit criteria live in the Salesforce stage overview documentation.</p>
+  <div class="callout todo" data-ni="NI04">Link the Salesforce stage overview and pipeline-review cadence documents (they were embedded as images in the MedSpa deck). Owner: Nicole Fabre.</div>
+</section>
+
+<section class="page" id="kpis" data-role="all">
+  <h2>Funnel &amp; KPI definitions</h2>
+  <p>Plain-English version of the Meevo GTM KPI Definitions (v10.13, owned by Aaron Verasammy). Everything is counted <strong>once per logo</strong> — a logo is the parent-rolled business, not an opportunity, a contact, or a location.</p>
+  <h3>The funnel</h3>
+  <table>
+    <tr><th>Stage</th><th>Meaning</th><th>How it's counted</th></tr>
+    <tr><td><strong>MQL</strong></td><td>Demo request (GetDemo / Demo Form) with an MQL date</td><td>Demo-request family only. Scored MQLs (gated video, scoring, chat, tradeshow, referral) are tracked separately and feed the Outbound lane.</td></tr>
+    <tr><td><strong>SAL</strong></td><td>Sales Accepted Lead — first meeting <em>set</em></td><td>Opp created, Stage = Suspect. Credit goes to whoever created the opp.</td></tr>
+    <tr><td><strong>SQL</strong></td><td>First meeting <em>held</em></td><td>Moved to Discovery Date filled in.</td></tr>
+    <tr><td><strong>SQO</strong></td><td>Demo <em>conducted</em></td><td>Moved to Negotiate Date filled in.</td></tr>
+    <tr><td><strong>Won</strong></td><td>Closed Won</td><td>Won = Yes <em>and</em> ARR &gt; $0. $0 wins are never counted.</td></tr>
+  </table>
+  <h3>Rates you'll hear about</h3>
+  <table class="compact">
+    <tr><th>Rate</th><th>Formula</th><th>Window</th></tr>
+    <tr><td>MQL:SAL</td><td>MQL-sourced SALs ÷ workable demo-request MQLs</td><td>Monthly</td></tr>
+    <tr><td>SAL:SQL</td><td>SQL ÷ SAL</td><td>Rolling 30 days</td></tr>
+    <tr><td>SQL:SQO</td><td>SQO ÷ SQL</td><td>Rolling 30 days</td></tr>
+    <tr><td>SQO:Win / win rate</td><td>Won ÷ (Won + Lost with a Discovery date)</td><td>Rolling 90 days</td></tr>
+    <tr><td><strong>D:W</strong></td><td>Won logos ÷ Demoed logos (suppressed when demoed &lt; 5)</td><td>Cohort</td></tr>
+  </table>
+  <h3>Rules worth remembering</h3>
+  <ul>
+    <li><strong>Two lanes.</strong> Inbound (Hot Fill Form) = linked to a demo-request MQL within 180 days. Outbound (Target Account) = every other SAL. The Salesforce Inbound/Outbound picklist is <em>not</em> used.</li>
+    <li><strong>Two ARR lenses.</strong> <em>Total ARR</em> = Software + MeevoPay + MeevoTips (board reporting). <em>Software ARR</em> = software only (quota attainment and comp). Always say which one you mean.</li>
+    <li><strong>Two win lenses.</strong> <em>Logo win</em> (one company, used for all rates) vs <em>location win</em> (locations inside that logo, used for revenue sizing only).</li>
+    <li><strong>SDR attribution.</strong> Salesforce reassigns the contact owner to the AE at conversion; the Orig-SDR trace restores SDR credit on every downstream metric.</li>
+    <li><strong>Uncontrollable DQs</strong> (Solo non-MedSpa, Spam, Bad Data, Not a Target Audience, Support Inquiry, Solicitation, Duplicate, Closed Business, Product Gap, Payment Solution, Not a Geographic Fit) are removed from the workable MQL base. <strong>Controllable DQs</strong> (Non-Responsive, Not Interested, Budget, Timing, Lost to Competitor) stay in the denominator.</li>
+    <li><strong>Objections are buying signals.</strong> Logos that raise functionality, onboarding and pricing questions (the "three pillars") convert at ~40% D:W versus ~12–21% for silent logos. Get prospects deep enough to object.</li>
+  </ul>
+  <p class="owner">Owner: Aaron Verasammy · Full methodology: Meevo GTM KPI Definitions v10.13</p>
+</section>
+
+<!-- ============================ WHO WE SELL TO ============================ -->
+<section class="page" id="icp" data-role="all">
+  <h2>ICP &amp; targeting tiers</h2>
+  <p>Meevo's ICP is a four-tier bullseye (Meevo ICP Targeting Guide v2, FY2026). Every sub-type in Salon, Spa, Salon &amp; Spa, MedSpa, School and Wellness is assigned a tier. FY25 basis: 2,116 SAL → 1,369 demos → 522 wins → <strong>38.1% Demo:Win</strong>.</p>
+  <table>
+    <tr><th>Tier</th><th>Definition</th><th>SDR action</th></tr>
+    <tr><td><strong>Primary</strong></td><td>Best fit. Highest Demo:Win. Strongest product-market alignment.</td><td>Majority of outbound effort.</td></tr>
+    <tr><td><strong>Secondary</strong></td><td>Good fit; winnable with solid execution.</td><td>Standard SDR cadence.</td></tr>
+    <tr><td><strong>Tertiary</strong></td><td>Niche or lower conversion.</td><td>Only with a strong buying signal (inbound, multi-location, Vagaro displacement).</td></tr>
+    <tr><td><strong>Exclude</strong></td><td>Outside ICP.</td><td>DQ on contact. No demo. No outbound.</td></tr>
+  </table>
+
+  <h3>ICP by segment</h3>
+  <div class="grid two">
+    <div class="card"><span class="tag medspa">MedSpa ICP</span><p style="margin-top:8px">Business type = Medical Spa at <strong>any</strong> segment (Solo through Enterprise). Primary sub-types: Full Service Medical Aesthetics, IV Clinic, Injectables Only.</p></div>
+    <div class="card"><span class="tag salon">Core ICP</span><p style="margin-top:8px">Salon, Spa, Salon &amp; Spa at <strong>SMB-Large and above</strong> (SMB-L, MMS, MM-L, ENT). SMB-Small is secondary for non-MedSpa; Solo non-MedSpa is a hard DQ.</p></div>
+  </div>
+
+  <h3>Sub-type tiers</h3>
+  <details><summary>Primary — best fit</summary><div class="body">
+    <table class="compact">
+      <tr><th>Sub-type</th><th>Key competitive context</th></tr>
+      <tr><td><span class="tag salon">Salon</span> Hair Salon</td><td>Vagaro dominates (21.8%). Bread-and-butter SMB play; highest-volume win source.</td></tr>
+      <tr><td><span class="tag salon">Salon</span> Barber</td><td>Square (16.4%), Booksy (14.2%), Squire (6.9%). Different persona — sell simplicity.</td></tr>
+      <tr><td><span class="tag salon">Salon</span> Blow Dry Bar</td><td>Vagaro (18.1%), SpaBooker (16.2%). Membership management is the wedge.</td></tr>
+      <tr><td><span class="tag salon">Salon</span> Extensions / Wigs</td><td>Vagaro (27.1%). Inventory differentiates Meevo.</td></tr>
+      <tr><td><span class="tag salon">Salon</span> Full Service</td><td>Broad service range aligns with multi-service scheduling and POS.</td></tr>
+      <tr><td><span class="tag spa">Spa</span> Full Service</td><td>Vagaro (26.9%), MindBody (8.4%). Rich service menus align perfectly with Meevo.</td></tr>
+      <tr><td><span class="tag spa">Spa</span> Facials</td><td>Vagaro (30.3%), Square (12.6%). High conversion at multi-location.</td></tr>
+      <tr><td><span class="tag spa">Spa</span> Brows / Lashes</td><td>Vagaro 35%. Fast-growing; appointment management differentiates.</td></tr>
+      <tr><td><span class="tag spa">Spa</span> Massage</td><td>MindBody (13.4%), MassageBook (9%). Vertical-specific competitors.</td></tr>
+      <tr><td><span class="tag spa">Spa</span> Hair Removal / Waxing</td><td>Vagaro (25.2%), Square (15%). Membership-heavy → Meevo packages.</td></tr>
+      <tr><td><span class="tag ss">Salon &amp; Spa</span> Full Service</td><td><strong>Highest Demo:Win across segments.</strong> 18.3% No Software = greenfield.</td></tr>
+      <tr><td><span class="tag ss">Salon &amp; Spa</span> Hair Salon · Nails</td><td>Hybrid models; strong conversion when demoed.</td></tr>
+      <tr><td><span class="tag medspa">MedSpa</span> Full Service Medical Aesthetics</td><td>Largest MedSpa pool; most fragmented landscape. Elevated to Primary for FY26.</td></tr>
+      <tr><td><span class="tag medspa">MedSpa</span> IV Clinic · Injectables Only</td><td>Elevated to Primary for FY26 alongside new clinical features. Vagaro and Square lead.</td></tr>
+    </table>
+  </div></details>
+  <details><summary>Secondary, Tertiary and Exclude</summary><div class="body">
+    <table class="compact">
+      <tr><th>Tier</th><th>Sub-types</th><th>Notes</th></tr>
+      <tr><td>Secondary</td><td>Salon &gt; Nails; all School sub-types; General Wellness</td><td>Standard pursuit.</td></tr>
+      <tr><td>Tertiary</td><td>Salon &gt; Tanning; Spa &gt; Sauna/Salt/Float/Cryo, Tanning, Other; MedSpa &gt; Other, Wellness Integrated, Laser Hair Removal; Salon &amp; Spa &gt; Other</td><td>Strong buying signal required. Laser Hair Removal SQO:Win ~20%.</td></tr>
+      <tr><td><strong>Exclude</strong></td><td>Spa &gt; Resort/Hotel; MedSpa &gt; Hair Replacement, Plastic Surgery; Other &gt; Other</td><td>Requires PMS or EMR/EHR integrations Meevo doesn't support. DQ on contact.</td></tr>
+    </table>
+  </div></details>
+
+  <h3>Targeting heatmap (sub-type × segment)</h3>
+  <p class="mini">Best &gt; Strong &gt; Good &gt; Moderate &gt; Low &gt; Exclude. Use intensity to calibrate how aggressive your CTA and personalization should be.</p>
+  <table class="heat compact">
+    <tr><th>Sub-type</th><th>Solo</th><th>SMB-S</th><th>SMB-L</th><th>MM-S</th><th>MM-L</th><th>ENT</th></tr>
+    <tr><td><span class="tag salon">Salon</span> Hair Salon</td><td class="excl">Excl</td><td class="good">Good</td><td class="best">Best</td><td class="mod">Mod</td><td class="good">Good</td><td class="mod">Mod</td></tr>
+    <tr><td><span class="tag salon">Salon</span> Barber</td><td class="excl">Excl</td><td class="mod">Mod</td><td class="good">Good</td><td class="good">Good</td><td class="mod">Mod</td><td class="na">N/A</td></tr>
+    <tr><td><span class="tag salon">Salon</span> Blow Dry Bar</td><td class="excl">Excl</td><td class="mod">Mod</td><td class="strong">Strong</td><td class="mod">Mod</td><td class="na">N/A</td><td class="na">N/A</td></tr>
+    <tr><td><span class="tag salon">Salon</span> Extensions/Wigs · Full Service · Nails</td><td class="excl">Excl</td><td class="mod">Mod</td><td class="good">Good</td><td class="mod">Mod</td><td class="na">N/A</td><td class="na">N/A</td></tr>
+    <tr><td><span class="tag spa">Spa</span> Full Service</td><td class="excl">Excl</td><td class="good">Good</td><td class="best">Best</td><td class="strong">Strong</td><td class="good">Good</td><td class="mod">Mod</td></tr>
+    <tr><td><span class="tag spa">Spa</span> Facials</td><td class="excl">Excl</td><td class="good">Good</td><td class="strong">Strong</td><td class="best">Best</td><td class="good">Good</td><td class="mod">Mod</td></tr>
+    <tr><td><span class="tag spa">Spa</span> Brows/Lashes · Massage</td><td class="excl">Excl</td><td class="good">Good</td><td class="strong">Strong</td><td class="good">Good</td><td class="mod">Mod</td><td class="low">Low/N/A</td></tr>
+    <tr><td><span class="tag spa">Spa</span> Hair Removal/Waxing</td><td class="excl">Excl</td><td class="mod">Mod</td><td class="strong">Strong</td><td class="good">Good</td><td class="mod">Mod</td><td class="na">N/A</td></tr>
+    <tr><td><span class="tag spa">Spa</span> Resort/Hotel</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td></tr>
+    <tr><td><span class="tag ss">S&amp;S</span> Full Service</td><td class="excl">Excl</td><td class="good">Good</td><td class="best">Best</td><td class="best">Best</td><td class="strong">Strong</td><td class="good">Good</td></tr>
+    <tr><td><span class="tag ss">S&amp;S</span> Hair Salon · Nails</td><td class="excl">Excl</td><td class="mod">Mod</td><td class="good">Good</td><td class="mod">Mod/Good</td><td class="mod">Mod</td><td class="na">N/A</td></tr>
+    <tr><td><span class="tag medspa">MedSpa</span> Full Svc Med Aesthetics</td><td class="good">Good</td><td class="good">Good</td><td class="strong">Strong</td><td class="good">Good</td><td class="good">Good</td><td class="mod">Mod</td></tr>
+    <tr><td><span class="tag medspa">MedSpa</span> IV Clinic · Injectables Only</td><td class="mod">Mod</td><td class="mod">Mod</td><td class="good">Good</td><td class="mod">Mod</td><td class="na">N/A</td><td class="na">N/A</td></tr>
+    <tr><td><span class="tag medspa">MedSpa</span> Laser Hair Removal · Hair Replacement · Plastic Surgery</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td><td class="excl">Excl</td></tr>
+  </table>
+
+  <h3>The 12 targeting rules</h3>
+  <ol>
+    <li><strong>Solo is MedSpa only.</strong> All other Solo = hard DQ.</li>
+    <li><strong>SMB-Large is the sweet spot.</strong> Prioritize it across most sub-types.</li>
+    <li><strong>Mid-Market Small has the highest deal value</strong> (~$18,650 plug rate incl. MeevoPay + MeevoTips). Watch conversion drops in Hair Salon (18% D:W) and MedSpa Full Service (23% D:W) at this segment.</li>
+    <li>School has no Solo segment; all School sub-types are Secondary.</li>
+    <li>FY26 elevations to Primary: Salon Barber, Blow Dry Bar, Extensions/Wigs, Full Service; Salon &amp; Spa Hair Salon and Nails; MedSpa Full Service Medical Aesthetics, IV Clinic, Injectables Only.</li>
+    <li>Removed sub-types: Salon &amp; Spa Barber and MedSpa Brows/Lashes are no longer valid.</li>
+    <li>Moved to Tertiary: MedSpa Wellness Integrated, Spa Other.</li>
+    <li>General Wellness elevated to Secondary for FY26; General Wellness &gt; Other stays Tertiary.</li>
+    <li>MedSpa Laser Hair Removal: Tertiary for FY26 (from Exclude). Strong buying signals required.</li>
+    <li>Other &gt; Other: Exclude. DQ immediately.</li>
+    <li><strong>Vagaro is the #1 outbound displacement target by volume.</strong> SMB-Large + Vagaro displacement = highest-yield outbound motion.</li>
+    <li>If a lead matches Exclude, disqualify immediately. Do not schedule a demo.</li>
+  </ol>
+
+  <h3>Fit signals &amp; disqualifiers</h3>
+  <div class="grid two">
+    <div class="card"><h4>Pursue — fit signals</h4>
+      <p><strong>Single location:</strong> 3+ service providers · $300K+ revenue · active online presence · 50+ Google reviews · already on booking software (Vagaro, Booker, Square, GlossGenius, Phorest) · 12+ months in business.</p>
+      <p><strong>Multi-location:</strong> 2+ locations under one brand · $1M+ revenue · centralized ownership · active marketing function · fragmented stack (separate booking + POS + payroll).</p>
+      <p><strong>Enterprise:</strong> 10+ locations · $5M+ revenue · has a VP Ops / COO · centralized finance · multi-vendor pain · active expansion or recent acquisition.</p></div>
+    <div class="card"><h4>Walk away or park</h4>
+      <p><strong>Hard DQ:</strong> under 2 service providers (non-MedSpa) · no website / no interest in online booking · just signed a multi-year competitor contract (track renewal) · beauty supply / wholesale only · pure suite rental with no central client data · mobile / pop-up business · walk-in-only model · single-provider clinical practice needing a medical EHR.</p>
+      <p><strong>Soft DQ (park, re-engage):</strong> brand-new business (&lt;12 months) · recently lost key staff · just completed a system migration (wait 12+ months) · in an active dispute.</p></div>
+  </div>
+  <p class="owner">Owner: Aaron Verasammy · Source: Meevo ICP Targeting Guide v2 (FY2026)</p>
+</section>
+
+<section class="page" id="personas" data-role="all">
+  <h2>Buyer personas</h2>
+  <p>Two lenses. The <strong>five buying roles</strong> show up in every deal regardless of vertical; the <strong>named salon personas</strong> go deeper for Core. MedSpa persona battlecards live in Crayon (see <a href="#medspa">MedSpa</a>). For MedSpa, always include the Medical Director as a secondary persona.</p>
+
+  <h3>The five buying roles (all verticals)</h3>
+  <table>
+    <tr><th>Role</th><th>Where you find them</th><th>Decision power</th><th>Primary motivation</th><th>What lands / what turns them off</th></tr>
+    <tr><td><strong>Owner-Operator</strong></td><td>Solo, SMB-S, SMB-L</td><td>Final</td><td>Personal income, time freedom, brand pride</td><td>Hours saved per week, take-home dollars, stories from owners like them, a clear first 90 days. Turned off by "enterprise-grade", vague AI, long demos.</td></tr>
+    <tr><td><strong>Multi-Location Operator</strong></td><td>MM-S, MM-L, ENT</td><td>Final (or PE/board influence)</td><td>Same-store productivity, expansion velocity, exit-ready metrics</td><td>Same-store lift case studies, live multi-location reporting, comp engine flexibility, MeevoPay margin math, faster implementation than Zenoti. Turned off by scope-less "we can configure that" and single-location demos.</td></tr>
+    <tr><td><strong>GM / Practice Manager</strong></td><td>SMB-L, MM-S, MM-L</td><td>Strong influence; often runs the eval</td><td>Operational sanity, staff retention, fewer fires</td><td>"Front desk close-out under 90 seconds", side-by-side workflow vs incumbent, training ease. Turned off by owner-level financial talk and "platform" framing.</td></tr>
+    <tr><td><strong>Medical Director / RN Lead</strong></td><td>MedSpa, all segments</td><td>Veto on clinical &amp; compliance</td><td>Clinical workflow, charting, compliance, provider productivity</td><td>Intake → consent → treatment → rebook demos, provider productivity stats, injectable inventory specifics. Say "HIPAA-aware" unless compliance is verified. Turned off by pure salon language.</td></tr>
+    <tr><td><strong>Operations / IT Lead</strong></td><td>MM-S+</td><td>Veto on tech fit</td><td>Integration, data, training burden</td><td>Specific export options (CSV/API/scheduled), clear implementation methodology, same-size references. Turned off by vague "yes we integrate."</td></tr>
+  </table>
+  <p class="mini">Default primary persona by segment: Solo (MedSpa) → Medical Director/RN Lead · SMB-Small → Owner-Operator · SMB-Large → Owner-Operator (+ GM) · MM-S → Multi-Location Operator (+ GM, Medical Director if MedSpa) · MM-L / ENT → Multi-Location Operator, often CEO/COO (+ Ops/IT Lead).</p>
+
+  <h3><span class="tag salon">Salon</span> Named personas (Core)</h3>
+  <div class="grid">
+    <div class="card persona"><div class="who">Front Desk Coordinator · all tiers · Gatekeeper</div><h3>Tina the Trusted Gatekeeper</h3><p class="mini">Pains: app-switching across disconnected systems, high call volume with no auto text-back, last-minute cancels with no automated waitlist, tech pushed on her without training. <strong>Don't pitch her.</strong> Ask respectful discovery questions — she'll tell you the stack, the pain, and who owns the decision.</p><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57092/" data-link="L007" target="_blank">Crayon battlecard →</a></div>
+    <div class="card persona"><div class="who">Lead / Senior Stylist · Solo–SMB · Influencer</div><h3>Samantha the Savvy Stylist</h3><p class="mini">Runs the salon without owning it. Pains: overlapping appointments and no-shows, manual client tracking (formulas, preferences), no visibility into her own metrics, clunky software between clients. Sell to her like a power user; give her ammunition for the owner. Will block if Meevo looks slower or owner-centric.</p><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57093/" data-link="L008" target="_blank">Crayon battlecard →</a></div>
+    <div class="card persona"><div class="who">Owner behind the chair · Solo–SMB (3–6 stylists) · Sole decision maker</div><h3>Rachel the Reluctant Owner</h3><p class="mini">Burnt out doing admin nights and weekends; skeptical that "yet another software" helps. Wants nights and weekends back and to work <em>on</em> the business. Fast no if your first touch doesn't speak to her exhaustion. Typical outcome to soft-frame: 8–12 hours/week back from automation.</p><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57089/" data-link="L009" target="_blank">Small SMB Owner battlecard →</a></div>
+    <div class="card persona"><div class="who">Salon Manager · SMB (10+ stylists) or ML flagship · Champion</div><h3>The Manager (Mary / Maria)</h3><p class="mini">The operational engine. Pains: Excel-hell commission and performance reporting, front-desk turnover with no time to train, juggling ops, supplies and people. Maria (multi-location flagship) is the pilot site — what she adopts gets rolled out. Typical outcome: 6–10 hours/week back.</p></div>
+    <div class="card persona"><div class="who">Single-location owner, out of the chair · SMB (6+ providers) · Decision maker</div><h3>Gio the Growth-Minded Owner</h3><p class="mini">Has a GM running the day; focused on P&amp;L, strategy and a second location. Pains: KPIs hard to access, limited time to learn systems, top talent leaving, conversion/migration fear. He signs; the GM weighs in heavily. Sell financial insight, the GM's life, scalability, partnership.</p><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57091/" data-link="L010" target="_blank">Large SMB Owner battlecard →</a></div>
+    <div class="card persona"><div class="who">Multi-location owner, 3+ locations · Mid-Market · Decision maker</div><h3>Jennifer the Multi-Location Owner</h3><p class="mini">~45 staff, $1.5–2.5M, separate booking/POS/payroll systems. Wants real-time visibility across locations without enterprise complexity; every dollar must show ROI. Proof to use: Focal Point Salon &amp; Spa (80%+ guest retention), Design 1 Salon &amp; Spa (4 locations, retained 150 staff).</p><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57094/" data-link="L011" target="_blank">Small Mid-Market Owner →</a> · <a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/67920/" data-link="L012" target="_blank">Large Mid-Market Owner →</a></div>
+    <div class="card persona"><div class="who">Area Manager, 2–5 locations · Mid-Market · Influencer</div><h3>Sebastian the Area Manager</h3><p class="mini">Owns rollout success — if he isn't on board the tool dies at field adoption. Pains: GMs with varied skill, scattered systems, inconsistent reporting formats, no automation for commissions/scheduling/marketing rollups. Treat him as your change-management partner.</p></div>
+    <div class="card persona"><div class="who">Regional / vertical leader, 5+ locations · MM–ENT · Key decision maker</div><h3>Rebecca the Regional Manager</h3><p class="mini">Data siloed by location eats her week; managers need coaching; fire drills consume strategic time. If she champions a solution, adoption is almost guaranteed. Sell control without complexity.</p></div>
+    <div class="card persona"><div class="who">Director of Marketing · MM–ENT · Blocker</div><h3>Mia from Marketing</h3><p class="mini">Came from agency/brand; finds salon-software marketing tools primitive next to HubSpot or Klaviyo. She rarely selects but frequently <strong>blocks</strong> — engage her early on automation, segmentation, attribution, and how Meevo connects to her stack.</p></div>
+    <div class="card persona"><div class="who">VP Ops / COO, 15+ locations · Enterprise · Ultimate gatekeeper</div><h3>Owen from Operations</h3><p class="mini">Brought in from retail, fitness or hospitality. Skeptical of software claims; kills anything that doesn't pencil on a P&amp;L. Sell cost reduction, visibility, scalability, and reduced tech sprawl. Wants specific reference customers of similar size.</p></div>
+  </div>
+
+  <h3><span class="tag spa">Spa</span> <span class="tag medspa">MedSpa</span> Persona battlecards in Crayon</h3>
+  <ul class="linklist">
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64092/" data-link="L013" target="_blank">Spa Small SMB Owner</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64094/" data-link="L014" target="_blank">Spa Large SMB Owner</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64093/" data-link="L015" target="_blank">Spa Mid-Market Owner</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64091/" data-link="L016" target="_blank">Spa Front Desk Associate</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64090/" data-link="L017" target="_blank">Spa Service Provider</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59237/" data-link="L018" target="_blank">MedSpa Small SMB Owner</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59241/" data-link="L019" target="_blank">MedSpa Large SMB Owner</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/67706/" data-link="L020" target="_blank">MedSpa Small Mid-Market Owner</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59238/" data-link="L021" target="_blank">MedSpa Large Mid-Market Owner</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59240/" data-link="L022" target="_blank">MedSpa Front Desk Associate</a><small>Crayon persona battlecard</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59239/" data-link="L023" target="_blank">MedSpa Service Provider</a><small>Crayon persona battlecard</small></li>
+  </ul>
+  <div class="callout todo" data-ni="NI05">School personas do not exist yet. Closest analogs: Gio or Jennifer (single campus), Jennifer or Rebecca (multi-campus). Flag recurring School persona needs to RevOps. Owner: Aaron Verasammy.</div>
+</section>
+
+<section class="page" id="core" data-role="all">
+  <h2><span class="tag salon">Salon</span><span class="tag spa">Spa</span><span class="tag ss">Salon &amp; Spa</span><span class="tag school">School</span> Core segments</h2>
+  <p>Core covers every non-MedSpa business type. Segments are never collapsed — Salon, Spa, Salon &amp; Spa and School buyers react to different things. Lead with what real prospects reacted to in demos (Conversation Intelligence), corroborated by Clozd win/loss.</p>
+
+  <h3>What to lead with, by vertical</h3>
+  <div class="grid">
+    <div class="card" style="border-top:4px solid var(--mauve)"><h3>Salon</h3><p><strong>Reporting + automation + texting.</strong> Comp/commission flexibility for mixed commission and chair-rental teams, MeevoPay margin versus Vagaro/Square fees, retail attach.</p></div>
+    <div class="card" style="border-top:4px solid var(--terra)"><h3>Spa</h3><p><strong>Client communications + online booking + tips.</strong> Filling treatment rooms off-peak, membership renewals that don't silently fail, add-ons and couples bookings, retail attach on high-ticket skincare (15–25% of revenue).</p></div>
+    <div class="card" style="border-top:4px solid var(--rose)"><h3>Salon &amp; Spa</h3><p><strong>Reporting — the highest positive reaction of any vertical.</strong> One view across salon side and spa side, department-specific comp models, multi-location rollup. Highest Demo:Win of all segments.</p></div>
+    <div class="card" style="border-top:4px solid var(--charcoal)"><h3>School</h3><p><strong>Student and staff operations + reporting.</strong> Dual revenue (tuition + clinic), state-board hours tracking, student permission tiers, campus rollups. Buyer is the school owner, director or admissions/ops VP.</p></div>
+  </div>
+  <div class="callout"><strong>Three goals that always come up:</strong> reduce cost, keep the calendar full, improve efficiency. <strong>Reporting is the differentiator</strong> — positive reaction in 52% of demos and a top positive win/loss driver. Hero reports: <strong>MA200, Growth Indicators, Goals Dashboard, DE40</strong>.</div>
+
+  <h3>Pain library — open with these, in the buyer's words</h3>
+  <details open><summary><span class="tag salon">Salon</span> sub-types</summary><div class="body"><table class="compact">
+    <tr><th style="width:22%">Sub-type</th><th>Top 3 pains</th></tr>
+    <tr><td>Hair Salon</td><td>"Payroll is a nightmare with mixed commission + chair-rental stylists." · "Vagaro/Square fees take a real bite — I don't know my actual margin." · "I'm losing senior stylists and can't tell if it's pay or scheduling."</td></tr>
+    <tr><td>Barber</td><td>"Walk-ins versus appointments — my book is a mess." · "Square works fine until I add a second chair." · "I'm running comp on paper because Booksy can't handle it."</td></tr>
+    <tr><td>Blow Dry Bar</td><td>"My membership program is a spreadsheet held together with hope." · "No-shows on $50 services kill my morning." · "I can't see which stylists drive member retention."</td></tr>
+    <tr><td>Extensions / Wigs</td><td>"$40K in inventory and I can't track which color packs sell." · "Vagaro doesn't handle consultation → install → maintenance." · "Comp on custom installs is hand-calculated."</td></tr>
+    <tr><td>Full Service</td><td>"Hair, nails, esthetics — three staff types, three comp models, one broken system." · "Retail attach is flat across departments." · "I can't tell which service lines make money."</td></tr>
+    <tr><td>Nails</td><td>"Tech turnover means reconfiguring software every quarter." · "Walk-in vs appointment mix is hard to predict." · "Retail attach is below 5%."</td></tr>
+  </table></div></details>
+  <details><summary><span class="tag spa">Spa</span> sub-types</summary><div class="body"><table class="compact">
+    <tr><th style="width:22%">Sub-type</th><th>Top 3 pains</th></tr>
+    <tr><td>Full Service</td><td>"Treatment rooms sit empty off-peak." · "MindBody is bloated and my front desk hates it." · "Membership renewals fail and I find out 60 days later."</td></tr>
+    <tr><td>Facials</td><td>"Series rebook rate is below 50%." · "Retail attach on $200 skincare is missing." · "Online booking can't handle add-ons cleanly."</td></tr>
+    <tr><td>Brows / Lashes</td><td>"Lash fill rebook timing is the entire business — Vagaro doesn't enforce it." · "Deposits and no-show fees are a constant fight." · "New tech onboarding takes 2 weeks."</td></tr>
+    <tr><td>Massage</td><td>"Couples bookings and add-ons break online booking." · "Therapist comp varies by service and lives in a spreadsheet." · "Membership freezes are a manual nightmare."</td></tr>
+    <tr><td>Hair Removal / Waxing</td><td>"Package management is paper punch cards." · "Vagaro can't enforce series pricing or rollover." · "Member pricing isn't enforced at checkout."</td></tr>
+  </table></div></details>
+  <details><summary><span class="tag ss">Salon &amp; Spa</span> sub-types</summary><div class="body"><table class="compact">
+    <tr><th style="width:22%">Sub-type</th><th>Top pains</th></tr>
+    <tr><td>Full Service</td><td>"Reporting across salon side and spa side needs two exports and a manual merge." · "Comp differs by department and the software doesn't handle it." · "Multi-location rollup doesn't exist or breaks weekly."</td></tr>
+    <tr><td>Hair Salon (within S&amp;S)</td><td>Standalone Hair Salon pains plus running it inside a bigger ops model.</td></tr>
+    <tr><td>Nails (within S&amp;S)</td><td>"The nail department gets ignored by the main system — staff revert to paper."</td></tr>
+  </table></div></details>
+  <details><summary><span class="tag school">School</span> watch-outs</summary><div class="body">
+    <ul>
+      <li>Dual revenue stream: tuition plus clinic services to the public.</li>
+      <li>State-board compliance: hours tracking by service, exam prep, board-approved services only.</li>
+      <li>Student permission tiers: first-year vs advanced student capability gates.</li>
+      <li>Title IV federal financial aid integration may apply.</li>
+      <li>Different competitive set: Aveda Institute systems, MindBody variants, proprietary school software.</li>
+    </ul>
+    <div class="callout todo" data-ni="NI06">Add School ICP detail, value props and discovery questions. Owner: Nicole Fabre / Taylor Meeker.</div>
+  </div></details>
+
+  <h3>Segment watch-outs for Spa</h3>
+  <ul>
+    <li>Longer appointments (60–120 min) reshape scheduling logic; couples bookings need paired-appointment logic.</li>
+    <li>Retail is often 15–25% of revenue — product knowledge and attach rate matter.</li>
+    <li>Monthly membership models (Massage Envy-style) are common; wellness add-ons (yoga, classes) may be integrated.</li>
+    <li>Resort/hotel spas require PMS integration (Opera, Mews) — Exclude.</li>
+  </ul>
+  <p class="owner">Owners: Nicole Fabre, Taylor Meeker · Sources: Meevo CIR (H2 GTM theme), ICP Targeting Guide v2, persona library</p>
+</section>
+
+<section class="page" id="medspa" data-role="all">
+  <h2><span class="tag medspa">MedSpa</span> MedSpa</h2>
+  <p>MedSpa is ICP at every segment size. It is worked by AE Team 3 and reported as a standalone cross-segment lens. This section carries the full MedSpa Sales Playbook (Dec '25) content.</p>
+
+  <h3>Who we sell to</h3>
+  <p>Any business that offers injectables (Botox, fillers), laser centers, IV therapy clinics, wellness-based medspas (hybrid centers offering medspa and spa services), and salons and spas that offer medspa services.</p>
+  <div class="grid two">
+    <div class="card"><h4>Ideal client profile</h4><ul><li>1–30+ employees / service providers</li><li>1–5 locations</li><li>High client volume and recurring treatments</li><li>Need for detailed tracking, compliance and multi-provider coordination</li></ul></div>
+    <div class="card"><h4>What medspas value most</h4>
+      <p><strong>Revenue growth:</strong> KPIs tied to clinical services and retention; memberships, packages, prepaids; marketing automation and segmentation; ROI and service/resource/equipment productivity.</p>
+      <p><strong>Client experience:</strong> before &amp; afters; online booking with timing/resource accuracy; mobile-friendly; pre-visit forms.</p>
+      <p><strong>Operational efficiency:</strong> real-time inventory and injectable tracking; streamlined charting and annotation.</p>
+      <p><strong>Compliance &amp; security:</strong> HIPAA compliance, controlled permissions, secure photo management, audit trails and visit-note approval.</p></div>
+  </div>
+
+  <h3>Value proposition</h3>
+  <div class="callout quote">Meevo helps med spa owners run a professional practice without adding headcount or complex tech solutions. As a medspa owner/operator, they need simplicity, speed and confidence — not another system to manage. Meevo provides an appointment book that enables flexible scheduling and powerful automated reminders, notifications and confirmations; online booking that converts; fast charting and consents; injectable and consumable tracking; integrated payments; and clear daily reporting, all in one place.</div>
+
+  <h3>Positioning themes</h3>
+  <div class="grid">
+    <div class="card">"Keep the day full and productive with one view to book people, rooms, and equipment."</div>
+    <div class="card">"Revenue growth without increased headcount or expenses."</div>
+    <div class="card">"Every visit feels personal because everything's in one place."</div>
+    <div class="card">"Document care in minutes."</div>
+    <div class="card">"Consent documented, expectations set, and compliance achieved, all before the client arrives."</div>
+    <div class="card">"Get paid, keep trust, and close the day in minutes."</div>
+    <div class="card">"Clear visibility for more confident staffing, pricing and marketing decisions."</div>
+    <div class="card">"Loyal clients and recurring revenue without extra legwork."</div>
+    <div class="card">"Show the results — confidently and securely."</div>
+    <div class="card">"Reduce liability and keep every service supplied and profitable with real-time consumption tracking."</div>
+  </div>
+
+  <h3>Features, benefits &amp; known gaps</h3>
+  <details><summary>Appointment Book &amp; Smart Scheduling</summary><div class="body">
+    <p><strong>Customer need:</strong> easy-to-use calendar with multi-provider visibility; maximize staff schedules; quick rebooking; mobile access.</p>
+    <p><strong>Meevo:</strong> staff- and resource-aware appointment book; automated staff notifications; automated rebooking; Smart Waitlist that fills short-notice cancellations (starting with VIPs); drag-and-drop; role-based access; easy to learn.</p>
+    <p><strong>Known gaps:</strong> none.</p>
+    <p><strong>Value:</strong> fewer schedule gaps; appointments start on time; easy for new staff to learn (mitigates turnover); keeps the calendar full without manual outreach and recovers revenue otherwise lost.</p></div></details>
+  <details><summary>Online Booking</summary><div class="body">
+    <p><strong>Customer need:</strong> patient-friendly booking that converts search and ad traffic without phone time; traffic-to-conversion reporting.</p>
+    <p><strong>Meevo:</strong> online booking embedded on the customer's website or standalone URL; Google "Book Now" integration.</p>
+    <p><strong>Known gaps:</strong> gating for prerequisite services (enforce a consultation before a first-time service); a true patient portal with treatment notes and completed forms.</p>
+    <p><strong>Value:</strong> after-hours conversions without extra staff; "Book Now" captures anonymous searchers without extra ad spend; card on file and deposits increase show rates; automated confirmations and reminders reduce late cancels and no-shows.</p></div></details>
+  <details><summary>Client Management</summary><div class="body">
+    <p><strong>Customer need:</strong> HIPAA-compliant records with history, preferences, forms and photos; personalize quickly; automated pre/post-care and rebooking communication.</p>
+    <p><strong>Meevo:</strong> unified client record — history, preferences, charts, visit notes, docs/forms/waivers, before &amp; after photos, opt-ins; role-based privacy; fast access at check-in/out; automated email and text to rebook or repurchase.</p>
+    <p><strong>Known gaps:</strong> lead management and nurturing; lead tracking from source through sales cycle; CRM integration.</p>
+    <p><strong>Value:</strong> "we know you" experiences at every interaction, even after staff turnover; fewer mistakes; higher repeat-visit rates; automation increases rebookings and retail sales.</p></div></details>
+  <details><summary>Charting</summary><div class="body">
+    <p><strong>Customer need:</strong> fast, HIPAA-compliant documentation that fits a 30-minute visit; standardized templates; approval and status visibility for owners and medical directors; searchable history with audit trails; bulk approval.</p>
+    <p><strong>Meevo:</strong> <em>Coming soon.</em></p>
+    <p><strong>Known gaps:</strong> advanced image annotation; chart-to-cart; dot phrases.</p>
+    <p><strong>Value:</strong> standardize documentation; speed up review; approvals don't bottleneck care; audit-ready; versioning lets owners improve templates without breaking past charts; status tracking shows what needs attention.</p></div></details>
+  <details><summary>Documents, Forms &amp; Waivers</summary><div class="body">
+    <p><strong>Customer need:</strong> pre-visit digital signatures; consent at check-in; organize, version and edit with audit trail; instant visibility of what's missing at check-in.</p>
+    <p><strong>Meevo:</strong> Docs &amp; Forms organizes digital intake and consent forms tied to the client record; shows completion status at check-in; embed videos for pre-care instructions.</p>
+    <p><strong>Known gaps:</strong> ad hoc form sending; conditional form fields; photo uploads to forms; converting external forms into Meevo; quantity of premade templates (EMR switchers will notice).</p>
+    <p><strong>Value:</strong> fewer late starts and signature chases; compliant services; clients know what to expect, reducing cancellations.</p></div></details>
+  <details><summary>Integrated Payments (MeevoPay)</summary><div class="body">
+    <p><strong>Customer need:</strong> integrated processing with reporting by provider, service and date range; commission tracking.</p>
+    <p><strong>Meevo:</strong> PCI-compliant, fully integrated processing and POS; MeevoPay; accurate commission tracking; HSA/FSA acceptance; recurring payments; Meevo Merchant Services handles chargebacks and disputes.</p>
+    <p><strong>Known gaps:</strong> integration with other POS solutions.</p>
+    <p><strong>Value:</strong> secure patient and payment data; faster checkout; fewer mistakes; instant clarity on business health; no chasing missed payments.</p></div></details>
+  <details><summary>Reporting &amp; Analytics</summary><div class="body">
+    <p><strong>Customer need:</strong> visibility into units sold, provider productivity, rebooking and campaign effectiveness without complex tools; track a patient from ad → consult → appointment.</p>
+    <p><strong>Meevo:</strong> real-time revenue and productivity reports; consult-to-conversion; membership KPIs; exportable reports; retention and churn-risk reporting; provider/room utilization; Frequency of Visit; rebooking, retail and membership performance.</p>
+    <p><strong>Known gaps:</strong> deeper attribution tracking.</p>
+    <p><strong>Value:</strong> spot churn risks and upsell opportunities; spend smarter on ads; confident staffing, pricing and marketing decisions; profitability by service, provider and client segment.</p></div></details>
+  <details><summary>Memberships, Packages, Loyalty &amp; Payment Plans</summary><div class="body">
+    <p><strong>Customer need:</strong> sell and manage memberships and prepaid series; deduct units cleanly at checkout; loyalty programs; payment plans for expensive treatments.</p>
+    <p><strong>Meevo:</strong> Memberships and Packages; Loyalty programs; CareCredit integration; automatic unit and service deductions from inventory and client packages at checkout; points-based rewards; payment plans.</p>
+    <p><strong>Known gaps:</strong> none.</p>
+    <p><strong>Value:</strong> recurring revenue, deeper loyalty, smoother cash flow; plan staff and inventory with confidence; increase retention and Frequency of Visit.</p></div></details>
+  <details><summary>Automated Marketing (Emma)</summary><div class="body">
+    <p><strong>Customer need:</strong> HIPAA-compliant email/text for lead gen and nurturing; automation tailored to services booked; pre/post-care nurture; promotions to fill the calendar.</p>
+    <p><strong>Meevo:</strong> Emma Marketing.</p>
+    <p><strong>Known gaps:</strong> Emma's automations are not robust; medspas often prefer a tool like GoHighLevel, and Meevo does not currently integrate.</p>
+    <div class="callout todo" data-ni="NI07">Messaging frame and value prop for Automated Marketing are blank in the source deck. Owner: Melanie Hull / Marketing.</div></div></details>
+  <details><summary>Before &amp; Afters</summary><div class="body">
+    <p><strong>Customer need:</strong> secure, easy photo capture and storage; before/after comparisons; visual progress tracking; use photos for marketing.</p>
+    <p><strong>Meevo:</strong> secure photo storage integrated with the client record; side-by-side, slider and overlay comparisons; role-based access to photos and gallery.</p>
+    <p><strong>Known gaps:</strong> batch upload; on-image annotation.</p>
+    <p><strong>Value:</strong> builds trust, maintains compliance, drives rebookings and package sales; elevated comparison views enhance consultations and increase sales; saves provider time.</p></div></details>
+  <details><summary>Inventory Management</summary><div class="body">
+    <p><strong>Customer need:</strong> track retail and consumables with low-stock alerts; connect usage to services; LOT and expiration tracking for injectables.</p>
+    <p><strong>Meevo:</strong> real-time consumption tracking — Product Usage Tracking / Injectable Tracking with automatic deductions at checkout from client packages and stock; on-hand amounts and inventory value; create and receive POs; accurate tax reporting.</p>
+    <p><strong>Known gaps:</strong> LOT tracking; expiration-date tracking; usage tracking for products measured other than by unit or service.</p>
+    <p><strong>Value:</strong> protect margins, reduce stock-outs, eliminate manual package-allotment reconciliation, simplify year-end tax reporting.</p>
+    <div class="callout warn">The feature name "Product Usage Tracking" will not resonate. Say <strong>"injectable tracking"</strong> or <strong>"consumption tracking"</strong>.</div></div></details>
+
+  <h3>Voice of customer research</h3>
+  <p class="mini">Based on 25 MedSpa user interviews, 27 Clozd interviews and surveys, Clozd competitor analysis, and internal workshops with Sales, CS and Marketing.</p>
+  <details><summary>25 MedSpa user interviews — main pain points</summary><div class="body"><ol>
+    <li><strong>Charting &amp; documentation is slow and rigid:</strong> customizable templates, dot-phrases, co-signing, lockable notes, progress flows.</li>
+    <li><strong>Photo management is clunky:</strong> side-by-side before/after, batch upload, direct-to-chart, on-image annotation.</li>
+    <li><strong>Too many disconnected tools</strong> (EMR, photos, payments, CRM): one platform or tight integrations; real-time sync of charting to inventory usage.</li>
+    <li><strong>Forms, consents and e-sign are hard to manage:</strong> pre-visit e-signature, edit with audit trail, versioning, tagging, incomplete-form tracking.</li>
+    <li><strong>UI/UX must be faster and more role-specific:</strong> single-screen client view, tablet-friendly speed, clean dashboards per role.</li>
+    <li><strong>Scheduling &amp; resource booking need true medspa context:</strong> centralized calendar across providers, rooms and devices, plus smart reminders.</li>
+    <li><strong>Reporting is underpowered:</strong> multi-location rollups, front-desk KPIs, units sold (e.g. Botox), provider productivity.</li>
+    <li><strong>Compliance &amp; oversight need confidence:</strong> HIPAA-safe photo capture, medical-director audits and approvals, consistent post-care comms.</li>
+    <li><strong>Patient portal &amp; lifecycle:</strong> pre-visit forms, post-care education, follow-ups, centralized goals/interests.</li>
+  </ol></div></details>
+  <details><summary>Clozd competitive analysis — what correlates with wins vs losses</summary><div class="body">
+    <p>Most common topics: Support/Onboarding (23), Pricing/Licensing/Value (21), Forms/e-sign (18), Integrations (13), EMR/Charting/Consents (11), Reporting (9), Checkout/Memberships (7). Inventory/LOT tracking is mentioned less in Clozd but often in the user interviews.</p>
+    <p><strong>Main takeaway:</strong> when prospects care most about scheduling, checkout or onboarding, Meevo wins at a high rate. When the evaluation centers on EMR/charting depth, or price simplicity dominates the conversation, we lose ground — especially to EMR-first platforms like Nextech or UX-friendly options like Mangomint.</p>
+    <ul>
+      <li><strong>Boulevard:</strong> deals mentioning support/onboarding, pricing clarity, forms and reporting often ended in wins or parity.</li>
+      <li><strong>AestheticsPro:</strong> support, onboarding, scheduling, checkout themes skewed to wins.</li>
+      <li><strong>PatientNow and Nextech:</strong> EMR/charting depth and integrations correlated with losses.</li>
+      <li><strong>Mangomint:</strong> forms, integrations and pricing mentions resulted in losses most often.</li>
+    </ul>
+    <div class="callout"><strong>Key takeaway:</strong> keep the evaluation grounded in front-of-house productivity (scheduling, checkout, memberships) and our odds improve. When the buyer fixates on EMR depth (charting/consents/photos as an EMR), our win rate drops.</div>
+  </div></details>
+
+  <h3>Top MedSpa competitors</h3>
+  <table class="compact">
+    <tr><th>Competitor</th><th>One-liner</th><th>Battlecard</th></tr>
+    <tr><td>Boulevard</td><td>Polished and easy to use, but lacks true medspa clinical depth and advanced charting workflows.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57718/" data-link="L024" target="_blank">Crayon →</a></td></tr>
+    <tr><td>PatientNow</td><td>Strong medical EMR wrapped in an outdated, complex system with slow daily operations.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/65047/" data-link="L025" target="_blank">Crayon →</a></td></tr>
+    <tr><td>AestheticsPro</td><td>Solid HIPAA solution for smaller medspas, but limited customization, client experience, reporting and scalability.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58120/" data-link="L026" target="_blank">Crayon →</a></td></tr>
+    <tr><td>Jane</td><td>Great for wellness, PT and insurance billing, but not built for aesthetic workflows; clunky client experience.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/63538/" data-link="L027" target="_blank">Crayon →</a></td></tr>
+    <tr><td>Zenoti</td><td>Enterprise powerhouse with heavy complexity, long onboarding and an international support team.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57721/" data-link="L028" target="_blank">Crayon →</a></td></tr>
+    <tr><td>Orchid / DaySmart</td><td>Simple and affordable, focused on spas; lacks clinical features.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58115/" data-link="L029" target="_blank">Crayon →</a></td></tr>
+    <tr><td>Aesthetic Record</td><td>Excellent charting and photo tools but weak scheduling, client experience, marketing and front desk.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58119/" data-link="L030" target="_blank">Crayon →</a></td></tr>
+    <tr><td>Nextech</td><td>Top-tier EMR for surgical practices but costly, complex and overbuilt for medspas.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/70399/" data-link="L031" target="_blank">Crayon →</a></td></tr>
+    <tr><td>Phorest</td><td>Strong marketing suite, but misses injectable tracking, annotation and clinical workflows.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57719/" data-link="L032" target="_blank">Crayon →</a></td></tr>
+    <tr><td>Mangomint</td><td>Intuitive and attractive, but not designed for medical documentation, injectables or compliance-heavy operations.</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58126/" data-link="L033" target="_blank">Crayon →</a></td></tr>
+  </table>
+  <p>Also in the MedSpa set: <a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/65044/" data-link="L034" target="_blank">Healthie</a>. Resource: <a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQBD88NFmqnsS4phxbIV3-9hAc0KgCSe5yqunZwid1zNlBo?e=MDevx1" data-link="L035" target="_blank">Most Commonly Asked MedSpa Questions</a>.</p>
+  <p class="owner">Owner: Melanie Hull · Source: MedSpa Sales Playbook (Dec '25)</p>
+</section>
+
+<!-- ============================ HOW WE WIN ============================ -->
+<section class="page" id="value" data-role="all">
+  <h2>Value framework &amp; proof points</h2>
+  <h3>Validated case studies — use freely</h3>
+  <div class="grid two">
+    <div class="card"><h4>Focal Point Salon &amp; Spa (2 locations)</h4><p><strong>80%+ guest retention</strong> after consolidating to Meevo; higher ticket size and service volume; streamlined online booking and waitlist. <span class="mini">Source: MSI Resource Library. Use for multi-location owners, area managers, growth-minded owners.</span></p></div>
+    <div class="card"><h4>Design 1 Salon &amp; Spa (4 locations)</h4><p>Unified guest experience across 4 locations; <strong>retained 150 staff</strong> through standardized training; streamlined management. <span class="mini">Source: MSI Resource Library. Use to prove 3→4 location scalability and for enterprise ops leaders.</span></p></div>
+  </div>
+  <p>Client-facing <a href="https://millenniumsi.sharepoint.com/:x:/s/MarketingDept/EZBzyh3St2ZNhHViY1_p2P8BCnuV_DI97EeG3ab43hyJcQ?e=cpHt4o&CID=1782733C-2376-4597-A472-58B03942E6BB&wdLOR=c753AD784-8A12-4D32-BC92-C268833DC4E2" data-link="L036" target="_blank">Guides and playbooks</a> and <a href="https://millenniumsi.sharepoint.com/:x:/r/sites/MarketingDept/_layouts/15/Doc.aspx?sourcedoc=%7B3F37AB5A-4CAF-48B1-B888-080FC3CD8C1F%7D&file=marketing-share-doc.xlsx&wdLOR=c7DED1B35-9294-414E-ADF7-9ED601999AA7&action=default&mobileredirect=true&cid=2617ae51-6738-462e-9ea4-b4c53bc78e5d&isSPOFile=1&sourceId=&params=%7B%22AppName%22%3A%22Teams-Desktop%22%2C%22AppVersion%22%3A%2227%2F22010300411%22%7D" data-link="L037" target="_blank">Case Studies</a> live on the Marketing SharePoint.</p>
+
+  <h3>Typical outcomes — soft-frame only</h3>
+  <p class="mini">Say "Meevo customers commonly report…" or "typical outcomes include…". These are pending formal validation; never present them as guarantees.</p>
+  <table class="compact">
+    <tr><th>Outcome</th><th>Who it's for</th></tr>
+    <tr><td>8–12 hours/week back from automation</td><td>Solo owner-operators</td></tr>
+    <tr><td>6–10 hours/week back from commission and scheduling automation</td><td>Salon managers</td></tr>
+    <tr><td>50%+ less time on weekly cross-location reporting</td><td>Area and regional managers</td></tr>
+    <tr><td>Rebooking lift 12–20% within 6 months</td><td>All (industry typical)</td></tr>
+    <tr><td>No-show reduction 20–40% with automated SMS reminders</td><td>All</td></tr>
+    <tr><td>Stylist utilization +8–15% from smart scheduling</td><td>All</td></tr>
+    <tr><td>Tip lift 15–25% from digital tipping prompts</td><td>All (MeevoTips)</td></tr>
+    <tr><td>Processor fee reduction with MeevoPay: $8–15K/yr (single salon, $1.5M), $12–20K/yr (3 locations), $80–200K+/yr (15+ locations)</td><td>Owners, multi-location operators, enterprise</td></tr>
+    <tr><td>Tech consolidation savings $150–400K/yr at 15+ locations</td><td>Enterprise</td></tr>
+  </table>
+
+  <h3>MedSpa proof-point statements (in development)</h3>
+  <p class="mini">Four ROI statements are being built from Meevo product data. Use once validated.</p>
+  <div class="grid two">
+    <div class="card"><strong>#1</strong> Providers gain back 2–4 hours weekly — worth $400–$800/month in additional revenue. <span class="mini">Needs: admin minutes per appointment, pre-Meevo baseline, appointments per provider per week, hourly revenue or ticket value. Easy-to-defend ROI for solo and small medspas because provider time = billable time.</span></div>
+    <div class="card"><strong>#2</strong> Customers who enable automated reminders and deposits see ~50% fewer no-shows. <span class="mini">Needs: no-show rate with vs without reminders/deposits; average appointment value.</span></div>
+    <div class="card"><strong>#3</strong> Online booking + Smart Waitlist increase booked hours by 10–15%. <span class="mini">Needs: provider utilization among adopters vs non-adopters. Revenue-lift story with no pre-Meevo baseline required.</span></div>
+    <div class="card"><strong>#4</strong> Memberships, packages and loyalty increase retention and visit frequency by X%. <span class="mini">Needs: active members and package buyers in 12 months, 6-month return rates by segment, visits per client per year, loyalty→membership conversion.</span></div>
+  </div>
+  <div class="callout todo" data-ni="NI08">Confirm the data pulls and final numbers for statements #1–#4, and add the Industry KPI table (MSI "Gold Standard" KPIs) that was an image in the deck. Owner: Melanie Hull / Aaron Verasammy.</div>
+
+  <h3>How to talk about value</h3>
+  <ul>
+    <li>Time saved in hours per week and take-home dollars beat "efficiency" and "ROI" for owner-operators.</li>
+    <li>Reporting and ease of use are validated win drivers — lead with them. Price is the loss driver — neutralize early, never lead on discount.</li>
+    <li>Name a same-size customer reference wherever possible.</li>
+    <li>Segments are never collapsed: Salon, Spa, Salon &amp; Spa, MedSpa and School get their own framing.</li>
+  </ul>
+  <p class="owner">Owners: Aaron Verasammy, Terry Moorehead · Sources: persona value anchors, Meevo CIR, Clozd</p>
+</section>
+
+<section class="page" id="competitors" data-role="all">
+  <h2>Competitors &amp; displacement</h2>
+  <p>For live use on a call, open the <a href="https://meevosalesenablement.github.io/Battlecard-dashboard/" data-link="L038" target="_blank">Competitive Battlecards dashboard</a>: 70+ competitors in four tiers, a "Where we win" top-3 under each panel, and an Ask-the-field search that answers from Crayon, our decks and the competitor's own site. Heard something new? Use its Field alert box and every rep gets an email in seconds.</p>
+  <p>Crayon is the source of record for every battlecard — access it in Salesforce at <a href="https://millenniumsi.lightning.force.com/lightning/n/crayon__competition" data-link="L039" target="_blank">Crayon Competition tab</a>. Never trash the incumbent (the prospect chose it) — frame as "outgrowing" or "the next stage." The displacement angle belongs in the <em>second</em> line of an email; the opener is always the pain.</p>
+
+  <h3>Displacement at a glance</h3>
+  <table class="compact">
+    <tr><th>Incumbent</th><th>Where they win</th><th>Where they break</th><th>Best Meevo angle</th><th>Battlecard</th></tr>
+    <tr><td><strong>Vagaro</strong></td><td>Cheap, easy for solo; decent booking; marketplace traffic</td><td>Multi-location reporting, comp flexibility, retail/inventory, memberships, MedSpa workflows</td><td>Comp engine + MeevoPay + multi-location reporting</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/55516/" data-link="L040" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Square</strong></td><td>Simple POS, low entry price</td><td>Anything beyond basic booking; no comp engine, memberships or multi-location ops</td><td>"When your business outgrew Square"</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58111/" data-link="L041" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Booksy</strong></td><td>Mobile-first booking for barbers and small salons</td><td>Reporting depth, comp, retail/POS, multi-location</td><td>Comp engine + back-office sanity</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58124/" data-link="L042" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Mindbody</strong></td><td>Wellness/fitness brand, marketplace, memberships</td><td>Slow, bloated UI; weak comp engine; poor multi-location reporting; rising price</td><td>UI/speed + comp clarity + MeevoPay margin</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58112/" data-link="L043" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Boulevard</strong></td><td>Modern UI, strong salon focus, decent comp engine</td><td>Weak MedSpa/charting, maturing multi-location reporting, expensive, slow innovation</td><td>MedSpa workflows, multi-location reporting, TCO — don't fight on UI alone</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57718/" data-link="L044" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Zenoti</strong></td><td>Enterprise multi-location, MedSpa-capable</td><td>6+ month implementation, needs a dedicated admin, front-desk complexity, enterprise pricing</td><td>Time-to-value, implementation speed, front-desk experience</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57721/" data-link="L045" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Fresha</strong></td><td>Free booking, marketplace; monetizes via processing</td><td>Feature gaps almost everywhere; no real back-office</td><td>"When 'free' starts costing you" — processing-fee math</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58116/" data-link="L046" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Phorest</strong></td><td>Strong marketing suite, community/loyalty</td><td>Marketing module limits, multi-location reporting gaps, no clinical</td><td>Amplify vs their marketing; multi-location reporting depth</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57719/" data-link="L047" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Mangomint</strong></td><td>Intuitive, attractive UI</td><td>Not built for medical documentation, injectables, compliance</td><td>Clinical depth for MedSpa; be sharp on forms, integrations and pricing (loss themes)</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58126/" data-link="L048" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>GlossGenius</strong></td><td>Solo / 2-stylist simplicity</td><td>Outgrown — reporting, multi-location, team management</td><td>"Ready to run it like a business"</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58113/" data-link="L049" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>Booker / SpaBooker</strong></td><td>Spa-specific</td><td>Aging product, weak multi-location and membership engine</td><td>Modern membership management + multi-location reporting</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/60844/" data-link="L050" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>DaySmart / Salon Iris</strong></td><td>Simple, affordable</td><td>Lacks clinical features; dated</td><td>Reporting and modern client experience</td><td><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58115/" data-link="L051" target="_blank">Crayon</a></td></tr>
+    <tr><td><strong>No Software</strong></td><td>Greenfield (18.3% of Salon &amp; Spa Full Service)</td><td>Manual processes, no data, no comp engine</td><td>First-90-days value and a short implementation path — not a migration story</td><td>—</td></tr>
+  </table>
+
+  <h3>Vagaro — the big one</h3>
+  <p>Vagaro is in 21–35% of accounts across Primary Salon/Spa sub-types. SMB-Large + Vagaro is the highest-yield outbound motion. Don't dunk on what it does well (cheap for solos, easy setup, marketplace traffic, adequate single-location booking). Lead with the gaps:</p>
+  <table class="compact">
+    <tr><th>Vagaro gap</th><th>Meevo capability</th><th>One-line proof point</th></tr>
+    <tr><td>Multi-location reporting is essentially spreadsheets</td><td>Native multi-location reporting and rollups</td><td>"See same-store revenue across all locations in one view, not exported and merged."</td></tr>
+    <tr><td>Rigid comp engine (% of service only)</td><td>Tiered, hybrid, chair-rental, salary + commission</td><td>"Run mixed comp models per stylist without doing payroll math by hand."</td></tr>
+    <tr><td>Membership management is bolted on</td><td>Native memberships with auto-billing, freeze, retention reporting</td><td>"Recover failed renewals automatically. See member churn before it happens."</td></tr>
+    <tr><td>Basic inventory</td><td>Reorder points, cost tracking, multi-location</td><td>"Know what your retail wall is actually moving — and what's just dust."</td></tr>
+    <tr><td>High Vagaro Pay fees</td><td>MeevoPay with competitive bps and tip routing</td><td>"We benchmark MeevoPay margin vs Vagaro Pay on every deal."</td></tr>
+    <tr><td>No MedSpa clinical workflow</td><td>Native charting, consent, treatment tracking</td><td>"Stop running booking and charting in two different systems."</td></tr>
+  </table>
+  <details><summary>Displacement openers by incumbent</summary><div class="body">
+    <p><strong>Vagaro · owner-operator (SMB-L):</strong> "Most Vagaro shops we talk to at 6+ chairs hit the same wall: comp models break, retail isn't tracked, and reporting becomes a Sunday-night project. Worth comparing what changes when those run together?"</p>
+    <p><strong>Vagaro · multi-location (MM-S+):</strong> "Vagaro works at one location. By the third, most operators we work with are running monthly P&amp;Ls in Excel because there's no clean rollup. Curious if that's where you are."</p>
+    <p><strong>Vagaro · MedSpa owner / medical director:</strong> "Vagaro has no clinical layer — booking is decent, charting and consent are nowhere. Most MedSpas we talk to are running two systems and reconciling manually. Worth a 15-min look at the alternative."</p>
+    <p><strong>Square (SMB-L+):</strong> "Square works until you hit two things: multiple comp models and membership revenue. Once those matter, the system stops being a tool and starts being friction. Where are you on those?"</p>
+    <p><strong>Booksy (Barber):</strong> "Booksy is great for filling chairs. Most shops with 6+ barbers run their actual commissions and retail on the side because Booksy doesn't go deep enough. Worth a look?"</p>
+    <p><strong>Mindbody (Spa):</strong> "Most spa operators who started on MindBody are spending more on the marketplace than they get from it, and the front desk actively complains about the UI. Where are you on renewal — and is it still pulling its weight?"</p>
+    <p><strong>Boulevard (Salon &amp; Spa or MedSpa-blended, MM-S+):</strong> "Boulevard does salon well. The moment you add a MedSpa side or a third location, the gaps show up. Worth seeing what Meevo does at that intersection?"</p>
+    <p><strong>Zenoti (MM-S+):</strong> "Zenoti is powerful — and most operators coming off it say they used about 30% of it, paid for 100%, and had a 6-month implementation. Curious if that's where you are."</p>
+    <p><strong>Fresha:</strong> "Fresha is 'free' until you run the processing math. Most shops we move over recover 0.4–0.8% in effective margin. Worth comparing on real numbers?"</p>
+  </div></details>
+
+  <h3>What Clozd win/loss interviews tell us</h3>
+  <p class="mini">Published-interview data from the Meevo Clozd program (pulled September 2026). Small samples — use as directional.</p>
+  <div class="grid two">
+    <div class="card"><h4>Most-encountered competitors (wins / losses)</h4><table class="compact">
+      <tr><th>Competitor</th><th>Encounters</th><th>W</th><th>L</th></tr>
+      <tr><td>Boulevard</td><td>19</td><td>11</td><td>8</td></tr>
+      <tr><td>Vagaro</td><td>10</td><td>5</td><td>5</td></tr>
+      <tr><td>Mangomint</td><td>10</td><td>2</td><td>8</td></tr>
+      <tr><td>Phorest</td><td>9</td><td>2</td><td>7</td></tr>
+      <tr><td>Square</td><td>7</td><td>5</td><td>2</td></tr>
+      <tr><td>Zenoti</td><td>6</td><td>2</td><td>4</td></tr>
+      <tr><td>PatientNow</td><td>5</td><td>3</td><td>2</td></tr>
+      <tr><td>AestheticsPro</td><td>4</td><td>3</td><td>1</td></tr>
+      <tr><td>Booker</td><td>3</td><td>3</td><td>0</td></tr>
+    </table><p class="mini">"No competitor" deals: 123 encounters, 97 wins — greenfield converts well.</p></div>
+    <div class="card"><h4>Top decision drivers (sentiment)</h4><table class="compact">
+      <tr><th>Driver</th><th>Mentions</th><th>Leans</th></tr>
+      <tr><td>Quality of support</td><td>38</td><td>Positive (27 vs 11)</td></tr>
+      <tr><td>Integration capabilities</td><td>31</td><td>Mixed / negative (14 vs 17)</td></tr>
+      <tr><td>Ease of use</td><td>30</td><td>Positive (21 vs 9)</td></tr>
+      <tr><td>Pricing transparency</td><td>30</td><td><strong>Negative</strong> (11 vs 19)</td></tr>
+      <tr><td>Cost vs perceived value</td><td>28</td><td>Positive (16 vs 12)</td></tr>
+      <tr><td>Reporting &amp; analytics</td><td>28</td><td>Positive (19 vs 9)</td></tr>
+      <tr><td>Responsiveness &amp; follow-up</td><td>26</td><td>Strongly positive (21 vs 5)</td></tr>
+      <tr><td>Interface modernity</td><td>24</td><td><strong>Negative</strong> (9 vs 15)</td></tr>
+      <tr><td>Pricing competitiveness</td><td>20</td><td>Negative (7 vs 13)</td></tr>
+      <tr><td>Implementation speed &amp; quality</td><td>19</td><td>Mixed (10 vs 9)</td></tr>
+    </table></div>
+  </div>
+  <div class="callout"><strong>So what:</strong> Mangomint and Phorest are where we lose most often — be sharp on forms, integrations and pricing clarity against them. Our support, responsiveness, ease of use and reporting are what buyers praise; pricing transparency and interface modernity are what they criticize. Be simple and upfront on price, and demo speed and role-specific views deliberately.</div>
+
+  <h3>All Crayon battlecards</h3>
+  <details><summary>Competitor battlecards (A–Z)</summary><div class="body"><ul class="linklist">
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58106/" data-link="L052" target="_blank">Acuity</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58119/" data-link="L053" target="_blank">Aesthetic Record</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58120/" data-link="L054" target="_blank">AestheticsPro</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58140/" data-link="L055" target="_blank">Aura Salonware</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58141/" data-link="L056" target="_blank">Book4Time</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/60844/" data-link="L057" target="_blank">Booker</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58124/" data-link="L058" target="_blank">Booksy</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57718/" data-link="L059" target="_blank">Boulevard</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58144/" data-link="L060" target="_blank">ClienTrak</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58131/" data-link="L061" target="_blank">Clover Network</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58115/" data-link="L062" target="_blank">DaySmart</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58145/" data-link="L063" target="_blank">Elite Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58118/" data-link="L064" target="_blank">Envision Salon Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58116/" data-link="L065" target="_blank">Fresha</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58113/" data-link="L066" target="_blank">GlossGenius</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/70126/" data-link="L067" target="_blank">Growthzilla</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58133/" data-link="L068" target="_blank">GuestVision</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/65044/" data-link="L069" target="_blank">Healthie</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58134/" data-link="L070" target="_blank">Insight Salon Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/63538/" data-link="L071" target="_blank">Jane</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58137/" data-link="L072" target="_blank">KORVUE</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58126/" data-link="L073" target="_blank">Mangomint</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58123/" data-link="L074" target="_blank">MassageBook</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58139/" data-link="L075" target="_blank">Mikal Salon and Spa Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58122/" data-link="L076" target="_blank">Milano Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58112/" data-link="L077" target="_blank">Mindbody</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58142/" data-link="L078" target="_blank">MyTime</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/70399/" data-link="L079" target="_blank">Nextech</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/65047/" data-link="L080" target="_blank">PatientNow</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57719/" data-link="L081" target="_blank">Phorest</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58143/" data-link="L082" target="_blank">ProSolutions Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58132/" data-link="L083" target="_blank">Rosy Salon Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57720/" data-link="L084" target="_blank">SalonBiz</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58128/" data-link="L085" target="_blank">SalonUltimate</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58127/" data-link="L086" target="_blank">Schedulicity</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58130/" data-link="L087" target="_blank">Shortcuts USA</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58135/" data-link="L088" target="_blank">Springer-Miller Systems</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58111/" data-link="L089" target="_blank">Square</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/70401/" data-link="L090" target="_blank">Squire</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58121/" data-link="L091" target="_blank">STX Software</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58136/" data-link="L092" target="_blank">StyleSeat</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/70403/" data-link="L093" target="_blank">Timely</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/58138/" data-link="L094" target="_blank">TouchSuite</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/55516/" data-link="L095" target="_blank">Vagaro</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57721/" data-link="L096" target="_blank">Zenoti</a></li>
+  </ul></div></details>
+  <details><summary>Payments battlecards (vs MeevoPay)</summary><div class="body"><ul class="linklist">
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64621/" data-link="L097" target="_blank">Square vs MeevoPay</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64622/" data-link="L098" target="_blank">Clover vs MeevoPay</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64624/" data-link="L099" target="_blank">Stripe vs MeevoPay</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64625/" data-link="L100" target="_blank">Payroc vs MeevoPay</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64643/" data-link="L101" target="_blank">CardConnect vs MeevoPay</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/64642/" data-link="L102" target="_blank">WorldPay vs MeevoPay</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/57095/" data-link="L103" target="_blank">Whitespace / New Logo vs MeevoPay</a></li>
+  </ul></div></details>
+  <p class="owner">Source of record: Crayon · Corroboration: Clozd · Owners: Sales Enablement</p>
+
+  <h3>MeevoIQ AI Advisors: our answer to competitor AI</h3>
+  <p>MeevoIQ is Meevo's own AI, three Advisors sold per location. Use these when a prospect raises Zenoti's HyperConnect, Podium's "Avery", or Mangomint's automated flows. Full positioning, pricing and the demo guardrails are in the MeevoIQ panel on the <a href="https://meevosalesenablement.github.io/Battlecard-dashboard/" data-link="L104" target="_blank">Battlecards dashboard</a>.</p>
+  <table class="compact">
+    <tr><th>Advisor</th><th>What it does</th><th>Answers</th><th>List / early adopter</th></tr>
+    <tr><td><strong>Front Desk Advisor</strong> (AI Receptionist)</td><td>Answers the phone 24/7 and books, reschedules or cancels, including multi-service bookings in one call; configurable caller verification; escalates to a person or voicemail so it is never a dead end. US only.</td><td>Zenoti HyperConnect · Podium Avery</td><td>$249 / location / month · $149 early adopter · pilot at no cost</td></tr>
+    <tr><td><strong>Insights Advisor</strong></td><td>Real-time performance dashboards: revenue, retention, product performance, drill-down.</td><td>Zenoti predictive analytics; widens our reporting lead over Vagaro, Boulevard, Booker, SalonBiz, AestheticsPro</td><td>$99 / location / month · $49 early adopter</td></tr>
+    <tr><td><strong>Marketing Advisor</strong></td><td>AI-generated upsell offers grounded in the client's own data, with projected earnings and approve-before-send.</td><td>Podium's marketing and lead engine · Mangomint Automated Flows; reinforces included marketing versus Vagaro</td><td>$99 / location / month · $49 early adopter</td></tr>
+  </table>
+  <div class="callout warn"><strong>Guardrails.</strong> Roadmap language only and commit to no dates. Do not lead with the AI Receptionist in a MedSpa demo. Never characterize a competitor's AI without a sourced fact. Say "pilot at no cost", not "free trial".</div>
+</section>
+
+<section class="page" id="talktracks" data-role="all">
+  <h2>Talk tracks &amp; training</h2>
+  <ul class="linklist">
+    <li><a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQD1YYNFgZALT5sI2xaa0qb_AfsZQhGutyDVrIhgZWh81n8?e=5hCz9Z" data-link="L105" target="_blank">Discovery Questions</a><small>Question bank for intro calls and discovery</small></li>
+    <li><a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQCSEu3XlmTOT6KvOFrsrV8_AVoGfSszXSNka1UaQYSHLJc?e=DleXPU" data-link="L106" target="_blank">Discovery Training</a><small>How to run discovery</small></li>
+    <li><a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQCj1mqJFRbZS5tmnKb1UpShAfoeQLrwALqshtiGNh8UmKg?e=OozSFQ" data-link="L107" target="_blank">Objection Handling</a><small>Responses to common objections</small></li>
+    <li><a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQAFLTznIfWjQ5rqrEc6Rq5MAZHqKlIbP17zuCWJ7Tzg7N8?e=zTW3n9" data-link="L108" target="_blank">Inbound Qualification Training &amp; Talk Tracks</a><small>Script for the 15-minute intro call</small></li>
+    <li><a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQBD88NFmqnsS4phxbIV3-9hAc0KgCSe5yqunZwid1zNlBo?e=MDevx1" data-link="L109" target="_blank">Most Commonly Asked MedSpa Questions</a><small>MedSpa FAQ for reps</small></li>
+    <li><a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQALHhylA-15TpAQ0Sm45cW8AQVKqv_B1wCe1nn_DdyGhvA?e=CUgWHF" data-link="L110" target="_blank">Social Media Training</a><small>Using social channels for prospecting</small></li>
+    <li><a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQANLeCakcWmSImwRmCyCo_0AXc6IP1QnfTstb5TluQJXe8?e=K8YgDb" data-link="L111" target="_blank">MeevoTips Training Doc</a><small>Positioning and selling MeevoTips</small></li>
+  </ul>
+  <div class="callout warn">These documents are currently hosted in a personal OneDrive (mhull@meevo.com). Move them to the Sales Leadership SharePoint so links survive org changes, then update this page.</div>
+  <h3>Discovery principles</h3>
+  <ul>
+    <li>Confirm business type, size and role before anything else — it decides the persona, the segment and whether the account is ICP.</li>
+    <li>Ask about current software and contract renewal date every time.</li>
+    <li>Get to one or two <em>measurable</em> business challenges (a KPI, a cost, a compliance risk) — not a feature wish list.</li>
+    <li>Invite objections. Functionality, onboarding and pricing questions are signs of a real evaluation.</li>
+    <li>Terminology: say "data migration limitations", not "data migration issues"; say "injectable tracking", not "Product Usage Tracking"; say "HIPAA-aware" unless compliance is verified for the specific claim.</li>
+  </ul>
+  <h3>Live training cadence</h3>
+  <table class="compact">
+    <tr><th>When</th><th>Who</th><th>What</th></tr>
+    <tr><td>Mondays</td><td>SDRs</td><td>Weekly SDR live session: cold-call openers, objection role-play, discovery practice, call listening</td></tr>
+    <tr><td>Tuesdays</td><td>AEs</td><td>Weekly AE live session: discovery, demo positioning, objection handling, deal reviews</td></tr>
+    <tr><td>As scheduled</td><td>Everyone</td><td>SE-delivered Product Training and MeevoIQ sessions</td></tr>
+  </table>
+  <p>Dates, join links, decks and recordings are on the <a href="https://meevosalesenablement.github.io/Live-Sales-Session/" data-link="L112" target="_blank">Live Sessions calendar</a>; past sessions are in its Session Library. Discovery question banks by segment are in the <a href="https://meevosalesenablement.github.io/Meevo-SPIN-Questions/" data-link="L113" target="_blank">SPIN Question Bank</a>.</p>
+  <h3>Frameworks you will be coached on</h3>
+  <p>These are the frameworks taught in onboarding and graded on in Attention: <strong>PPO</strong> (Purpose, Plan, Outcome) for opening any call; <strong>SPIN</strong> for discovery; <strong>FAB</strong> (Feature, Advantage, Benefit) tied to a benefit the prospect named; <strong>Feel, Felt, Found</strong> for objections; and the <strong>Effective Summary</strong> at the end of a demo. The criteria for each are listed under <a href="#outreach">Outreach &amp; other tools</a>.</p>
+  <div class="callout todo" data-ni="NI09">Add Core-specific talk tracks (Salon, Spa, School), demo certification checklist, and the objection library by persona. Owner: Terry Moorehead.</div>
+</section>
+
+<!-- ============================ TOOLS & PROCESS ============================ -->
+
+<section class="page" id="tools" data-role="all">
+  <h2>Enablement sites &amp; dashboards</h2>
+  <p>Everything Sales Enablement runs lives on these pages. Bookmark the Hub; it links to all of them. These are the sites you will be asked to use in onboarding, in live training and in your 1:1s.</p>
+  <h3>For every rep</h3>
+  <ul class="linklist">
+    <li><a href="https://meevosalesenablement.github.io/hub/" data-link="L114" target="_blank">Meevo Sales Enablement Hub</a><small>The front door to every enablement site below</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Sales-Enablement-New-Hire-Training/" data-link="L115" target="_blank">New Hire Sales Onboarding</a><small>The 3-week, 15-day programme: weekly schedule, Sales Enablement courses, SE-delivered Product Training with video and deck links, attendance</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Live-Sales-Session/" data-link="L116" target="_blank">Live Sessions calendar</a><small>Weekly live training: SDR sessions on Mondays, AE sessions on Tuesdays, plus SE Product Training. Click a session for the join link, deck and recording</small></li>
+    <li><a href="https://meevosalesenablement.github.io/meevo-sales-tna/" data-link="L117" target="_blank">Training Needs Analysis: "Where do you want to develop?"</a><small>Rate yourself 1 to 5 on the skills of your sales process, add a note on why, pick your top 3 coaching priorities. Refresh it each quarter; you can edit your answers any time</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Battlecard-dashboard/" data-link="L118" target="_blank">Competitive Battlecards dashboard</a><small>Battlecards for 70+ competitors across four tiers, "Where we win" quick reference, an Ask-the-field AI search grounded in Crayon and our decks, and a Field alert box that emails every rep instantly. Also home to the MeevoIQ AI Advisors panel</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Meevo-SPIN-Questions/" data-link="L119" target="_blank">Discovery &amp; SPIN Question Bank</a><small>Situation, Problem, Implication and Need-payoff questions by segment and persona</small></li>
+    <li><a href="https://meevosalesenablement.github.io/medspa-salon-spa-training/" data-link="L120" target="_blank">MedSpa vs Salon vs Spa: Live Training</a><small>How the three business types differ in workflow, buyer and pitch</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Call-feedback/" data-link="L121" target="_blank">Call Feedback dashboard</a><small>Feedback on your recorded calls, aligned to the Attention scorecards</small></li>
+  </ul>
+  <h3>For managers and enablement</h3>
+  <ul class="linklist">
+    <li><a href="https://meevosalesenablement.github.io/Enablement-Coaching-Dashboard/" data-link="L122" target="_blank">Coaching Dashboard</a><small>1:1 log, coaching actions and follow-ups, with Attention call links</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Repsskills/" data-link="L123" target="_blank">Rep Skills scorecard</a><small>Per-rep skill scores against the Attention scorecard criteria, manager write-back</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Enablement-Session-Measurement/" data-link="L124" target="_blank">Training Effectiveness</a><small>Session measurement and 2-day / 2-week retention scores</small></li>
+  </ul>
+  <div class="owner">Owner: Terry Moorehead (Sales Enablement) · Source of record for competitors remains Crayon</div>
+</section>
+
+<section class="page" id="salesforce" data-role="all">
+  <h2>Salesforce processes</h2>
+  <ul class="linklist">
+    <li><a href="https://app.tango.us/app/workflow/Create-Customer-Account-in-Salesforce-7bdb8d63c3884d5a900a0a219126f687" data-link="L125" target="_blank">Creating an Account</a><small>Tango walkthrough</small></li>
+    <li><a href="https://app.tango.us/app/workflow/Add-a-New-Contact-in-Salesforce-a826e1b0acf147b2a1ccc51002f9e630" data-link="L126" target="_blank">Creating a Contact on an Account</a><small>Every contact must have an associated role in the business</small></li>
+    <li><a href="https://millenniumsi-my.sharepoint.com/personal/sfossnight_meevo_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsfossnight%5Fmeevo%5Fcom%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2FConvert%5FContact%5Fto%5FNew%5FSubscription%5FOpportunity%5FProcess%201%2Epdf&parent=%2Fpersonal%2Fsfossnight%5Fmeevo%5Fcom%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files&ga=1" data-link="L127" target="_blank">Creating an Opportunity from a Contact</a><small>Convert Contact → New Subscription Opportunity (PDF)</small></li>
+    <li><a href="https://millenniumsi.lightning.force.com/lightning/n/crayon__competition" data-link="L128" target="_blank">Crayon Competition tab</a><small>Battlecards inside Salesforce</small></li>
+  </ul>
+  <h3>Rules of the road</h3>
+  <ul>
+    <li><strong>Record type:</strong> new GTM deals are <em>New Subscription</em> opportunities. Amendments, renewals and existing-customer rewrites are not GTM wins.</li>
+    <li><strong>Opportunity notetaking:</strong> capture pains and goals, current software, decision-makers and roles, timeline, and next step with date on every opp.</li>
+    <li><strong>Stage dates:</strong> stamp Moved to Discovery and Moved to Negotiate in order — see <a href="#pipeline">Pipeline &amp; stage rules</a>.</li>
+    <li><strong>Quotes:</strong> creating, recalling, sending and discounting quotes follows the Salesforce quote process.</li>
+    <li><strong>Multi-location accounts:</strong> parent/child account structure matters — a logo is the parent-rolled business. Review multi-location account management with Nicole Fabre.</li>
+  </ul>
+  <div class="callout todo" data-ni="NI10">Link the "How to use Salesforce" Tango overview, the opportunity-creation and quote (recall / send / discount) Tangos, the opportunity notetaking template, and the multi-location account management guide. Owner: Nicole Fabre.</div>
+</section>
+
+<section class="page" id="outreach" data-role="all">
+  <h2>Outreach &amp; other tools</h2>
+  <h3>Outreach</h3>
+  <ul class="linklist">
+    <li><a href="https://app.tango.us/app/workflow/SDR-Day---Day-Management---Outreach-588568a8f2b84ac49c50971aa530b296" data-link="L129" target="_blank">Day-to-Day Management in Outreach</a><small>Tango · SDR</small></li>
+    <li><a href="https://app.tango.us/app/workflow/Adding-new-MQL-to-Sequence-ada562074c05454ca2f83155debab9b1" data-link="L130" target="_blank">Adding a new MQL to Sequence</a><small>Tango · SDR</small></li>
+    <li><a href="https://app.tango.us/app/workflow/Using-Account-View-to-Bulk-Add-to-Sequence-02186c106c8b474b867c7ef6cd35afef" data-link="L131" target="_blank">Using Account Views to Bulk Add to Sequence</a><small>Tango · SDR</small></li>
+  </ul>
+  <p class="mini">Key sequences referenced in this playbook: Inbound Demo Request Sequence, Demo Confirmation Sequence, and the intro-call confirmation sequence. Remove prospects from prospecting sequences once a meeting is booked.</p>
+  <h3>Tool stack</h3>
+  <table>
+    <tr><th>Tool</th><th>What we use it for</th></tr>
+    <tr><td><strong>Zoom</strong></td><td>All discovery calls, demos and intro calls.</td></tr>
+    <tr><td><strong>Attention</strong></td><td>AI-powered call scoring and review. Review your own calls; managers coach from scorecards.</td></tr>
+    <tr><td><strong>ZoomInfo</strong></td><td>Prospecting and contact data.</td></tr>
+    <tr><td><strong>Vidyard</strong></td><td>Personalized video messages to prospects.</td></tr>
+    <tr><td><strong>Outreach</strong></td><td>Sequences, tasks, day-to-day SDR management.</td></tr>
+    <tr><td><strong>Salesforce</strong></td><td>System of record for accounts, contacts, opportunities, quotes.</td></tr>
+    <tr><td><strong>Crayon</strong></td><td>Competitor and persona battlecards (also inside Salesforce).</td></tr>
+    <tr><td><strong>Tango</strong></td><td>Step-by-step process walkthroughs.</td></tr>
+  </table>
+  <h3>Attention scorecard criteria</h3>
+  <p>Your recorded calls are scored in Attention against these criteria. Managers coach from the same list, and your scores feed the <a href="https://meevosalesenablement.github.io/Call-feedback/" data-link="L132" target="_blank">Call Feedback dashboard</a>.</p>
+  <table class="compact">
+    <tr><th>Scorecard</th><th>Role</th><th>What is graded</th></tr>
+    <tr><td>PPO: Purpose, Plan, Outcome</td><td>AE</td><td>Agenda setting · Purpose statement · Meeting structure · Outcome alignment</td></tr>
+    <tr><td>Discovery Questioning</td><td>AE</td><td>Current state · Top priorities · Implications · Identifying goals · Next steps</td></tr>
+    <tr><td>Business Impact Positioning</td><td>AE</td><td>Feature-Advantage-Benefit · Quantify the outcome · Strategic framing · Tie to priorities · Avoid the feature dump</td></tr>
+    <tr><td>Price Positioning</td><td>AE</td><td>Anchor on value · Tie to priorities · Present confidently · Defend with value · Trade the discount</td></tr>
+    <tr><td>Objection Handling (Feel, Felt, Found)</td><td>AE and SDR</td><td>Clarify the concern · Empathize (Feel) · Relate (Felt) · Reframe (Found) · Re-engage</td></tr>
+    <tr><td>Effective Summary After Demo</td><td>AE</td><td>Recap priorities · Connect to priorities · Confirm agreement · Transition to next step</td></tr>
+  </table>
+  <div class="callout todo" data-ni="NI11">Add login/access instructions and who to contact for each tool. Owner: Terry Moorehead / Avery Baccala.</div>
+</section>
+
+<section class="page" id="pricing" data-role="all">
+  <h2>Pricing, MeevoPay &amp; MeevoTips</h2>
+  <h3>Pricing overview</h3>
+  <p>Pricing, features and client-facing guides live in the <a href="https://millenniumsi.sharepoint.com/:x:/r/sites/MarketingDept/_layouts/15/Doc.aspx?sourcedoc=%7B3F37AB5A-4CAF-48B1-B888-080FC3CD8C1F%7D&file=marketing-share-doc.xlsx&wdLOR=c7DED1B35-9294-414E-ADF7-9ED601999AA7&action=default&mobileredirect=true&cid=2617ae51-6738-462e-9ea4-b4c53bc78e5d&isSPOFile=1&sourceId=&params=%7B%22AppName%22%3A%22Teams-Desktop%22%2C%22AppVersion%22%3A%2227%2F22010300411%22%7D" data-link="L133" target="_blank">Marketing share doc</a>.</p>
+  <div class="callout todo" data-ni="NI12">The pricing overview was an image in the MedSpa deck. Add the current price book (by segment and business type), discount authority, and quote approval rules. Owner: Nicole Fabre / Aaron Verasammy.</div>
+  <div class="callout"><strong>Positioning reminder:</strong> pricing transparency is the most negative decision driver in Clozd interviews. Be simple and upfront; never lead on discount; anchor to hours saved and margin recovered.</div>
+
+  <h3>MeevoPay</h3>
+  <p>Fully integrated, PCI-compliant payment processing and POS. Run the rate calculator on every deal — MeevoPay is a validated margin story against Vagaro Pay, Square, Fresha and Clover.</p>
+  <ul class="linklist">
+    <li><a href="https://app.tango.us/app/workflow/Creating-and-Managing-Meevo-Pay-Folder-for-Assessments-de4d7459fe69450bb21881bfd0265dbc" data-link="L134" target="_blank">Creating &amp; Managing the MeevoPay Folder for Assessments</a><small>Tango</small></li>
+    <li><a href="https://millenniumsi.sharepoint.com/sites/SalesLeadershipSharepoint2/Sales%20Leadership%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FSalesLeadershipSharepoint2%2FSales%20Leadership%20Documents%2FLeadership%20Files%2FManagement%2FMeevoPay%20Docs%20%26%20Rate%20Analysis&viewid=5495a367%2D9615%2D458e%2Db126%2D5cc4b48260d7&as=json&FolderCTID=0x0120005C5305FE30DBF04CA14C06464E4D4221" data-link="L135" target="_blank">MeevoPay Docs &amp; Rate Analysis folder</a><small>Sales Leadership SharePoint</small></li>
+    <li><a href="https://millenniumsi.sharepoint.com/:x:/s/MeevoPayMerchantServices/IQAQx7LgVp_ET4umX5St4m1cAfD1id6gvCy0s7yUIOvgfmI?CID=97b93d6b-f308-fb35-5eae-0d31a6f18012&e=RGXgq6" data-link="L136" target="_blank">MeevoPay Rate Calculator — US</a><small>Excel</small></li>
+    <li><a href="https://millenniumsi.sharepoint.com/:x:/s/MeevoPayMerchantServices/IQAYRuS6cGqOSZXEulb86KoUAfzJOcxQ5yaQc3F64jyUmHE?CID=b455595c-0eb5-990e-6ece-c6960e6ece71&e=LrQmFR" data-link="L137" target="_blank">MeevoPay Rate Calculator — Canada</a><small>Excel</small></li>
+    <li><a href="https://engage.meevo.com/hubfs/pos/MeevoPay-Terminal-Comparison.pdf" data-link="L138" target="_blank">Terminal Options</a><small>Client-facing terminal comparison PDF</small></li>
+  </ul>
+  <p class="mini">Meevo Merchant Services handles chargebacks and disputes. HSA/FSA acceptance and recurring payments are supported. Payments battlecards are under <a href="#competitors">Competitors</a>.</p>
+
+  <h3>MeevoTips</h3>
+  <p>Digital tipping that typically lifts tips 15–25% and is part of Total ARR. Training: <a href="https://millenniumsi-my.sharepoint.com/:w:/g/personal/mhull_meevo_com/IQANLeCakcWmSImwRmCyCo_0AXc6IP1QnfTstb5TluQJXe8?e=K8YgDb" data-link="L139" target="_blank">MeevoTips Training Doc</a> · <a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/63624/" data-link="L140" target="_blank">MeevoTips battlecard (Crayon)</a>.</p>
+  <div class="callout todo" data-ni="NI13">Add MeevoPay and MeevoTips attach targets, standard rate ranges, and the approval path for custom rates. Owner: Merchant Services / Aaron Verasammy.</div>
+</section>
+
+<section class="page" id="implementation" data-role="ae">
+  <h2>Integrations, partners &amp; implementation</h2>
+  <h3>Integrations &amp; Meevo Exchange</h3>
+  <p>Partner and integration details (pricing, features, client-facing guides) are in the <a href="https://millenniumsi.sharepoint.com/:x:/r/sites/MarketingDept/_layouts/15/Doc.aspx?sourcedoc=%7B3F37AB5A-4CAF-48B1-B888-080FC3CD8C1F%7D&file=marketing-share-doc.xlsx&wdLOR=c7DED1B35-9294-414E-ADF7-9ED601999AA7&action=default&mobileredirect=true&cid=2617ae51-6738-462e-9ea4-b4c53bc78e5d&isSPOFile=1&sourceId=&params=%7B%22AppName%22%3A%22Teams-Desktop%22%2C%22AppVersion%22%3A%2227%2F22010300411%22%7D" data-link="L141" target="_blank">Marketing share doc</a>. Partner battlecards in Crayon:</p>
+  <ul class="linklist">
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68992/" data-link="L142" target="_blank">CareCredit</a><small>Payment plans (MedSpa)</small></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59158/" data-link="L143" target="_blank">Textel</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59162/" data-link="L144" target="_blank">TrueLark</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59157/" data-link="L145" target="_blank">SalonInteractive</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59153/" data-link="L146" target="_blank">TouchMD</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59146/" data-link="L147" target="_blank">Vish</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68914/" data-link="L148" target="_blank">SalonScale</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68747/" data-link="L149" target="_blank">Demandforce</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59150/" data-link="L150" target="_blank">Reach.ai</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68749/" data-link="L151" target="_blank">mya</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68559/" data-link="L152" target="_blank">BookingBee.ai</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68885/" data-link="L153" target="_blank">Brook by RozieAI</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59164/" data-link="L154" target="_blank">Glammatic</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/59148/" data-link="L155" target="_blank">PoseCam</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68819/" data-link="L156" target="_blank">Aveda Booking</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68886/" data-link="L157" target="_blank">SalonClouds</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68772/" data-link="L158" target="_blank">MyAdvice</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/68748/" data-link="L159" target="_blank">Edge</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/72429/" data-link="L160" target="_blank">ScriptSure</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/70654/" data-link="L161" target="_blank">Aesthetix CRM</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/75535/" data-link="L162" target="_blank">CorralData</a></li>
+    <li><a href="https://app.crayon.co/intel/millennium-systems-international/battlecard/75615/" data-link="L163" target="_blank">OMAP by AltaDX</a></li>
+  </ul>
+  <div class="callout warn">Known MedSpa gap: Emma's marketing automations are limited and Meevo does not currently integrate with GoHighLevel. Ops/IT leads want specific export options (CSV / API / scheduled reports) — give specifics, never a vague "yes we integrate."</div>
+
+  <h3>Conversions &amp; implementation</h3>
+  <ul>
+    <li>Client-facing <a href="https://millenniumsi.sharepoint.com/:x:/r/sites/MarketingDept/_layouts/15/Doc.aspx?sourcedoc=%7B3F37AB5A-4CAF-48B1-B888-080FC3CD8C1F%7D&file=marketing-share-doc.xlsx&wdLOR=c7DED1B35-9294-414E-ADF7-9ED601999AA7&action=default&mobileredirect=true&cid=2617ae51-6738-462e-9ea4-b4c53bc78e5d&isSPOFile=1&sourceId=&params=%7B%22AppName%22%3A%22Teams-Desktop%22%2C%22AppVersion%22%3A%2227%2F22010300411%22%7D" data-link="L164" target="_blank">Conversion Checklists</a> set expectations before the close.</li>
+    <li><strong>Data review tickets</strong> are reviewed with Ryan Burns and the TSE team before a data conversion is committed.</li>
+    <li>Say "data migration limitations", not "issues". A clear, short implementation path is a differentiator against Zenoti (6+ months) — sell time-to-value.</li>
+  </ul>
+  <div class="callout todo" data-ni="NI14">Add the implementation timeline by segment, what the customer is responsible for, and the handoff checklist from AE to Implementation/CS. Owner: Ryan Burns.</div>
+</section>
+
+<!-- ============================ WORKING AT MEEVO ============================ -->
+<section class="page" id="onboarding" data-role="all">
+  <h2>New-hire ramp (30 / 60 / 90)</h2>
+  <p class="mini">Draft framework — to be confirmed with Sales Enablement (Terry Moorehead) and your manager. Certification checkpoints and timelines are placeholders until approved.</p>
+  <div class="grid">
+    <div class="card"><h3>Days 1–30 · Learn</h3><ul>
+      <li>Read this playbook end to end; complete product and segment training.</li>
+      <li>Shadow: SDRs sit in on intro calls and demos; AEs shadow discovery and demos across Core and MedSpa.</li>
+      <li>Learn the tools: Salesforce (account, contact, opp creation), Outreach, Zoom, Attention, ZoomInfo, Vidyard, Crayon.</li>
+      <li>Know the ICP tiers, segment definitions, funnel stages and the five buying roles cold.</li>
+      <li>Checkpoint: ICP and process knowledge check; first recorded mock intro call (SDR) or mock discovery (AE).</li></ul></div>
+    <div class="card"><h3>Days 31–60 · Do with support</h3><ul>
+      <li>SDR: work inbound leads live with manager review; run first outbound sequences to Primary sub-types.</li>
+      <li>AE: run discovery with a manager or senior AE present; co-deliver demos; build first quotes with review.</li>
+      <li>Weekly Attention call reviews with your manager.</li>
+      <li>Checkpoint: demo or intro-call certification; first pipeline review.</li></ul></div>
+    <div class="card"><h3>Days 61–90 · Own it</h3><ul>
+      <li>Full activity and pipeline expectations in effect.</li>
+      <li>SDR: hitting SAL and speed-to-lead standards independently.</li>
+      <li>AE: independent discovery-to-close; MeevoPay rate analysis on every deal.</li>
+      <li>Checkpoint: 90-day review against role KPIs; competitor and objection certification.</li></ul></div>
+  </div>
+  <h3>Your first-week checklist</h3>
+  <ul>
+    <li>Access confirmed: Salesforce, Outreach, Zoom, Attention, ZoomInfo, Vidyard, Crayon, Tango, SharePoint sites (Marketing, Sales Leadership, Merchant Services).</li>
+    <li>Meet your manager, Sales Enablement, your SDR/AE counterpart, and a TSE.</li>
+    <li>Bookmark this playbook, the Crayon Competition tab, and the Talk Tracks folder.</li>
+  </ul>
+  <h3>The formal programme: New Hire Sales Onboarding</h3>
+  <p>Your first three weeks follow the <a href="https://meevosalesenablement.github.io/Sales-Enablement-New-Hire-Training/" data-link="L165" target="_blank">New Hire Sales Onboarding</a> schedule: 15 days, 27 modules, run as Week 1 Foundations, Week 2 Skills Building and Week 3 Application &amp; Practice. Attendance is tracked on the site, and every module links to its deck and recording.</p>
+  <table class="compact">
+    <tr><th>Sales Enablement courses (20)</th><th>SE-delivered Product Training</th></tr>
+    <tr><td>Who We Are &amp; Why Meevo Wins · Understanding Your ICP · Cold Calling Mindset &amp; Iceberg Model · Competitive Landscape · Purpose-Plan-Outcome · Intro to Prospecting · Voicemails That Convert · Cold Email Frameworks · Gatekeeper Strategy · Agenda Setting &amp; Rapport · Objection Handling · Enterprise Accounts · Pain-to-Feature Mapping · Objection Role-Play · SPIN Selling Fundamentals · SDR Dials + Coaching · Social Selling (LinkedIn) · SDR-to-AE Handoff · Call Recording Review · Time Management</td>
+    <td>Basic Navigation &amp; Business Setup · Employee Setup, Payroll &amp; Schedules · Appointment Book &amp; Client Profiles · Register, MeevoPay &amp; MeevoTips · Notifications &amp; Marketing Suite · Online Portal &amp; Mobile Apps · Smart Centers, Reporting &amp; Goals · Online Booking &amp; eGift · Data Migration Process Overview · Implementation Process Overview · MeevoIQ: Product and Value Overview · plus release overviews and deep dives as they are added</td></tr>
+  </table>
+  <p>In your first 30 days you will also complete the <a href="https://meevosalesenablement.github.io/meevo-sales-tna/" data-link="L166" target="_blank">Training Needs Analysis</a>. Be candid: a low score is a request for support, not a mark against you, and it shapes the coaching plan your manager builds with you. Refresh it each quarter to see your own growth.</p>
+  <div class="callout todo" data-ni="NI15">Confirm ramp quota (if any) and the certification requirements and dates for each checkpoint. Owner: Terry Moorehead.</div>
+</section>
+
+<section class="page" id="comp" data-role="all">
+  <h2>Comp, quota &amp; policies</h2>
+  <p>Compensation plans are issued individually. This section explains how comp connects to the metrics in this playbook and links to policy owners; it does not replace your plan document.</p>
+  <table>
+    <tr><th>Topic</th><th>What the playbook can tell you</th><th>Where the answer lives</th></tr>
+    <tr><td>Quota measurement</td><td>Quota attainment and comp use the <strong>Software ARR</strong> lens; board and GTM reporting use Total ARR (Software + MeevoPay + MeevoTips). Wins require ARR &gt; $0.</td><td>Your comp plan document · Manager</td></tr>
+    <tr><td>SDR credit</td><td>SDRs are credited for SAL, SQL, SQO, Won and ARR on logos they originate via the Orig-SDR trace, even after the contact is reassigned to the AE.</td><td>Avery Baccala</td></tr>
+    <tr><td>Segment / territory</td><td>MedSpa → AE Team 3. Core SMB/MMS → AE Team 1. Enterprise / MM-L → Dan Wiser.</td><td>Your manager</td></tr>
+    <tr><td>SPIFFs &amp; contests</td><td>Announced by sales leadership.</td><td>Nicole Fabre</td></tr>
+    <tr><td>PTO, expenses, HR policies</td><td>Company-wide policies apply.</td><td>HR / employee handbook</td></tr>
+  </table>
+  <div class="callout todo" data-ni="NI16">Add: current comp plan summaries by role, quota by segment, SPIFF rules, MeevoPay/MeevoTips attach incentives, PTO and expense policy links, and the HR contact. Owners: Aaron Verasammy (plans), HR (policies).</div>
+</section>
+
+<section class="page" id="faq" data-role="all">
+  <h2>FAQ</h2>
+  <details><summary>Is a Solo (one-provider) business worth pursuing?</summary><div class="body">Only if it's a MedSpa. Solo is MedSpa-only ICP; every other Solo is a hard DQ.</div></details>
+  <details><summary>What counts as a SAL / SQL / SQO?</summary><div class="body">SAL = first meeting set (opp created, Suspect). SQL = first meeting held (Moved to Discovery date). SQO = demo conducted (Moved to Negotiate date). See <a href="#kpis">KPI definitions</a>.</div></details>
+  <details><summary>The prospect says they just renewed with a competitor. Now what?</summary><div class="body">Record the renewal date, spend and satisfaction in CRM, park for 9 months, and re-engage 90 days before the next renewal. See renewal timing under <a href="#sdr">SDR playbook</a>.</div></details>
+  <details><summary>A demo no-show hasn't rescheduled. When do I close it?</summary><div class="body">If the opp is still in Suspect 14 days after the no-show, mark it Closed Lost. Keep a touch every 3 business days until then.</div></details>
+  <details><summary>How do I find the battlecard for a competitor?</summary><div class="body">Crayon — via the <a href="https://millenniumsi.lightning.force.com/lightning/n/crayon__competition" data-link="L167" target="_blank">Competition tab in Salesforce</a> or the links under <a href="#competitors">Competitors</a>.</div></details>
+  <details><summary>A resort spa or plastic surgery practice filled out a demo form. Do I book it?</summary><div class="body">No — both are Exclude sub-types (PMS or EMR/EHR requirements Meevo doesn't support). Disqualify with the appropriate reason.</div></details>
+  <details><summary>Which ARR number is "my" number?</summary><div class="body">Quota attainment uses Software ARR. Total ARR (Software + MeevoPay + MeevoTips) is what the business reports. Always say which lens you mean.</div></details>
+  <details><summary>Can I say Meevo is HIPAA compliant?</summary><div class="body">Use "HIPAA-aware" language for general claims and check the specific capability (secure photo storage, controlled permissions, audit trails) against the MedSpa feature notes before making a compliance claim. Escalate specifics to the TSE team.</div></details>
+  <details><summary>Where is pricing?</summary><div class="body">The Marketing share doc holds pricing, features and client-facing guides; MeevoPay rates come from the rate calculators. See <a href="#pricing">Pricing</a>.</div></details>
+  <details><summary>Who do I ask about a MedSpa deal vs a Core deal?</summary><div class="body">MedSpa → Melanie Hull. Core → Taylor Meeker (AE) or Nicole Fabre (multi-location). Enterprise → Dan Wiser. See <a href="#ask">Who do I ask?</a></div></details>
+</section>
+
+<section class="page" id="changelog" data-role="all">
+  <h2>Owners &amp; change log</h2>
+  <table class="compact" id="ownersTable">
+    <tr><th>Section</th><th>Owner</th></tr>
+    <tr><td>Playbook overall, MedSpa</td><td>Melanie Hull</td></tr>
+    <tr><td>SDR playbook, inbound expectations, Outreach</td><td>Avery Baccala</td></tr>
+    <tr><td>AE playbook (Core), Core segments</td><td>Taylor Meeker</td></tr>
+    <tr><td>Pipeline rules, Salesforce processes, pricing, multi-location</td><td>Nicole Fabre</td></tr>
+    <tr><td>Enterprise</td><td>Dan Wiser</td></tr>
+    <tr><td>KPI definitions, ICP, comp plans</td><td>Aaron Verasammy</td></tr>
+    <tr><td>Implementation, data review, technical</td><td>Ryan Burns</td></tr>
+    <tr><td>Training, onboarding, talk tracks, tools, enablement sites, MeevoIQ positioning</td><td>Terry Moorehead</td></tr>
+  </table>
+  <table class="compact" id="changelogTable">
+    <tr><th>Date</th><th>Change</th></tr>
+    <tr><td>Sep 2026</td><td>Initial org-wide playbook created from the MedSpa Sales Playbook (Dec '25), ICP Targeting Guide v2, GTM KPI Definitions v10.13, persona library, Crayon and Clozd. All MedSpa deck links carried over.</td></tr>
+    <tr><td>Oct 2026</td><td>Sales Enablement additions: new "Enablement sites &amp; dashboards" section linking all eleven enablement sites; Teams channel names; live training cadence (SDR Mondays, AE Tuesdays); Attention scorecard criteria; the New Hire Sales Onboarding programme and course list; the Training Needs Analysis; MeevoIQ AI Advisors positioning and guardrails; Battlecards dashboard in Competitors. Owner: Terry Moorehead.</td></tr>
+  </table>
+  <p class="mini" id="dataSheetNote"></p>
+  <p class="mini">Review cadence: quarterly, aligned with the KPI definitions review. Submit corrections to the section owner.</p>
+</section>
+
+<div class="noresults" id="noresults">No sections match your search. Try a different term — or clear the search and use the navigation.</div>
+</main>
+
+<footer>Meevo Sales Playbook 2027 · Proprietary and Confidential · Internal use only. Quotes and data carry real account names and competitor references — do not share externally.</footer>
+
+<script>
+(function(){
+  var q=document.getElementById('q'),count=document.getElementById('count');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('section.page'));
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var role='all';
+  var noRes=document.getElementById('noresults');
+
+  function roleOk(sec){
+    var r=sec.getAttribute('data-role')||'all';
+    if(role==='all')return true;
+    if(r==='all')return true;
+    return r===role;
+  }
+  function clearMarks(sec){
+    sec.querySelectorAll('mark').forEach(function(m){var t=document.createTextNode(m.textContent);m.parentNode.replaceChild(t,m);});
+  }
+  function highlight(sec,term){
+    if(!term||term.length<2)return;
+    var walker=document.createTreeWalker(sec,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+      var p=n.parentNode.nodeName;if(p==='SCRIPT'||p==='STYLE'||p==='MARK')return NodeFilter.FILTER_REJECT;
+      return n.nodeValue.toLowerCase().indexOf(term)>-1?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+    var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+    nodes.slice(0,400).forEach(function(n){
+      var txt=n.nodeValue,low=txt.toLowerCase(),i=low.indexOf(term);
+      var frag=document.createDocumentFragment(),last=0;
+      while(i>-1){frag.appendChild(document.createTextNode(txt.slice(last,i)));var m=document.createElement('mark');m.textContent=txt.slice(i,i+term.length);frag.appendChild(m);last=i+term.length;i=low.indexOf(term,last);}
+      frag.appendChild(document.createTextNode(txt.slice(last)));n.parentNode.replaceChild(frag,n);
+    });
+  }
+  function apply(){
+    var term=q.value.trim().toLowerCase();var shown=0;
+    sections.forEach(function(sec){
+      clearMarks(sec);
+      var ok=roleOk(sec);
+      if(ok&&term){ok=sec.textContent.toLowerCase().indexOf(term)>-1;}
+      sec.classList.toggle('hide',!ok);
+      var link=navLinks.filter(function(a){return a.getAttribute('href')==='#'+sec.id;})[0];
+      if(link)link.classList.toggle('hidden-by-search',!ok);
+      if(ok){shown++;if(term){highlight(sec,term);sec.querySelectorAll('details').forEach(function(d){if(d.textContent.toLowerCase().indexOf(term)>-1)d.open=true;});}}
+    });
+    document.querySelectorAll('#nav .grp').forEach(function(g){var n=g.nextElementSibling,any=false;while(n&&!n.classList.contains('grp')){if(!n.classList.contains('hidden-by-search'))any=true;n=n.nextElementSibling;}g.classList.toggle('hidden-by-search',!any);});
+    count.textContent=term?shown+' section'+(shown===1?'':'s'):'';
+    noRes.style.display=shown?'none':'block';
+  }
+  q.addEventListener('input',apply);
+  document.getElementById('roleToggle').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    role=b.getAttribute('data-role');
+    this.querySelectorAll('button').forEach(function(x){x.classList.toggle('active',x===b);});
+    apply();
+  });
+  // active nav on scroll
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id);});}});
+  },{rootMargin:'-80px 0px -60% 0px'});
+  sections.forEach(function(s){obs.observe(s);});
+  // close mobile nav on click
+  navLinks.forEach(function(a){a.addEventListener('click',function(){document.querySelector('.sidebar').classList.remove('open');});});
+  // keyboard: "/" focuses search
+  document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus();}});
+})();
+</script>
+
+<script>
+// ---- Playbook data sheet (links, Needs-input, owners, change log) ----
+// Paste the Apps Script /exec URL here. Leave blank to run fully static.
+var PLAYBOOK_API = "";
+(function(){
+  if(!PLAYBOOK_API) return;
+  function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  fetch(PLAYBOOK_API+'?action=all').then(function(r){return r.json();}).then(function(d){
+    if(!d||!d.ok) return; var T=d.tabs||{};
+    (T.Links||[]).forEach(function(r){
+      if(!r.id) return; var a=document.querySelector('a[data-link="'+r.id+'"]'); if(!a) return;
+      if(r.url) a.href=r.url; if(r.label) a.textContent=r.label;
+    });
+    (T.NeedsInput||[]).forEach(function(r){
+      if(!r.id) return; var el=document.querySelector('[data-ni="'+r.id+'"]'); if(!el) return;
+      var st=String(r.status||'open').toLowerCase();
+      if(st==='done'||st==='closed'||st==='resolved'){
+        if(r.resolution){ el.className='callout'; el.innerHTML=esc(r.resolution); } else { el.parentNode.removeChild(el); }
+      } else if(st==='hidden'){ el.parentNode.removeChild(el); }
+      else if(r.item){ el.innerHTML=esc(r.item)+(r.owner?' Owner: '+esc(r.owner)+'.':''); }
+    });
+    var ot=document.getElementById('ownersTable');
+    if(ot&&(T.Owners||[]).length){ ot.innerHTML='<tr><th>Section</th><th>Owner</th></tr>'+T.Owners.map(function(r){return '<tr><td>'+esc(r.section)+'</td><td>'+esc(r.owner)+'</td></tr>';}).join(''); }
+    var ct=document.getElementById('changelogTable');
+    if(ct&&(T.Changelog||[]).length){ ct.innerHTML='<tr><th>Date</th><th>Change</th></tr>'+T.Changelog.map(function(r){return '<tr><td>'+esc(r.date)+'</td><td>'+esc(r.change)+(r.owner?' Owner: '+esc(r.owner)+'.':'')+'</td></tr>';}).join(''); }
+    var note=document.getElementById('dataSheetNote');
+    if(note&&d.sheetUrl) note.innerHTML='Links, Needs-input items, owners and this change log are maintained in the <a href="'+d.sheetUrl+'" target="_blank">Playbook data sheet</a>. Edit there; no HTML changes needed.';
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
