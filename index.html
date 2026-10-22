@@ -112,6 +112,18 @@ details .body{padding:0 18px 16px}
 .persona .who{font-size:.85rem;color:var(--charcoal-2);margin-bottom:6px}
 mark{background:#FDE9A8;padding:0 2px;border-radius:2px}
 .mini{font-size:.85rem;color:var(--charcoal-2)}
+.draft{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;background:var(--terra-3);color:var(--terra);border-radius:10px;padding:2px 9px;vertical-align:middle;margin-left:8px}
+.navlock{font-size:.65rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--terra);color:#fff;border-radius:8px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.mgr-locked{background:var(--ivory);border:1px dashed var(--terra);border-radius:10px;padding:28px;text-align:center}
+.mgr-locked p{max-width:560px;margin:0 auto 14px}
+.mgr-locked button{font:inherit;font-weight:600;padding:10px 22px;border-radius:6px;border:0;background:var(--ocean);color:#fff;cursor:pointer}
+#mgrBody{display:none}
+#managers.unlocked .mgr-locked{display:none}
+#managers.unlocked #mgrBody{display:block}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:1em 0}
+.flow .step{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:.9rem;min-width:150px}
+.flow .step b{display:block;color:var(--ocean);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+.flow .arrow{color:var(--gray);font-size:1.3rem}
 .owner{font-size:.8rem;color:var(--charcoal-2);margin-top:1.5em;padding-top:.8em;border-top:1px dashed var(--line)}
 .noresults{display:none;padding:40px;text-align:center;color:var(--charcoal-2)}
 footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:var(--charcoal-2)}
@@ -171,11 +183,19 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <a href="#outreach">Outreach &amp; other tools</a>
   <a href="#pricing">Pricing, MeevoPay, MeevoTips</a>
   <a href="#implementation">Integrations &amp; implementation</a>
+  <div class="grp">Standards &amp; policies</div>
+  <a href="#performance">Performance expectations</a>
+  <a href="#scorecards">Scorecard definitions (1 / 3 / 5)</a>
+  <a href="#policies">Policies &amp; procedures</a>
+  <a href="#releases">Release notes for sales</a>
+  <a href="#glossary">Glossary</a>
   <div class="grp">Working at Meevo</div>
   <a href="#onboarding">New-hire ramp (30/60/90)</a>
   <a href="#comp">Comp, quota &amp; policies</a>
   <a href="#faq">FAQ</a>
   <a href="#changelog">Owners &amp; change log</a>
+  <div class="grp">Managers</div>
+  <a href="#managers">Manager resources <span class="navlock">locked</span></a>
 </nav>
 
 <main id="main">
@@ -1119,6 +1139,119 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
 </section>
 
 <!-- ============================ WORKING AT MEEVO ============================ -->
+
+<section class="page" id="performance" data-role="all">
+  <h2>Performance expectations <span class="draft">DRAFT FOR REVIEW</span></h2>
+  <p>What good looks like in each role, where it is measured, and who reviews it. Numbers below are placeholders until the owner confirms them; the structure is what we are agreeing first.</p>
+  <h3>SDR</h3>
+  <table class="compact">
+    <tr><th>Metric</th><th>Expectation</th><th>Measured in</th><th>Reviewed</th></tr>
+    <tr><td>Dials per day</td><td>[target]</td><td>Outreach / Salesforce</td><td>Weekly 1:1</td></tr>
+    <tr><td>Connects per day</td><td>[target]</td><td>Outreach</td><td>Weekly 1:1</td></tr>
+    <tr><td>Meetings set per week</td><td>[target]</td><td>Salesforce (SAL)</td><td>Weekly 1:1</td></tr>
+    <tr><td>Meetings held (show rate)</td><td>[target] %</td><td>Salesforce (SAL → SQL)</td><td>Monthly</td></tr>
+    <tr><td>Inbound lead response time</td><td>Under [x] minutes in business hours</td><td>Salesforce lead age</td><td>Weekly</td></tr>
+    <tr><td>Call quality</td><td>Average [x] / 5 on the Objection Handling scorecard</td><td>Attention</td><td>Monthly call review</td></tr>
+  </table>
+  <h3>AE</h3>
+  <table class="compact">
+    <tr><th>Metric</th><th>Expectation</th><th>Measured in</th><th>Reviewed</th></tr>
+    <tr><td>Demos per week</td><td>[target]</td><td>Salesforce</td><td>Weekly 1:1</td></tr>
+    <tr><td>Win rate (SQL → Closed Won)</td><td>[target] %</td><td>Salesforce</td><td>Monthly</td></tr>
+    <tr><td>Sales cycle</td><td>[x] days SMB · [y] days Mid-Market</td><td>Salesforce</td><td>Monthly</td></tr>
+    <tr><td>MeevoPay attach</td><td>[target] % of new logos</td><td>Salesforce / Merchant Services</td><td>Monthly</td></tr>
+    <tr><td>MeevoTips attach</td><td>[target] %</td><td>Salesforce</td><td>Monthly</td></tr>
+    <tr><td>Pipeline coverage</td><td>[x]× quota for the current quarter</td><td>Salesforce</td><td>Weekly pipeline review</td></tr>
+    <tr><td>Call quality</td><td>Average [x] / 5 across the six AE scorecards</td><td>Attention</td><td>Monthly call review</td></tr>
+  </table>
+  <h3>SE</h3>
+  <table class="compact">
+    <tr><th>Metric</th><th>Expectation</th><th>Measured in</th><th>Reviewed</th></tr>
+    <tr><td>Data review turnaround</td><td>Within [x] business days of ticket</td><td>Ticket queue</td><td>Weekly</td></tr>
+    <tr><td>Product Training delivered</td><td>Per the onboarding and live-session calendar</td><td>Live Sessions site</td><td>Monthly</td></tr>
+    <tr><td>Technical demo support</td><td>Joins when the AE flags a technical requirement in discovery</td><td>Salesforce opp notes</td><td>Monthly</td></tr>
+  </table>
+  <p>Behaviours are scored separately from outcomes: the numbers above say whether we hit the target, the <a href="#scorecards">scorecards</a> say how. A rep can miss a number for a month and still be on track if the behaviours are improving; the reverse is the warning sign.</p>
+  <div class="callout todo">Confirm the targets per role and segment. Owners: Avery Baccala (SDR), Taylor Meeker and Melanie Hull (AE), Ryan Burns (SE), Nicole Fabre (definitions).</div>
+</section>
+
+<section class="page" id="scorecards" data-role="all">
+  <h2>Scorecard definitions: what a 1, 3 and 5 look like <span class="draft">DRAFT FOR REVIEW</span></h2>
+  <p>Your recorded calls are scored in Attention on the criteria listed under <a href="#outreach">Outreach &amp; other tools</a>. This page says what each score means so you can score yourself before your manager does, and so every manager scores the same way.</p>
+  <table class="compact">
+    <tr><th style="width:22%">Scorecard</th><th>1 · Not yet</th><th>3 · Solid</th><th>5 · Model call</th></tr>
+    <tr><td><strong>PPO</strong> (Purpose, Plan, Outcome)</td><td>Jumps into the demo or discovery with no agenda; prospect does not know why they are there.</td><td>States purpose and plan; checks for agreement; outcome is implied rather than named.</td><td>Purpose, plan and the desired outcome are stated in the prospect's words, confirmed, and referred back to at the close.</td></tr>
+    <tr><td><strong>Discovery Questioning</strong></td><td>Survey-style questions; features offered before a problem is found; no implication or goal.</td><td>Current state and priorities uncovered; some implication questions; goals stated.</td><td>Open questions build on each other; implications quantified; prospect names the goal and the cost of inaction; next step agreed before demo.</td></tr>
+    <tr><td><strong>Business Impact Positioning</strong></td><td>Feature dump; benefits generic; no link to what the prospect said.</td><td>FAB used for the main features; some outcomes quantified.</td><td>Every feature shown is tied to a priority the prospect named, with a quantified outcome and strategic framing.</td></tr>
+    <tr><td><strong>Price Positioning</strong></td><td>Price given cold, apologised for, or discounted unprompted.</td><td>Price anchored on value and tied to priorities; some defence.</td><td>Confident presentation, value defended, any discount traded for a commitment.</td></tr>
+    <tr><td><strong>Objection Handling</strong> (Feel, Felt, Found)</td><td>Argues or concedes; does not clarify the real concern.</td><td>Clarifies and empathises; reframes with Found; re-engagement weak.</td><td>Clarifies, empathises, relates, reframes with proof and re-engages toward the next step without losing control.</td></tr>
+    <tr><td><strong>Effective Summary</strong></td><td>Demo ends with "any questions?"</td><td>Recaps what was shown and asks for agreement.</td><td>Recaps the prospect's priorities, connects each to what was shown, confirms agreement, and transitions to a dated next step.</td></tr>
+  </table>
+  <div class="callout">Use this before every call review: score yourself first, then compare with your manager's score. The gap is the coaching conversation.</div>
+  <div class="callout todo">Calibrate the descriptors with a shared set of scored calls so Avery, Mel and Taylor grade the same way. Owner: Terry Moorehead.</div>
+</section>
+
+<section class="page" id="policies" data-role="all">
+  <h2>Policies &amp; procedures <span class="draft">DRAFT FOR REVIEW</span></h2>
+  <p>Short, numbered, and linked to the source document. The rule is here; the detail lives in SharePoint or Salesforce.</p>
+  <table class="compact">
+    <tr><th style="width:4%">#</th><th style="width:26%">Policy</th><th>The rule</th><th style="width:18%">Source / owner</th></tr>
+    <tr><td>1</td><td>Discount authority</td><td>AEs may offer up to [x] % without approval. Above that, request approval in Salesforce before quoting. No discount is offered before value has been positioned and a concern named.</td><td>[link] · Nicole Fabre</td></tr>
+    <tr><td>2</td><td>Quote approval</td><td>Quotes above [threshold] or with custom terms route to [approver] via the Salesforce approval process. Allow [x] business days.</td><td>[link] · Nicole Fabre</td></tr>
+    <tr><td>3</td><td>Salesforce hygiene</td><td>An opportunity does not move stage until the exit criteria are met and the notes template is filled. Close dates are updated the day they change. Dead opps are closed, not left to age.</td><td><a href="#pipeline">Pipeline rules</a> · Nicole Fabre</td></tr>
+    <tr><td>4</td><td>Call recording</td><td>All external calls run through Attention. Tell the prospect the call is recorded at the start. Do not switch recording off to discuss price.</td><td>[link] · Terry Moorehead</td></tr>
+    <tr><td>5</td><td>Lead routing &amp; ownership</td><td>Inbound leads are worked by the SDR team within the response-time standard; account ownership follows the routing rules in Salesforce. Disputes go to the SDR Manager, then the Director of Sales.</td><td>[link] · Avery Baccala</td></tr>
+    <tr><td>6</td><td>Competitor claims</td><td>Say only what is in a Crayon battlecard or sourced from the competitor's own material. Never characterise a competitor's AI or roadmap without a source.</td><td><a href="#competitors">Competitors</a> · Terry Moorehead</td></tr>
+    <tr><td>7</td><td>Roadmap language</td><td>Roadmap items are described as roadmap, with no dates. "Pilot at no cost", not "free trial".</td><td><a href="#releases">Release notes</a></td></tr>
+    <tr><td>8</td><td>PTO and expenses</td><td>Request PTO in [system] with [x] days' notice; expenses submitted within [x] days with receipts.</td><td>[HR link] · HR</td></tr>
+    <tr><td>9</td><td>Security questionnaires &amp; legal</td><td>Do not answer security or legal questionnaires yourself. Route to [contact] and set the prospect's expectation on turnaround.</td><td>[link] · [owner]</td></tr>
+  </table>
+  <div class="callout todo">Fill in thresholds, systems and links. Owners: Nicole Fabre (1 to 3), Terry Moorehead (4, 6), Avery Baccala (5), HR (8), [owner] (9).</div>
+</section>
+
+<section class="page" id="releases" data-role="all">
+  <h2>Release notes for sales <span class="draft">DRAFT FOR REVIEW</span></h2>
+  <p>The rep-safe version of what is shipping: what it does, what to say, and what not to promise. One row per release. The MeevoIQ guardrails are the template for the "do not say" column.</p>
+  <table class="compact">
+    <tr><th style="width:12%">When</th><th style="width:18%">What</th><th>What to say</th><th>Do not say</th><th style="width:12%">More</th></tr>
+    <tr><td>Now</td><td>MeevoIQ Front Desk Advisor</td><td>Answers the phone 24/7, books, reschedules and cancels, escalates to a person. Pilot at no cost; early adopter $149 / location / month.</td><td>Do not lead with it in a MedSpa demo. Do not call it a free trial. Do not quote a general-availability date.</td><td><a href="https://meevosalesenablement.github.io/Battlecard-dashboard/" target="_blank">Battlecards</a></td></tr>
+    <tr><td>Now</td><td>MeevoIQ Insights Advisor</td><td>Real-time dashboards on revenue, retention and product performance with drill-down.</td><td>Do not promise custom report builds.</td><td>Battlecards</td></tr>
+    <tr><td>Now</td><td>MeevoIQ Marketing Advisor</td><td>AI-generated upsell offers from the client's own data, approve-before-send.</td><td>Do not compare feature-for-feature with Podium or Mangomint without a sourced fact.</td><td>Battlecards</td></tr>
+    <tr><td>[month]</td><td>[release]</td><td>[one sentence a rep can say]</td><td>[what not to promise]</td><td>[link]</td></tr>
+  </table>
+  <p>Source for dates and scope is the Meevo Release Calendar channel in Teams. Sales Enablement rewrites each release into this table within a week of the release note.</p>
+  <div class="callout todo">Agree the hand-off: who tells Enablement a release is confirmed, and when. Owner: Terry Moorehead with Product.</div>
+</section>
+
+<section class="page" id="glossary" data-role="all">
+  <h2>Glossary</h2>
+  <p>The terms this playbook assumes you know.</p>
+  <table class="compact">
+    <tr><th style="width:18%">Term</th><th>Meaning</th></tr>
+    <tr><td>MQL</td><td>Marketing Qualified Lead: an inbound lead that met Marketing's scoring threshold and is handed to the SDR team.</td></tr>
+    <tr><td>SAL</td><td>Sales Accepted Lead: an SDR has spoken to the lead and booked a meeting that the AE accepts.</td></tr>
+    <tr><td>SQL / SQO</td><td>Sales Qualified Lead / Opportunity: the AE has held the meeting, confirmed fit and opened an opportunity.</td></tr>
+    <tr><td>Logo</td><td>One customer business, regardless of locations. KPIs count once per logo unless stated.</td></tr>
+    <tr><td>Location</td><td>One physical site inside a logo. Pricing is per location.</td></tr>
+    <tr><td>SMB / MMS / MM-L / ENT</td><td>Segments by location count: Small and Medium Business, Mid-Market Small, Mid-Market Large, Enterprise (25+ locations). See <a href="#segments">Segments</a>.</td></tr>
+    <tr><td>Core</td><td>Salon, Spa, Salon &amp; Spa and School business types, as distinct from MedSpa.</td></tr>
+    <tr><td>ICP</td><td>Ideal Customer Profile: the business types and segments we target, tiered. See <a href="#icp">ICP &amp; targeting tiers</a>.</td></tr>
+    <tr><td>Attach</td><td>The share of new logos that also take MeevoPay or MeevoTips.</td></tr>
+    <tr><td>MeevoPay / MeevoTips</td><td>Meevo's integrated payments and tipping products.</td></tr>
+    <tr><td>MeevoIQ</td><td>Meevo's AI Advisors: Front Desk, Insights and Marketing.</td></tr>
+    <tr><td>SE</td><td>Sales Engineer (formerly TSE): runs product training, technical demos and data review tickets.</td></tr>
+    <tr><td>CAE / CSM</td><td>Customer Account Executive (upsells to existing customers) / Customer Success Manager (adoption and retention).</td></tr>
+    <tr><td>PPO</td><td>Purpose, Plan, Outcome: how every call opens.</td></tr>
+    <tr><td>SPIN</td><td>Situation, Problem, Implication, Need-payoff: our discovery questioning model.</td></tr>
+    <tr><td>FAB</td><td>Feature, Advantage, Benefit: how a feature is positioned against a stated priority.</td></tr>
+    <tr><td>Feel, Felt, Found</td><td>Our objection-handling frame: empathise, relate, reframe with proof.</td></tr>
+    <tr><td>TNA</td><td>Training Needs Analysis: the quarterly self-assessment that drives coaching plans.</td></tr>
+    <tr><td>Crayon</td><td>Our competitive intelligence platform; the source of record for battlecards.</td></tr>
+    <tr><td>Attention</td><td>Our call recording and scorecard platform.</td></tr>
+    <tr><td>Outreach</td><td>The SDR sequencing and dialling platform.</td></tr>
+    <tr><td>Tango</td><td>Step-by-step process guides for Salesforce and Outreach.</td></tr>
+  </table>
+</section>
 <section class="page" id="onboarding" data-role="all">
   <h2>New-hire ramp (30 / 60 / 90)</h2>
   <p class="mini">Draft framework — to be confirmed with Sales Enablement (Terry Moorehead) and your manager. Certification checkpoints and timelines are placeholders until approved.</p>
@@ -1185,6 +1318,85 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <details><summary>Who do I ask about a MedSpa deal vs a Core deal?</summary><div class="body">MedSpa → Melanie Hull. Core → Taylor Meeker (AE) or Nicole Fabre (multi-location). Enterprise → Nicole Fabre. See <a href="#ask">Who do I ask?</a></div></details>
 </section>
 
+
+<section class="page" id="managers" data-role="all">
+  <h2>Manager resources <span class="draft">DRAFT FOR REVIEW</span></h2>
+  <div class="mgr-locked">
+    <h3 style="margin-top:0">Manager access only</h3>
+    <p>Coaching plans, comp detail, performance management, hiring and calibration material. Enter the manager password to open this section.</p>
+    <button type="button" id="mgrUnlock">Unlock manager resources</button>
+  </div>
+  <div id="mgrBody">
+    <p>How the manager material fits together, from a rep's first day to the quarterly review:</p>
+    <div class="flow">
+      <div class="step"><b>Hire</b>Interview scorecard, role-play brief</div><span class="arrow">→</span>
+      <div class="step"><b>Onboard</b>Manager's 15-day checklist</div><span class="arrow">→</span>
+      <div class="step"><b>Assess</b>TNA team view</div><span class="arrow">→</span>
+      <div class="step"><b>Coach</b>Coaching plan, 1:1 log, call calibration</div><span class="arrow">→</span>
+      <div class="step"><b>Review</b>Pipeline review, performance management</div>
+    </div>
+
+    <h3>Coaching</h3>
+    <ul class="linklist">
+      <li><a href="https://meevosalesenablement.github.io/Enablement-Coaching-Dashboard/" target="_blank">Coaching Dashboard</a><small>1:1 log, coaching actions and follow-ups per rep, with Attention call links</small></li>
+      <li><a href="https://meevosalesenablement.github.io/meevo-sales-tna/#/admin" target="_blank">TNA team view</a><small>Every rep's self-assessment, priorities and values answers; edit or clear scores; export CSV. Compare quarter on quarter</small></li>
+      <li><a href="https://meevosalesenablement.github.io/Repsskills/" target="_blank">Rep Skills scorecard</a><small>Per-rep scores against the Attention criteria with manager write-back</small></li>
+      <li><a href="https://meevosalesenablement.github.io/Enablement-Session-Measurement/" target="_blank">Training Effectiveness</a><small>Session measurement and 2-day / 2-week retention</small></li>
+    </ul>
+    <h4>Coaching plan template</h4>
+    <table class="compact">
+      <tr><th>Rep</th><th>Top TNA priority</th><th>Observed in calls (scorecard)</th><th>Coaching action this month</th><th>Evidence of change</th><th>Review date</th></tr>
+      <tr><td>[name]</td><td>e.g. Price positioning</td><td>Price Positioning avg 2.4 over 5 calls</td><td>Role-play anchor-on-value twice; shadow Mel's next pricing conversation</td><td>Avg 3.5+ over next 5 calls; no unprompted discount</td><td>[date]</td></tr>
+    </table>
+    <h4>Call review calibration</h4>
+    <p>Once a quarter, Avery, Mel and Taylor score the same three calls independently against the <a href="#scorecards">1 / 3 / 5 descriptors</a>, then compare. Any criterion with a spread of 2 or more points gets its descriptor rewritten. Keep the calibrated calls as the reference set for new managers.</p>
+
+    <h3>Pipeline review guide</h3>
+    <table class="compact">
+      <tr><th style="width:20%">Stage</th><th>Questions to ask</th><th>Red flags</th></tr>
+      <tr><td>Discovery / SQL</td><td>What problem did they name, in their words? What does it cost them? Who else is involved in the decision?</td><td>No quantified pain; single contact; next step not dated</td></tr>
+      <tr><td>Demo</td><td>Which priorities did the demo map to? What did the summary confirm? What is the agreed next step?</td><td>"Went well" with no confirmed agreement; demo before discovery</td></tr>
+      <tr><td>Proposal</td><td>Was price anchored on value? What would make them say no? Is MeevoPay in the quote?</td><td>Discount offered before an objection; close date moved twice</td></tr>
+      <tr><td>Negotiation / Close</td><td>What has to be true for a signature by the close date? What are we trading for any concession?</td><td>Legal or security questionnaire not yet routed; champion gone quiet</td></tr>
+    </table>
+    <p>Forecast categories: Commit (signature path confirmed, paperwork in motion), Best case (verbal yes, one open item), Pipeline (qualified, next step dated), Omit (no dated next step).</p>
+
+    <h3>Compensation detail</h3>
+    <table class="compact">
+      <tr><th>Role</th><th>Base / variable split</th><th>Quota</th><th>Accelerators</th><th>SPIFFs</th><th>Attach incentives</th></tr>
+      <tr><td>SDR</td><td>[x / y]</td><td>[meetings held / SQLs]</td><td>[rule]</td><td>[current]</td><td>n/a</td></tr>
+      <tr><td>AE (Core)</td><td>[x / y]</td><td>[ARR by segment]</td><td>[rule]</td><td>[current]</td><td>MeevoPay / MeevoTips [rule]</td></tr>
+      <tr><td>AE (MedSpa)</td><td>[x / y]</td><td>[ARR]</td><td>[rule]</td><td>[current]</td><td>[rule]</td></tr>
+    </table>
+    <div class="callout todo">Comp plan detail, quota by rep and SPIFF rules. Owners: Nicole Fabre, HR. The public <a href="#comp">Comp, quota &amp; policies</a> section carries only the summary.</div>
+
+    <h3>Performance management</h3>
+    <p>Expectations conversation first, documented in the Coaching Dashboard. If the gap persists after [x] weeks of coaching with evidence, move to a written plan using the PIP template with HR. Document behaviours and numbers, not impressions; attach the Attention calls and the scorecard trend.</p>
+    <ul class="linklist">
+      <li><a href="#" >Expectations conversation guide</a><small>[link to SharePoint doc]</small></li>
+      <li><a href="#" >PIP template</a><small>[link to HR template]</small></li>
+      <li><a href="#" >Documentation standards</a><small>[link]</small></li>
+    </ul>
+
+    <h3>Hiring</h3>
+    <ul class="linklist">
+      <li><a href="#" >Interview scorecard</a><small>Curiosity, commercial awareness, coachability, call presence; scored 1 to 5 with evidence</small></li>
+      <li><a href="#" >Candidate role-play brief</a><small>A cold call (SDR) or a 10-minute discovery (AE) against a Meevo persona; scored on the same scorecards we coach to</small></li>
+      <li><a href="#" >Manager's new-hire checklist</a><small>Day 0 access, buddy, week-1 1:1 cadence, TNA by day 30, certification date set</small></li>
+    </ul>
+
+    <h3>Routing and escalation</h3>
+    <table class="compact">
+      <tr><th>Topic</th><th>Contact</th><th>Expected turnaround</th></tr>
+      <tr><td>Territory and lead routing disputes</td><td>Avery Baccala → Nicole Fabre</td><td>Same day</td></tr>
+      <tr><td>Pricing exceptions</td><td>Nicole Fabre</td><td>[x] business days</td></tr>
+      <tr><td>Legal / contract redlines</td><td>[contact]</td><td>[x] business days</td></tr>
+      <tr><td>Security questionnaires</td><td>[contact]</td><td>[x] business days</td></tr>
+      <tr><td>MeevoPay custom rates</td><td>Merchant Services</td><td>[x] business days</td></tr>
+    </table>
+    <div class="callout warn">This section is a draft to agree structure and flow. Nothing in it should be treated as policy until the owner confirms and the "Draft for review" label is removed.</div>
+  </div>
+</section>
 <section class="page" id="changelog" data-role="all">
   <h2>Owners &amp; change log</h2>
   <table class="compact" id="ownersTable">
@@ -1201,6 +1413,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     <tr><th>Date</th><th>Change</th></tr>
     <tr><td>Sep 2026</td><td>Initial org-wide playbook created from the MedSpa Sales Playbook (Dec '25), ICP Targeting Guide v2, GTM KPI Definitions v10.13, persona library, Crayon and Clozd. All MedSpa deck links carried over.</td></tr>
     <tr><td>Oct 2026</td><td>Sales Enablement additions: new "Enablement sites &amp; dashboards" section linking all eleven enablement sites; Teams channel names; live training cadence (SDR Mondays, AE Tuesdays); Attention scorecard criteria; the New Hire Sales Onboarding programme and course list; the Training Needs Analysis; MeevoIQ AI Advisors positioning and guardrails; Battlecards dashboard in Competitors. Owner: Terry Moorehead.</td></tr>
+    <tr><td>Oct 2026</td><td>Draft sections added for review: Performance expectations, Scorecard definitions (1 / 3 / 5), Policies &amp; procedures, Release notes for sales, Glossary, and a password-protected Manager resources section. Marked "Draft for review" until owners confirm.</td></tr>
   </table>
   <p class="mini" id="dataSheetNote"></p>
   <p class="mini">Review cadence: quarterly, aligned with the KPI definitions review. Submit corrections to the section owner.</p>
@@ -1309,7 +1522,7 @@ var PLAYBOOK_API = "https://script.google.com/macros/s/AKfycbwrMBNvbtQGxBImEigi1
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
   <div class="box">
     <h3 id="gateTitle">Manager access only</h3>
-    <p>The Coaching Dashboard holds 1:1 notes and coaching actions. Enter the manager password to continue.</p>
+    <p>This content is for sales managers and enablement. Enter the manager password to continue.</p>
     <input type="password" id="gatePw" autocomplete="off" aria-label="Manager password">
     <div class="err" id="gateErr"></div>
     <div class="row"><button type="button" id="gateCancel">Cancel</button><button type="button" class="primary" id="gateGo">Open dashboard</button></div>
@@ -1327,10 +1540,16 @@ var PLAYBOOK_API = "https://script.google.com/macros/s/AKfycbwrMBNvbtQGxBImEigi1
     if(ok()) return;
     e.preventDefault(); target=a.href; gate.classList.add('open'); setTimeout(function(){pw.focus();},50);
   });
+  var mgr=document.getElementById('managers'), mgrBtn=document.getElementById('mgrUnlock');
+  if(ok()&&mgr) mgr.classList.add('unlocked');
+  if(mgrBtn) mgrBtn.addEventListener('click',function(){
+    if(ok()){ mgr.classList.add('unlocked'); return; }
+    target=''; gate.classList.add('open'); setTimeout(function(){pw.focus();},50);
+  });
   function go(){
     var v=pw.value; if(!v){ err.textContent='Enter the password.'; return; }
     sha(v).then(function(h){
-      if(h===HASH){ remember(); close(); window.open(target,'_blank','noopener'); }
+      if(h===HASH){ remember(); close(); if(mgr) mgr.classList.add('unlocked'); if(target) window.open(target,'_blank','noopener'); }
       else { err.textContent='That password is not correct.'; pw.select(); }
     });
   }
