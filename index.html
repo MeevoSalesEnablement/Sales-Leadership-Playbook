@@ -61,7 +61,7 @@ section.page.hero{background:linear-gradient(135deg,var(--ocean) 0%,var(--ocean-
 .card.link-card:hover{box-shadow:0 3px 12px rgba(32,72,85,.12)}
 .card .meta{font-size:.8rem;color:var(--charcoal-2)}
 .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-right:6px;color:#fff;background:var(--ocean)}
-.tag.sdr{background:var(--terra)}.tag.ae{background:var(--mauve)}.tag.all{background:var(--sage)}
+.tag.sdr{background:var(--terra)}.tag.ae{background:var(--mauve)}.tag.se{background:var(--sage)}.tag.all{background:var(--sage)}
 .tag.salon{background:var(--mauve)}.tag.spa{background:var(--terra)}.tag.medspa{background:var(--ocean)}.tag.school{background:var(--charcoal)}.tag.ss{background:var(--rose)}
 .callout{border-left:4px solid var(--ocean);background:#f1f5f7;padding:12px 16px;border-radius:0 6px 6px 0;margin:1em 0}
 .callout.warn{border-left-color:var(--terra);background:#fbf3ec}
@@ -165,6 +165,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <div class="grp">Your role</div>
   <a href="#sdr">SDR playbook</a>
   <a href="#ae">AE playbook</a>
+  <a href="#se">SE playbook</a>
   <a href="#inbound">Inbound lead expectations</a>
   <a href="#pipeline">Pipeline &amp; stage rules</a>
   <a href="#kpis">Funnel &amp; KPI definitions</a>
@@ -360,6 +361,60 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <p class="owner">Owners: Taylor Meeker, Melanie Hull, Dan Wiser · Related: <a href="#pipeline">Pipeline rules</a> · <a href="#value">Value framework</a> · <a href="#competitors">Competitors</a></p>
 </section>
 
+
+<section class="page" id="se" data-role="se">
+  <h2><span class="tag se">SE</span> SE playbook <span class="draft">DRAFT FOR REVIEW</span></h2>
+  <p><strong>Mission:</strong> be the product authority in the sales cycle. You teach the sales team the product, join the AE when a deal has a technical requirement, own the data review before a conversion is committed, and make sure what was sold is what gets implemented. You are measured on how well the team sells the product, not just on your own calls.</p>
+
+  <h3>What you're measured on</h3>
+  <div class="kpi">
+    <div><b>Training delivered</b><span>Product Training modules and MeevoIQ sessions run to the onboarding and live-session calendar</span></div>
+    <div><b>Data review turnaround</b><span>Tickets reviewed within [x] business days; no conversion committed without one</span></div>
+    <div><b>Technical win support</b><span>Joined every opportunity the AE flagged as technical; outcome logged in the opp</span></div>
+    <div><b>Handoff quality</b><span>Implementation receives a complete checklist; zero "we were told it does X" escalations</span></div>
+  </div>
+  <div class="callout todo">Confirm SE targets, ticket SLA and how technical-win support is logged in Salesforce. Owner: Ryan Burns.</div>
+
+  <h3>Where you sit in the deal</h3>
+  <div class="flow">
+    <div class="step"><b>Discovery</b>AE flags a technical requirement: integrations, data migration, multi-location setup, EMR / charting, hardware</div><span class="arrow">→</span>
+    <div class="step"><b>Technical demo</b>You run the deep-dive the AE scoped; AE keeps the business thread</div><span class="arrow">→</span>
+    <div class="step"><b>Data review</b>Ticket raised, source data reviewed, risks and gaps documented</div><span class="arrow">→</span>
+    <div class="step"><b>Proposal</b>Conversion scope and timeline confirmed before the quote goes out</div><span class="arrow">→</span>
+    <div class="step"><b>Handoff</b>Checklist to Implementation; you stay on until kickoff</div>
+  </div>
+
+  <h3>The SE motion</h3>
+  <ol class="steps">
+    <li><strong>Teach first.</strong> Every new rep goes through your Product Training modules in weeks 1 to 3 (<a href="https://meevosalesenablement.github.io/Sales-Enablement-New-Hire-Training/" target="_blank">New Hire Sales Onboarding</a>), and the team gets a product or MeevoIQ session on the <a href="https://meevosalesenablement.github.io/Live-Sales-Session/" target="_blank">live calendar</a>. Record every session and attach the deck so it lands in the Session Library.</li>
+    <li><strong>Scope before you demo.</strong> Take the AE's discovery notes and the persona. Agree what the technical demo needs to prove and what it should not wander into. A technical demo that turns into a feature tour costs us the deal as surely as an AE demo does, and in MedSpa the EMR rabbit-hole is the classic loss pattern.</li>
+    <li><strong>Prove it, don't describe it.</strong> Show the actual workflow on the prospect's scenario: their service menu, their locations, their integration. Quantify the outcome the same way the AE does (<a href="#scorecards">Business Impact Positioning</a>).</li>
+    <li><strong>Own the data review.</strong> Client-facing conversion checklists and data review tickets come to you. Review the source system export, flag what will not migrate cleanly, and give the AE a plain-English summary they can put in front of the prospect before the quote. See <a href="#implementation">Integrations, implementation &amp; conversions</a>.</li>
+    <li><strong>Roadmap discipline.</strong> You will be asked "can it do X?" more than anyone. If it is live, show it. If it is roadmap, say roadmap and commit to no date. If it is not planned, say so and move to how the client achieves the outcome today. Never invent a workaround you have not tested.</li>
+    <li><strong>Hand off cleanly.</strong> Complete the implementation handoff checklist with the AE: scope sold, integrations, data sources, hardware, go-live expectation, named client contact. Join the kickoff. What gets lost here becomes a support ticket in month two.</li>
+    <li><strong>Feed it back.</strong> Every "can it do X?" you could not answer with a yes goes to the <a href="#ask">product questions channel</a> and, if it recurs, to Enablement for the <a href="#releases">release notes</a> and battlecards.</li>
+  </ol>
+
+  <h3>Technical demo principles</h3>
+  <table class="compact">
+    <tr><th style="width:28%">Principle</th><th>Why it matters</th></tr>
+    <tr><td>Agree the proof points with the AE first</td><td>The AE owns the business case; you prove the product can carry it. Two agendas on one call lose the room.</td></tr>
+    <tr><td>Use the prospect's own data or scenario</td><td>Generic demo data invites "but ours is different". Their service menu and locations close that gap.</td></tr>
+    <tr><td>Lead with reporting when in doubt</td><td>Reporting is our strongest win driver across segments (MA200, Growth Indicators, Goals Dashboard, DE40).</td></tr>
+    <tr><td>Front-of-house first in MedSpa</td><td>Scheduling, checkout and memberships win MedSpa evaluations; deep EMR comparisons lose them. Do not lead with the AI Receptionist in a MedSpa demo.</td></tr>
+    <tr><td>Answer the integration question with the list, then the outcome</td><td>Name what we integrate with, then show what the client gets from it. Unsupported integrations get a roadmap answer, not a maybe.</td></tr>
+    <tr><td>Close with the AE's summary</td><td>Hand back so the AE recaps priorities, confirms agreement and sets the next step. You do not end the call.</td></tr>
+  </table>
+
+  <h3>Your tools</h3>
+  <ul class="linklist">
+    <li><a href="https://meevosalesenablement.github.io/Sales-Enablement-New-Hire-Training/" target="_blank">New Hire Sales Onboarding</a><small>Your Product Training modules, with video and deck links, and attendance</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Live-Sales-Session/" target="_blank">Live Sessions calendar</a><small>Schedule your product and MeevoIQ sessions; recordings go in the Session Library</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Battlecard-dashboard/" target="_blank">Competitive Battlecards</a><small>Competitor technical claims and the MeevoIQ Advisors panel</small></li>
+    <li><a href="#implementation">Integrations, implementation &amp; conversions</a><small>Conversion checklists, data review process, partner battlecards</small></li>
+  </ul>
+  <p class="owner">Owner: Ryan Burns · Related: <a href="#implementation">Implementation</a> · <a href="#talktracks">Talk tracks &amp; training</a></p>
+</section>
 <section class="page" id="inbound" data-role="sdr">
   <h2><span class="tag sdr">SDR</span> Inbound lead expectations</h2>
   <p>Inbound = a demo-request MQL (GetDemo / Demo Form). Speed and follow-through are everything. There are two paths depending on whether the prospect booked a call.</p>
@@ -1099,7 +1154,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <div class="callout todo" data-ni="NI13">Add MeevoPay and MeevoTips attach targets, standard rate ranges, and the approval path for custom rates. Owner: Merchant Services / Nicole Fabre.</div>
 </section>
 
-<section class="page" id="implementation" data-role="ae">
+<section class="page" id="implementation" data-role="ae se">
   <h2>Integrations, partners &amp; implementation</h2>
   <h3>Integrations &amp; Meevo Exchange</h3>
   <p>Partner and integration details (pricing, features, client-facing guides) are in the <a href="https://millenniumsi.sharepoint.com/:x:/r/sites/MarketingDept/_layouts/15/Doc.aspx?sourcedoc=%7B3F37AB5A-4CAF-48B1-B888-080FC3CD8C1F%7D&file=marketing-share-doc.xlsx&wdLOR=c7DED1B35-9294-414E-ADF7-9ED601999AA7&action=default&mobileredirect=true&cid=2617ae51-6738-462e-9ea4-b4c53bc78e5d&isSPOFile=1&sourceId=&params=%7B%22AppName%22%3A%22Teams-Desktop%22%2C%22AppVersion%22%3A%2227%2F22010300411%22%7D" data-link="L141" target="_blank">Marketing share doc</a>. Partner battlecards in Crayon:</p>
@@ -1436,7 +1491,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     var r=sec.getAttribute('data-role')||'all';
     if(role==='all')return true;
     if(r==='all')return true;
-    return r===role;
+    return r.split(/\s+/).indexOf(role)>=0;
   }
   function clearMarks(sec){
     sec.querySelectorAll('mark').forEach(function(m){var t=document.createTextNode(m.textContent);m.parentNode.replaceChild(t,m);});
