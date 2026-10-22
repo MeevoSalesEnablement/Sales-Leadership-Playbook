@@ -124,6 +124,25 @@ mark{background:#FDE9A8;padding:0 2px;border-radius:2px}
 .flow .step{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:.9rem;min-width:150px}
 .flow .step b{display:block;color:var(--ocean);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
 .flow .arrow{color:var(--gray);font-size:1.3rem}
+.libgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin:1em 0}
+.libcard{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.libcard>button{width:100%;text-align:left;font:inherit;background:var(--ivory);border:0;padding:16px 18px;cursor:pointer;display:flex;align-items:center;gap:12px}
+.libcard>button:hover{background:#eef2f3}
+.libcard .ico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.8rem;flex:none}
+.libcard .ico.deck{background:var(--terra)}.libcard .ico.video{background:var(--mauve)}.libcard .ico.se{background:var(--sage)}
+.libcard .ttl{font-weight:700;color:var(--ocean);display:block}
+.libcard .cnt{font-size:.8rem;color:var(--charcoal-2)}
+.libcard .chev{margin-left:auto;color:var(--gray);transition:transform .15s}
+.libcard.open .chev{transform:rotate(90deg)}
+.libcard .items{display:none;padding:6px 18px 14px;border-top:1px solid var(--line)}
+.libcard.open .items{display:block}
+.libcard .items ol{margin:8px 0 0;padding-left:1.3em;columns:1}
+.libcard .items li{padding:5px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+.libcard .items li:last-child{border-bottom:0}
+.libcard .items .soon{color:var(--charcoal-2);font-style:italic;font-size:.8rem;margin-left:6px}
+.libcard.open{grid-column:1/-1}
+.libcard.open.wide .items ol{columns:2;column-gap:36px}
+@media (max-width:900px){.libcard.open.wide .items ol{columns:1}}
 .owner{font-size:.8rem;color:var(--charcoal-2);margin-top:1.5em;padding-top:.8em;border-top:1px dashed var(--line)}
 .noresults{display:none;padding:40px;text-align:center;color:var(--charcoal-2)}
 footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:var(--charcoal-2)}
@@ -178,6 +197,8 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <a href="#value">Value framework &amp; proof points</a>
   <a href="#competitors">Competitors &amp; displacement</a>
   <a href="#talktracks">Talk tracks &amp; training</a>
+  <div class="grp">Enablement Resource Library</div>
+  <a href="#library">Decks &amp; recordings</a>
   <div class="grp">Tools &amp; process</div>
   <a href="#tools">Enablement sites &amp; dashboards</a>
   <a href="#salesforce">Salesforce processes</a>
@@ -1059,6 +1080,19 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
 
 <!-- ============================ TOOLS & PROCESS ============================ -->
 
+
+<section class="page" id="library" data-role="all">
+  <h2>Enablement Resource Library</h2>
+  <p>Every deck and recording from Sales Enablement training, in one place. Click a card to open the list; items are alphabetical. Decks open in PowerPoint online, recordings in Stream. Items without a link yet are marked and will be connected as the library is finished.</p>
+  <div class="libgrid" id="libgrid">
+    <div class="libcard" data-cat="decks_sdr_ae"><button type="button"><span class="ico deck">PPT</span><span><span class="ttl">SDR &amp; AE Enablement training decks</span><span class="cnt" data-count></span></span><span class="chev">▸</span></button><div class="items"><ol></ol></div></div>
+    <div class="libcard" data-cat="videos_sdr_ae"><button type="button"><span class="ico video">REC</span><span><span class="ttl">SDR &amp; AE Enablement training videos</span><span class="cnt" data-count></span></span><span class="chev">▸</span></button><div class="items"><ol></ol></div></div>
+    <div class="libcard" data-cat="decks_se"><button type="button"><span class="ico se">PPT</span><span><span class="ttl">SE Product training decks</span><span class="cnt" data-count></span></span><span class="chev">▸</span></button><div class="items"><ol></ol></div></div>
+    <div class="libcard" data-cat="videos_se"><button type="button"><span class="ico se">REC</span><span><span class="ttl">SE Product training videos</span><span class="cnt" data-count></span></span><span class="chev">▸</span></button><div class="items"><ol></ol></div></div>
+  </div>
+  <p class="mini">Maintained in the <em>Library</em> tab of the Playbook data sheet: one row per item with category, title, link and notes. Add a row and it appears here on the next load.</p>
+  <p class="owner">Owner: Terry Moorehead · Also see the <a href="https://meevosalesenablement.github.io/Live-Sales-Session/" target="_blank">Live Sessions calendar</a> for upcoming sessions.</p>
+</section>
 <section class="page" id="tools" data-role="all">
   <h2>Enablement sites &amp; dashboards</h2>
   <p>Everything Sales Enablement runs lives on these pages. These are the sites you will be asked to use in onboarding, in live training and in your 1:1s.</p>
@@ -1547,6 +1581,29 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
 <script>
 // ---- Playbook data sheet (links, Needs-input, owners, change log) ----
 // Paste the Apps Script /exec URL here. Leave blank to run fully static.
+var LIB_SEED = [{"category": "decks_sdr_ae", "title": "AE Discovery Training", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Agenda Setting & Rapport Building", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Attention Platform Training", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Cold Calling Mindset", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Cold Email Frameworks", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Competitive Landscape", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Competitor SWOT Analysis", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Discovery Call Checklist (PDF)", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "F.A.B (Feature, Advantage, Benefit)", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Feel. Felt. Found", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "From SDR to AE", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Gaining Commitment for AEs", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Gatekeeper Strategy", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "ICP & Persona Training", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Intro to Enterprise Accounts", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Intro to Prospecting", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "MedSpa vs Salon vs Spa", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Meevo SDR Salesforce Functions: Step-by-Step Guide", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "MeevoIQ Advisors: AE Training", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Multi-Threading 101", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Negotiation Tactics", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Objection Handling Mastery", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Pain-to-Feature Mapping", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Purpose - Plan - Outcome", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Sales Team MeevoIQ: Product and Value Overview", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "SDR-to-AE Handoff", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Social Selling", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "SPIN Selling", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "The 2-Day Commitment Close", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "The Gift Opener", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Time Management for Sales", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Voicemails That Convert", "url": "", "notes": ""}, {"category": "decks_sdr_ae", "title": "Who We Are & Why Meevo Wins", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Business Impact: Live Sales Enablement Session (July 2026)", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Effective Discovery & FAB: Live Enablement Session (May 2026)", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Gaining Commitment: Live Sales Enablement Session", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Assertive Language: Live Sales Enablement AE Training", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "SDR to AE Handover and Demo Show-Up: Live Session for AEs & SDRs", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "MeevoIQ Advisors (AE): Live Sales Enablement Training", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Multi-Threading: Live Enablement Session (June 2026)", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Prospects Who 'Gaslight' You: Live AE Session", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Purpose - Plan - Outcome: Live Enablement Session", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "SDR-AE Live Session on Objection Handling (06-08-26)", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Using Assertive Language on Discovery", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Who We Are and Why Meevo Wins: Live Sales Enablement", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "How to Sell Med Spa Software (Podcast)", "url": "", "notes": ""}, {"category": "videos_sdr_ae", "title": "Meevo IQ Discovery Call Questioning", "url": "", "notes": ""}, {"category": "decks_se", "title": "Basic Navigation & Business Setup", "url": "", "notes": ""}, {"category": "decks_se", "title": "Employee Setup, Payroll & Schedules", "url": "", "notes": ""}, {"category": "decks_se", "title": "Appointment Book & Client Profiles", "url": "", "notes": ""}, {"category": "decks_se", "title": "Register, MeevoPay & MeevoTips", "url": "", "notes": ""}, {"category": "decks_se", "title": "Notifications & Marketing Suite", "url": "", "notes": ""}, {"category": "decks_se", "title": "Online Portal & Mobile Apps", "url": "", "notes": ""}, {"category": "decks_se", "title": "Smart Centers, Reporting & Goals", "url": "", "notes": ""}, {"category": "decks_se", "title": "Online Booking & eGift", "url": "", "notes": ""}, {"category": "decks_se", "title": "Data Migration Process Overview", "url": "", "notes": ""}, {"category": "decks_se", "title": "Implementation Process Overview", "url": "", "notes": ""}, {"category": "decks_se", "title": "MeevoIQ: Product and Value Overview", "url": "", "notes": ""}, {"category": "videos_se", "title": "Basic Navigation & Business Setup", "url": "", "notes": ""}, {"category": "videos_se", "title": "Employee Setup, Payroll & Schedules", "url": "", "notes": ""}, {"category": "videos_se", "title": "Appointment Book & Client Profiles", "url": "", "notes": ""}, {"category": "videos_se", "title": "Register, MeevoPay & MeevoTips", "url": "", "notes": ""}, {"category": "videos_se", "title": "Notifications & Marketing Suite", "url": "", "notes": ""}, {"category": "videos_se", "title": "Online Portal & Mobile Apps", "url": "", "notes": ""}, {"category": "videos_se", "title": "Smart Centers, Reporting & Goals", "url": "", "notes": ""}, {"category": "videos_se", "title": "Online Booking & eGift", "url": "", "notes": ""}, {"category": "videos_se", "title": "Data Migration Process Overview", "url": "", "notes": ""}, {"category": "videos_se", "title": "Implementation Process Overview", "url": "", "notes": ""}, {"category": "videos_se", "title": "MeevoIQ: Product and Value Overview", "url": "", "notes": ""}, {"category": "decks_se", "title": "Sales New Hire Training: Meevo Product Training Outline", "url": "", "notes": ""}];
+function renderLibrary(rows){
+  var byCat={};
+  rows.forEach(function(r){ if(!r||!r.title) return; var c=String(r.category||'').trim(); (byCat[c]=byCat[c]||[]).push(r); });
+  document.querySelectorAll('#libgrid .libcard').forEach(function(card){
+    var cat=card.getAttribute('data-cat'), list=(byCat[cat]||[]).slice().sort(function(a,b){ return String(a.title).localeCompare(String(b.title),undefined,{sensitivity:'base'}); });
+    var ol=card.querySelector('ol'); ol.innerHTML='';
+    list.forEach(function(r){
+      var li=document.createElement('li');
+      if(r.url){ var a=document.createElement('a'); a.href=r.url; a.target='_blank'; a.rel='noopener'; a.textContent=r.title; li.appendChild(a); }
+      else { li.appendChild(document.createTextNode(r.title)); var sp=document.createElement('span'); sp.className='soon'; sp.textContent='link to follow'; li.appendChild(sp); }
+      if(r.notes){ var n=document.createElement('div'); n.className='mini'; n.textContent=r.notes; li.appendChild(n); }
+      ol.appendChild(li);
+    });
+    var cnt=card.querySelector('[data-count]'); if(cnt) cnt.textContent=list.length+(list.length===1?' item':' items')+(list.filter(function(r){return r.url;}).length<list.length?' · links being added':'');
+    card.classList.toggle('wide', list.length>14);
+  });
+}
+(function(){
+  renderLibrary(LIB_SEED);
+  var grid=document.getElementById('libgrid'); if(!grid) return;
+  grid.addEventListener('click',function(e){ var b=e.target.closest('.libcard>button'); if(!b) return; b.parentNode.classList.toggle('open'); });
+})();
 var PLAYBOOK_API = "https://script.google.com/macros/s/AKfycbwrMBNvbtQGxBImEigi1E-OHc3LGTx9Ifx0Kix6pFV87apYqk54QrYIf54daLQN97jc/exec";
 (function(){
   if(!PLAYBOOK_API) return;
@@ -1569,6 +1626,7 @@ var PLAYBOOK_API = "https://script.google.com/macros/s/AKfycbwrMBNvbtQGxBImEigi1
     if(ot&&(T.Owners||[]).length){ ot.innerHTML='<tr><th>Section</th><th>Owner</th></tr>'+T.Owners.map(function(r){return '<tr><td>'+esc(r.section)+'</td><td>'+esc(r.owner)+'</td></tr>';}).join(''); }
     var ct=document.getElementById('changelogTable');
     if(ct&&(T.Changelog||[]).length){ ct.innerHTML='<tr><th>Date</th><th>Change</th></tr>'+T.Changelog.map(function(r){return '<tr><td>'+esc(r.date)+'</td><td>'+esc(r.change)+(r.owner?' Owner: '+esc(r.owner)+'.':'')+'</td></tr>';}).join(''); }
+    if((T.Library||[]).length) renderLibrary(T.Library);
     var note=document.getElementById('dataSheetNote');
     if(note&&d.sheetUrl) note.innerHTML='Links, Needs-input items, owners and this change log are maintained in the <a href="'+d.sheetUrl+'" target="_blank">Playbook data sheet</a>. Edit there; no HTML changes needed.';
   }).catch(function(){});
