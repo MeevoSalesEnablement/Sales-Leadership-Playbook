@@ -61,7 +61,7 @@ section.page.hero{background:linear-gradient(135deg,var(--ocean) 0%,var(--ocean-
 .card.link-card:hover{box-shadow:0 3px 12px rgba(32,72,85,.12)}
 .card .meta{font-size:.8rem;color:var(--charcoal-2)}
 .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-right:6px;color:#fff;background:var(--ocean)}
-.tag.sdr{background:var(--terra)}.tag.ae{background:var(--mauve)}.tag.se{background:var(--sage)}.tag.all{background:var(--sage)}
+.tag.sdr{background:var(--terra)}.tag.ae{background:var(--mauve)}.tag.se{background:var(--sage)}.tag.cae{background:var(--ocean-2)}.tag.all{background:var(--sage)}
 .tag.salon{background:var(--mauve)}.tag.spa{background:var(--terra)}.tag.medspa{background:var(--ocean)}.tag.school{background:var(--charcoal)}.tag.ss{background:var(--rose)}
 .callout{border-left:4px solid var(--ocean);background:#f1f5f7;padding:12px 16px;border-radius:0 6px 6px 0;margin:1em 0}
 .callout.warn{border-left-color:var(--terra);background:#fbf3ec}
@@ -163,12 +163,13 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
 
 <div class="topbar">
   <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
-  <div class="brand">Meevo Sales Playbook <span>2027 · AE, SDR &amp; SE Reference Hub</span></div>
+  <div class="brand">Meevo Sales Playbook <span>2027 · AE, SDR, SE &amp; CAE Reference Hub</span></div>
   <div class="role-toggle" id="roleToggle">
     <button class="active" data-role="all">Everyone</button>
     <button data-role="sdr">SDR</button>
     <button data-role="ae">AE</button>
     <button data-role="se">SE</button>
+    <button data-role="cae">CAE</button>
   </div>
   <div class="search">
     <input id="q" type="search" placeholder="Search the playbook… (e.g. Vagaro, SQO, MeevoPay, inbound lead)" autocomplete="off">
@@ -186,6 +187,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <a href="#sdr">SDR playbook</a>
   <a href="#ae">AE playbook</a>
   <a href="#se">SE playbook</a>
+  <a href="#cae">CAE playbook</a>
   <a href="#inbound">Inbound lead expectations</a>
   <a href="#pipeline">Pipeline &amp; stage rules</a>
   <a href="#kpis">Funnel &amp; KPI definitions</a>
@@ -227,8 +229,8 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
 <section class="page hero" id="start" data-role="all">
   <span class="pill">Sales Playbook 2027</span><span class="pill">Internal · Proprietary &amp; Confidential</span>
   <h1>If you have a question about your job, check here first.</h1>
-  <p>This is the single reference hub for the Meevo sales organization — Account Executives, Sales Development Representatives and Solution Engineers across Core (Salon, Spa, Salon &amp; Spa, School) and MedSpa. It brings together who we sell to, how we win, the processes we follow, the tools we use, and where to go when you need more.</p>
-  <p><strong>How to use it:</strong> use the search bar for anything specific (a competitor, a stage name, a tool), use the <em>SDR / AE / SE</em> toggle to show only what applies to your role, or browse the left-hand navigation. Anything marked <em>Needs input</em> is still being finalized by the owner listed.</p>
+  <p>This is the single reference hub for the Meevo sales organization — Account Executives, Sales Development Representatives, Solution Engineers and Customer Account Executives across Core (Salon, Spa, Salon &amp; Spa, School) and MedSpa. It brings together who we sell to, how we win, the processes we follow, the tools we use, and where to go when you need more.</p>
+  <p><strong>How to use it:</strong> use the search bar for anything specific (a competitor, a stage name, a tool), use the <em>SDR / AE / SE / CAE</em> toggle to show only what applies to your role, or browse the left-hand navigation. Anything marked <em>Needs input</em> is still being finalized by the owner listed.</p>
 </section>
 
 <section class="page" id="team" data-role="all">
@@ -436,6 +438,59 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     <li><a href="#implementation">Integrations, implementation &amp; conversions</a><small>Conversion checklists, data review process, partner battlecards</small></li>
   </ul>
   <p class="owner">Owner: Ryan Burns · Related: <a href="#implementation">Implementation</a> · <a href="#talktracks">Talk tracks &amp; training</a></p>
+</section>
+
+<section class="page" id="cae" data-role="cae">
+  <h2><span class="tag cae">CAE</span> CAE playbook <span class="draft">DRAFT FOR REVIEW</span></h2>
+  <p><strong>Mission:</strong> grow revenue inside the accounts we already have. You own the expansion conversation with existing Meevo customers: attach MeevoPay, MeevoTips and MeevoIQ, add memberships, marketing and online booking, add locations, and protect the renewal. You sell from the client's own data, with the relationship intact.</p>
+
+  <h3>What you're measured on</h3>
+  <div class="kpi">
+    <div><b>Expansion ARR</b><span>Net new ARR from existing logos: upgrades, add-ons, locations</span></div>
+    <div><b>Attach rate</b><span>Share of your book on MeevoPay / MeevoTips / MeevoIQ, and the quarter-on-quarter lift</span></div>
+    <div><b>Retention</b><span>Gross revenue retention on your accounts; saves on at-risk logos</span></div>
+    <div><b>Account coverage</b><span>Accounts reviewed this quarter; every account touched with a growth conversation at least once a year</span></div>
+  </div>
+  <div class="callout todo">Confirm CAE quota, attach targets, book size and review cadence. Owner: Nicole Fabre.</div>
+
+  <h3>The expansion motion</h3>
+  <div class="flow">
+    <div class="step"><b>Prepare</b>Insights data, tickets, usage, last review</div><span class="arrow">→</span>
+    <div class="step"><b>Account review</b>30-minute QBR that ends in a growth question</div><span class="arrow">→</span>
+    <div class="step"><b>Expansion discovery</b>What changed since go-live; where the gaps cost them</div><span class="arrow">→</span>
+    <div class="step"><b>Play</b>The one add-on that fits the gap, quantified</div><span class="arrow">→</span>
+    <div class="step"><b>Close &amp; handoff</b>Price on value already received; CSM / Merchant Services informed</div>
+  </div>
+
+  <ol class="steps">
+    <li><strong>Open with their numbers, not ours.</strong> Every review starts from the client's own data: revenue, retention, rebooking, no-shows, processing volume, product sales. A gap in their numbers is the only honest reason to introduce a feature. If you cannot point at a number, you are not ready to pitch.</li>
+    <li><strong>Run the review as discovery.</strong> Use SPIN on what has changed since go-live: new location, new services, staff turnover, a competitor nearby, a new owner. Get the implication quantified before you name a product (<a href="#scorecards">Discovery Questioning</a>).</li>
+    <li><strong>One play per conversation.</strong> MeevoPay and MeevoTips, MeevoIQ Advisors, Memberships and packages, Marketing and online booking, a new location. Pick the one that closes the gap they named; park the rest for the next review. Three add-ons in one call is a feature dump with a price tag.</li>
+    <li><strong>Position price on value already received.</strong> They know what Meevo does for them; anchor there. Defend with usage data. Trade any discount for a term, an attach or a reference (<a href="#scorecards">Price Positioning</a>).</li>
+    <li><strong>Handle the existing-customer objections cleanly.</strong> "We're not using what we already have" is a training ask, not a no: offer the session, then book the follow-up. "Not in budget this year" wants the ROI in their numbers and a date. "Support ticket still open" gets resolved before you sell anything; chase it yourself.</li>
+    <li><strong>Watch the churn signals.</strong> Login decline, processing drop, open tickets, owner or manager change, a competitor demo mentioned. Any one of these is a call this week and a note to the CSM. A save is worth more than an upsell.</li>
+    <li><strong>Start renewals 90 days out</strong> and link them to expansion. A renewal that is only about price is a renewal you are losing control of.</li>
+    <li><strong>Protect the client from being contacted three times.</strong> You, the CSM and Support work one plan per account. Upsell opportunities are created and stamped under the CAE role in Salesforce so the GTM reports stay clean (<a href="#salesforce">Salesforce processes</a>).</li>
+  </ol>
+
+  <h3>Expansion plays</h3>
+  <table class="compact">
+    <tr><th style="width:22%">Play</th><th>Trigger in the client's data</th><th>The quantified case</th><th style="width:16%">Hand off to</th></tr>
+    <tr><td>MeevoPay &amp; MeevoTips</td><td>Processing on a third party; tips handled in cash or outside the register; chargeback complaints</td><td>Rate comparison on their volume, terminal options, tips on card; one statement, one support line</td><td>Merchant Services</td></tr>
+    <tr><td>MeevoIQ Advisors</td><td>Missed calls, after-hours booking requests, no marketing cadence, owner asks for "insights"</td><td>Front Desk: booked calls they currently miss. Insights: owner time saved. Marketing: approved offers from their own data. Pilot at no cost; roadmap language, no dates</td><td>SE for setup</td></tr>
+    <tr><td>Memberships &amp; packages</td><td>High repeat visits but no recurring revenue; seasonal dips; retail heavy</td><td>Recurring revenue from their visit frequency; prepaid cash flow; retention lift</td><td>CSM for build</td></tr>
+    <tr><td>Marketing, Emma, 2-Way SMS, Online Booking / MeGo</td><td>No-show rate, low rebooking, low review volume, front desk on the phone all day</td><td>No-shows recovered, rebooking lift, reviews per month, front desk hours back</td><td>CSM</td></tr>
+    <tr><td>New location</td><td>Owner mentions opening or acquiring; hiring surge; second address on social</td><td>Central reporting and standard setup from day one; pricing per location</td><td>Implementation / SE</td></tr>
+  </table>
+
+  <h3>Your tools</h3>
+  <ul class="linklist">
+    <li><a href="#library">CAE Enablement training</a><small>The proposed CAE curriculum in the Resource Library</small></li>
+    <li><a href="https://meevosalesenablement.github.io/Battlecard-dashboard/" target="_blank">Competitive Battlecards</a><small>When a client mentions a competitor demo; MeevoIQ Advisors panel</small></li>
+    <li><a href="#pricing">Pricing, MeevoPay, MeevoTips</a><small>Rate calculators, terminal options, MeevoTips training</small></li>
+    <li><a href="#releases">Release notes for sales</a><small>What to say and not say about what is shipping</small></li>
+  </ul>
+  <p class="owner">Owner: Nicole Fabre · Related: <a href="#ae">AE playbook</a> · <a href="#pricing">Pricing</a> · <a href="#scorecards">Scorecards</a></p>
 </section>
 <section class="page" id="inbound" data-role="sdr">
   <h2><span class="tag sdr">SDR</span> Inbound lead expectations</h2>
