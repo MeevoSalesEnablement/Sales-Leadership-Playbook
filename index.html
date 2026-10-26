@@ -33,6 +33,17 @@ code{background:#eee;padding:.1em .35em;border-radius:3px;font-size:.9em}
 .topbar .brand span{opacity:.75;font-weight:400;margin-left:8px;font-size:.9rem}
 .search{flex:1;max-width:560px;margin-left:auto;position:relative}
 .search input{width:100%;height:38px;border-radius:19px;border:0;padding:0 42px 0 16px;font-size:.95rem;font-family:inherit;background:rgba(255,255,255,.95);color:var(--charcoal)}
+.sugg{position:absolute;left:0;right:0;top:44px;background:#fff;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.25);display:none;overflow:hidden;z-index:60;max-height:70vh;overflow-y:auto}
+.sugg.open{display:block}
+.sugg .sg-h{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--charcoal-2);padding:8px 14px 2px;display:flex;justify-content:space-between;align-items:center}
+.sugg .sg-h button{font:inherit;font-size:.7rem;text-transform:none;letter-spacing:0;border:0;background:none;color:var(--ocean-2);cursor:pointer;text-decoration:underline}
+.sugg .sg{display:flex;align-items:center;gap:10px;padding:9px 14px;cursor:pointer;color:var(--charcoal);font-size:.93rem}
+.sugg .sg:hover,.sugg .sg.sel{background:#eef3f5}
+.sugg .sg .tp{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--ocean-3);border-radius:4px;padding:2px 6px;flex:none;min-width:62px;text-align:center}
+.sugg .sg .tp.recent{background:var(--terra)}.sugg .sg .tp.section{background:var(--ocean)}.sugg .sg .tp.competitor{background:var(--mauve)}.sugg .sg .tp.library{background:var(--sage)}.sugg .sg .tp.term{background:var(--charcoal-2)}
+.sugg .sg .lb{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sugg .sg .lb b{font-weight:700;color:var(--ocean)}
+.sugg .sg .in{font-size:.78rem;color:var(--charcoal-2);flex:none}
 .search .count{position:absolute;right:36px;top:9px;font-size:.8rem;color:var(--charcoal-2)}
 .role-toggle{display:flex;gap:4px;background:rgba(255,255,255,.12);border-radius:19px;padding:3px}
 .role-toggle button{border:0;background:transparent;color:#fff;padding:6px 14px;border-radius:16px;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;opacity:.8}
@@ -184,6 +195,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <div class="search">
     <input id="q" type="search" placeholder="Search the playbook… (e.g. Vagaro, SQO, MeevoPay, inbound lead)" autocomplete="off">
     <span class="count" id="count"></span>
+    <div class="sugg" id="sugg" role="listbox" aria-label="Search suggestions"></div>
   </div>
 </div>
 
@@ -1679,6 +1691,64 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     noRes.style.display=shown?'none':'block';
   }
   q.addEventListener('input',apply);
+
+  // ---- Search suggestions + recent searches (stored on this computer) ----
+  var sugg=document.getElementById('sugg'), RKEY='pb_recent_searches', selIdx=-1, items=[];
+  function getRecent(){ try{ return JSON.parse(localStorage.getItem(RKEY)||'[]'); }catch(e){ return []; } }
+  function saveRecent(t){ t=(t||'').trim(); if(t.length<2) return; var r=getRecent().filter(function(x){return x.toLowerCase()!==t.toLowerCase();}); r.unshift(t); try{ localStorage.setItem(RKEY,JSON.stringify(r.slice(0,8))); }catch(e){} }
+  function clearRecent(){ try{ localStorage.removeItem(RKEY); }catch(e){} renderSugg(); }
+  var INDEX=[];
+  function buildIndex(){
+    INDEX=[]; var seen={};
+    function add(label,type,target,where){ var k=type+'|'+label.toLowerCase(); if(!label||seen[k]) return; seen[k]=1; INDEX.push({label:label,type:type,target:target,where:where||''}); }
+    sections.forEach(function(sec){
+      var h2=sec.querySelector('h2'); var title=h2?h2.textContent.replace(/DRAFT FOR REVIEW|v1 · Oct 2026/g,'').trim():sec.id;
+      add(title,'section','#'+sec.id,'');
+      sec.querySelectorAll('h3').forEach(function(h){ var t=h.textContent.replace(/DRAFT FOR REVIEW/g,'').trim(); if(t.length>2&&t.length<70) add(t,'topic','#'+sec.id,title); });
+    });
+    var comp=document.getElementById('competitors');
+    if(comp) comp.querySelectorAll('table tr td:first-child').forEach(function(td){ var t=td.textContent.trim(); if(t&&t.length<40&&!/^\d/.test(t)) add(t,'competitor','#competitors','Competitors'); });
+    var gl=document.getElementById('glossary');
+    if(gl) gl.querySelectorAll('table tr td:first-child').forEach(function(td){ var t=td.textContent.trim(); if(t) add(t,'term','#glossary','Glossary'); });
+    var lib=document.getElementById('library');
+    if(lib) lib.querySelectorAll('.libcard li').forEach(function(li){ var a=li.querySelector('a'); var t=(a?a.textContent:li.firstChild&&li.firstChild.nodeValue||'').trim(); var card=li.closest('.libcard'); if(t) add(t,'library',a?a.href:'#library',card?card.querySelector('.ttl').textContent:'Library'); });
+    ['SDR','AE','SE','CAE','MeevoPay','MeevoTips','MeevoIQ','MedSpa','Salon','Spa','School','Vagaro','Boulevard','Zenoti','Mangomint','Booker','Phorest','Fresha','GlossGenius','Square','Mindbody','DaySmart','inbound lead','SQO','SAL','MQL','pricing','discount','quota','onboarding','TNA','Attention','Crayon','Salesforce','Outreach'].forEach(function(t){ add(t,'term','','Search'); });
+  }
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function hl(label,term){ if(!term) return esc(label); var i=label.toLowerCase().indexOf(term.toLowerCase()); if(i<0) return esc(label); return esc(label.slice(0,i))+'<b>'+esc(label.slice(i,i+term.length))+'</b>'+esc(label.slice(i+term.length)); }
+  function renderSugg(){
+    var term=q.value.trim(), low=term.toLowerCase(); items=[]; selIdx=-1; var html='';
+    var rec=getRecent().filter(function(r){ return !low||r.toLowerCase().indexOf(low)>-1; }).slice(0,5);
+    if(rec.length){ html+='<div class="sg-h">Recent searches<button type="button" data-clear="1">Clear</button></div>'; rec.forEach(function(r){ items.push({label:r,type:'recent',target:''}); html+='<div class="sg" data-i="'+(items.length-1)+'"><span class="tp recent">Recent</span><span class="lb">'+hl(r,term)+'</span></div>'; }); }
+    if(low.length>=1){
+      var starts=[],contains=[];
+      INDEX.forEach(function(it){ var l=it.label.toLowerCase(); if(l.indexOf(low)===0) starts.push(it); else if(l.indexOf(low)>-1) contains.push(it); });
+      var order={section:0,topic:1,competitor:2,term:3,library:4};
+      var list=starts.concat(contains).sort(function(a,b){ var sa=a.label.toLowerCase().indexOf(low)===0?0:1, sb=b.label.toLowerCase().indexOf(low)===0?0:1; if(sa!==sb) return sa-sb; return (order[a.type]||9)-(order[b.type]||9); }).slice(0,10);
+      if(list.length){ html+='<div class="sg-h">Suggestions</div>'; list.forEach(function(it){ items.push(it); html+='<div class="sg" data-i="'+(items.length-1)+'"><span class="tp '+it.type+'">'+(it.type==='topic'?'Topic':it.type.charAt(0).toUpperCase()+it.type.slice(1))+'</span><span class="lb">'+hl(it.label,term)+'</span>'+(it.where?'<span class="in">'+esc(it.where)+'</span>':'')+'</div>'; }); }
+    }
+    sugg.innerHTML=html; sugg.classList.toggle('open',!!html);
+  }
+  function choose(it){
+    if(!it) return;
+    if(it.type==='library'&&/^https?:/.test(it.target)){ saveRecent(it.label); sugg.classList.remove('open'); window.open(it.target,'_blank','noopener'); return; }
+    q.value=it.label; saveRecent(it.label); apply(); sugg.classList.remove('open');
+    if(it.target){ var sec=document.querySelector(it.target); if(sec){ sec.classList.remove('hide'); setTimeout(function(){ sec.scrollIntoView({behavior:'smooth',block:'start'}); },50); } }
+  }
+  buildIndex();
+  q.addEventListener('focus',renderSugg);
+  q.addEventListener('input',renderSugg);
+  q.addEventListener('keydown',function(e){
+    var rows=sugg.querySelectorAll('.sg');
+    if(e.key==='ArrowDown'&&rows.length){ e.preventDefault(); selIdx=Math.min(selIdx+1,rows.length-1); rows.forEach(function(r,i){r.classList.toggle('sel',i===selIdx);}); rows[selIdx].scrollIntoView({block:'nearest'}); }
+    else if(e.key==='ArrowUp'&&rows.length){ e.preventDefault(); selIdx=Math.max(selIdx-1,-1); rows.forEach(function(r,i){r.classList.toggle('sel',i===selIdx);}); }
+    else if(e.key==='Enter'){ if(selIdx>=0&&items[selIdx]) choose(items[selIdx]); else { saveRecent(q.value); sugg.classList.remove('open'); } }
+    else if(e.key==='Escape'){ sugg.classList.remove('open'); }
+  });
+  sugg.addEventListener('mousedown',function(e){ e.preventDefault(); var c=e.target.closest('[data-clear]'); if(c){ clearRecent(); return; } var row=e.target.closest('.sg'); if(row) choose(items[+row.getAttribute('data-i')]); });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) sugg.classList.remove('open'); });
+  q.addEventListener('blur',function(){ setTimeout(function(){ if(document.activeElement!==q) sugg.classList.remove('open'); },150); if(q.value.trim().length>=3) saveRecent(q.value); });
+  document.addEventListener('library-rendered',buildIndex);
   document.getElementById('roleToggle').addEventListener('click',function(e){
     var b=e.target.closest('button');if(!b)return;
     role=b.getAttribute('data-role');
@@ -1746,7 +1816,7 @@ var PLAYBOOK_API = "https://script.google.com/macros/s/AKfycbwrMBNvbtQGxBImEigi1
     if(ot&&(T.Owners||[]).length){ ot.innerHTML='<tr><th>Section</th><th>Owner</th></tr>'+T.Owners.map(function(r){return '<tr><td>'+esc(r.section)+'</td><td>'+esc(r.owner)+'</td></tr>';}).join(''); }
     var ct=document.getElementById('changelogTable');
     if(ct&&(T.Changelog||[]).length){ ct.innerHTML='<tr><th>Date</th><th>Change</th></tr>'+T.Changelog.map(function(r){return '<tr><td>'+esc(r.date)+'</td><td>'+esc(r.change)+(r.owner?' Owner: '+esc(r.owner)+'.':'')+'</td></tr>';}).join(''); }
-    if((T.Library||[]).length) renderLibrary(T.Library);
+    if((T.Library||[]).length){ renderLibrary(T.Library); document.dispatchEvent(new Event('library-rendered')); }
     var note=document.getElementById('dataSheetNote');
     if(note&&d.sheetUrl) note.innerHTML='Links, Needs-input items, owners and this change log are maintained in the <a href="'+d.sheetUrl+'" target="_blank">Playbook data sheet</a>. Edit there; no HTML changes needed.';
   }).catch(function(){});
