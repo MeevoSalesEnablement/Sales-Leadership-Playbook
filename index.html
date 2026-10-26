@@ -1702,9 +1702,9 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     INDEX=[]; var seen={};
     function add(label,type,target,where){ var k=type+'|'+label.toLowerCase(); if(!label||seen[k]) return; seen[k]=1; INDEX.push({label:label,type:type,target:target,where:where||''}); }
     sections.forEach(function(sec){
-      var h2=sec.querySelector('h2'); var title=h2?h2.textContent.replace(/DRAFT FOR REVIEW|v1 · Oct 2026/g,'').trim():sec.id;
+      var h2=sec.querySelector('h2'); var title=sec.id; if(h2){ var c=h2.cloneNode(true); c.querySelectorAll('.tag,.draft').forEach(function(x){x.remove();}); title=c.textContent.replace(/\s+/g,' ').trim(); }
       add(title,'section','#'+sec.id,'');
-      sec.querySelectorAll('h3').forEach(function(h){ var t=h.textContent.replace(/DRAFT FOR REVIEW/g,'').trim(); if(t.length>2&&t.length<70) add(t,'topic','#'+sec.id,title); });
+      sec.querySelectorAll('h3').forEach(function(h){ var c=h.cloneNode(true); c.querySelectorAll('.tag,.draft,.navlock').forEach(function(x){x.remove();}); var t=c.textContent.replace(/\s+/g,' ').trim(); if(t.length>2&&t.length<70) add(t,'topic','#'+sec.id,title); });
     });
     var comp=document.getElementById('competitors');
     if(comp) comp.querySelectorAll('table tr td:first-child').forEach(function(td){ var t=td.textContent.trim(); if(t&&t.length<40&&!/^\d/.test(t)) add(t,'competitor','#competitors','Competitors'); });
@@ -1724,7 +1724,8 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
       var starts=[],contains=[];
       INDEX.forEach(function(it){ var l=it.label.toLowerCase(); if(l.indexOf(low)===0) starts.push(it); else if(l.indexOf(low)>-1) contains.push(it); });
       var order={section:0,topic:1,competitor:2,term:3,library:4};
-      var list=starts.concat(contains).sort(function(a,b){ var sa=a.label.toLowerCase().indexOf(low)===0?0:1, sb=b.label.toLowerCase().indexOf(low)===0?0:1; if(sa!==sb) return sa-sb; return (order[a.type]||9)-(order[b.type]||9); }).slice(0,10);
+      function tier(it){ var l=it.label.toLowerCase(); if(l===low) return 0; var wordStart=new RegExp('^'+low.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(\\b|$)'); var wordAny=new RegExp('(^|[^a-z0-9])'+low.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(\\b|$)'); if(wordStart.test(l)) return 1; if(wordAny.test(l)) return 2; if(l.indexOf(low)===0) return 3; return 4; }
+      var list=starts.concat(contains).sort(function(a,b){ var ta=tier(a), tb=tier(b); if(ta!==tb) return ta-tb; var oa=(order[a.type]||9), ob=(order[b.type]||9); if(oa!==ob) return oa-ob; return a.label.length-b.label.length; }).slice(0,10);
       if(list.length){ html+='<div class="sg-h">Suggestions</div>'; list.forEach(function(it){ items.push(it); html+='<div class="sg" data-i="'+(items.length-1)+'"><span class="tp '+it.type+'">'+(it.type==='topic'?'Topic':it.type.charAt(0).toUpperCase()+it.type.slice(1))+'</span><span class="lb">'+hl(it.label,term)+'</span>'+(it.where?'<span class="in">'+esc(it.where)+'</span>':'')+'</div>'; }); }
     }
     sugg.innerHTML=html; sugg.classList.toggle('open',!!html);
