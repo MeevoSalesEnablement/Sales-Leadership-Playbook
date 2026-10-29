@@ -1204,9 +1204,19 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     <li><strong>Record type:</strong> new GTM deals are <em>New Subscription</em> opportunities. Amendments, renewals and existing-customer rewrites are not GTM wins.</li>
     <li><strong>Opportunity notetaking:</strong> capture pains and goals, current software, decision-makers and roles, timeline, and next step with date on every opp.</li>
     <li><strong>Stage dates:</strong> stamp Moved to Discovery and Moved to Negotiate in order — see <a href="#pipeline">Pipeline &amp; stage rules</a>.</li>
-    <li><strong>Quotes:</strong> creating, recalling, sending and discounting quotes follows the Salesforce quote process.</li>
+    <li><strong>Quotes:</strong> creating, recalling, sending and discounting quotes follows the Salesforce quote process. See <a href="#quote-approvals">Quote approvals: editing an approved quote</a> below.</li>
     <li><strong>Multi-location accounts:</strong> parent/child account structure matters — a logo is the parent-rolled business. Review multi-location account management with Nicole Fabre.</li>
   </ul>
+  <h3 id="quote-approvals">Quote approvals: editing an approved quote</h3>
+  <p>Salesforce now locks a quote once it is approved. Here is what changes and what to do.</p>
+  <div class="flow">
+    <div class="step"><b>Before approval</b>The <em>Edit Lines</em> button is on the Quote page and you can adjust the quote.</div><span class="arrow">→</span>
+    <div class="step"><b>Approved</b>The quote is locked. <em>Edit Lines</em> disappears from the Quote page.</div><span class="arrow">→</span>
+    <div class="step"><b>Need to change it?</b>Open the quote actions menu (the arrow next to Preview Approval) and choose <em>Recall Approval</em>.</div><span class="arrow">→</span>
+    <div class="step"><b>Recalled</b><em>Edit Lines</em> returns. Make the change, then <em>Submit for Approval</em> again.</div>
+  </div>
+  <div class="callout warn"><strong>Recalling wipes the approval history.</strong> When a quote is recalled, all previous approvals on it are removed; when you resubmit, the new request replaces them. Get the quote right before you submit, and if you must recall, tell the approver (CPO) why so the resubmission is not a surprise.</div>
+  <p class="mini">Source: <a href="Update-to-Approval-Requests.pdf" target="_blank">Update to Approval Requests (PDF with screenshots)</a> · Approval status shows as Pending, Approved or Recalled on the Quote page.</p>
   <div class="callout todo" data-ni="NI10">Link the "How to use Salesforce" Tango overview, the opportunity-creation and quote (recall / send / discount) Tangos, the opportunity notetaking template, and the multi-location account management guide. Owner: Nicole Fabre.</div>
 </section>
 
@@ -1665,6 +1675,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     <tr><td>Oct 2026</td><td>Draft sections added for review: Performance expectations, Scorecard definitions (1 / 3 / 5), Policies &amp; procedures, Release notes for sales, Glossary, and a password-protected Manager resources section. Marked "Draft for review" until owners confirm.</td></tr>
     <tr><td>Oct 2026</td><td>Manager resources: interview scorecards v1 for SDR, AE, SE and CAE (competencies, role play scored on the Attention criteria, values, knockouts, scoring sheet). Enablement Resource Library added with SDR/AE, SE and CAE panels. CAE playbook and SE playbook drafts. Owner: Terry Moorehead.</td></tr>
     <tr><td>Oct 2026</td><td>Manager resources: PIP Guidelines for Account Executives (effective January 2027) added under Performance management.</td></tr>
+    <tr><td>Oct 2026</td><td>Salesforce processes: Quote approvals, editing an approved quote (Edit Lines lock, Recall Approval, approval history wiped on recall). Source PDF attached.</td></tr>
   </table>
   <p class="mini" id="dataSheetNote"></p>
   <p class="mini">Review cadence: quarterly, aligned with the KPI definitions review. Submit corrections to the section owner.</p>
