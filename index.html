@@ -211,6 +211,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   <a href="#ae">AE playbook</a>
   <a href="#se">SE playbook</a>
   <a href="#cae">CAE playbook</a>
+  <a href="#cae-ticket">CAE: Ticket intake to close</a>
   <a href="#inbound">Inbound lead expectations</a>
   <a href="#pipeline">Pipeline &amp; stage rules</a>
   <a href="#kpis">Funnel &amp; KPI definitions</a>
@@ -520,6 +521,159 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
   </ul>
   <p class="owner">Owner: Melanie Hull · Related: <a href="#ae">AE playbook</a> · <a href="#pricing">Pricing</a> · <a href="#scorecards">Scorecards</a></p>
 </section>
+
+<section class="page" id="cae-ticket" data-role="cae">
+  <h2><span class="tag cae">CAE</span> Ticket intake to close <span class="draft">DRAFT v1.0</span></h2>
+  <p class="owner">Owner: Melanie Hull, Manager of CAEs · Audience: Client Success Account Executives · Last updated 11 Nov 2026</p>
+  <p>This covers what a CAE does from the moment a <strong>Client Success Ticket</strong> lands in their queue to the moment both the ticket and the opportunity it created are closed. Every CAE handles every ticket the same way.</p>
+  <div class="callout"><strong>RULE</strong> A ticket and an opportunity are two separate records with two separate lifecycles. Closing the ticket means it was handled. Closing the opportunity means the sale is done (won or lost). Don't treat one as the other.</div>
+
+  <h3>Scope</h3>
+  <p><strong>In scope for CAEs:</strong> product expansion and add-ons for existing clients: MeevoIQ (Front Desk Advisor, Marketing Advisor, Insights Advisor), 2-Way SMS, Emma text and email packages and allotment upgrades, subscription tier upgrades (Meevo Premier, MeevoMD), MyMeevo, Docs &amp; Forms, Meevo BI and other Business Boosters.</p>
+  <table class="compact">
+    <tr><th style="width:24%">Request</th><th style="width:20%">Route to</th><th>How</th></tr>
+    <tr><td>New location, downgrade, cancellation</td><td>CSM</td><td>Close our ticket, open a new one for the CSM</td></tr>
+    <tr><td>MeevoPay</td><td>MeevoPay team</td><td>Close our ticket, open a new one for MeevoPay</td></tr>
+    <tr><td>Tippy</td><td>Tippy CAE</td><td>Close our ticket, open a new one for the Tippy CAE</td></tr>
+    <tr><td>Support or technical issue</td><td>Support</td><td>Create a Support ticket</td></tr>
+    <tr><td>Not a Meevo client</td><td>New Logo team</td><td>Close our ticket, open a new one for New Logo</td></tr>
+  </table>
+
+  <h3>Where tickets come from</h3>
+  <p>Tickets are Cases with the record type Client Success Ticket. Ticket Origin tells you where each one came from.</p>
+  <table class="compact">
+    <tr><th style="width:24%">Ticket Origin</th><th>What it usually is</th></tr>
+    <tr><td>Marketing</td><td>Web or in-app form fill (e.g., "Form MeevoIQ Inquiry")</td></tr>
+    <tr><td>Support</td><td>A Support agent heard interest on a call and handed it off (e.g., "MeevoIQ - Front Desk Advisor - Interest")</td></tr>
+    <tr><td>Client Success</td><td>Internal hand-off from CS or Onboarding, or created by the CAE (e.g., "Upgrade Subscription", "Emma SMS")</td></tr>
+    <tr><td>Sales</td><td>Hand-off from an AE</td></tr>
+    <tr><td>Phone / Email / Live Chat</td><td>Client contacted us directly</td></tr>
+    <tr><td>Product Purchase</td><td>Self-serve add-on purchase (record type Meevo Add-On Ticket)</td></tr>
+  </table>
+  <div class="callout"><strong>TIP</strong> Ticket Origin tells you how warm the lead is. A Support hand-off means a human already heard the client ask, so call fast. A Marketing form fill may be lighter-touch interest, so qualify before you invest demo time.</div>
+
+  <h3>Service levels</h3>
+  <table class="compact">
+    <tr><th>Milestone</th><th style="width:34%">Target</th></tr>
+    <tr><td>Ticket moves from New to Accepted</td><td>Within 1 business day</td></tr>
+    <tr><td>First outreach attempt</td><td>Within 1 business day</td></tr>
+    <tr><td>Opportunity created and linked to the ticket</td><td>At first contact or sequence enrollment</td></tr>
+    <tr><td>Ticket closed</td><td>At first contact or sequence enrollment</td></tr>
+    <tr><td>Opportunity in Suspect or Qualified with no activity</td><td>14 days max. Update it or close it.</td></tr>
+  </table>
+
+  <h3>The workflow at a glance</h3>
+  <div class="flow">
+    <div class="step"><b>1 Triage</b>Scope and duplicate check</div><span class="arrow">→</span>
+    <div class="step"><b>2 Accept</b>Status: Accepted</div><span class="arrow">→</span>
+    <div class="step"><b>3 Research</b>5-minute account review</div><span class="arrow">→</span>
+    <div class="step"><b>4 Opportunity</b>Create or find, link to ticket</div><span class="arrow">→</span>
+    <div class="step"><b>5 Contact</b>Call first, then sequence</div><span class="arrow">→</span>
+    <div class="step"><b>6 Close ticket</b>Closed + Sub Status + Resolution</div><span class="arrow">→</span>
+    <div class="step"><b>7 Work opp</b>Suspect → Qualified → Demo → Contract</div><span class="arrow">→</span>
+    <div class="step"><b>8 Close opp</b>Closed Won (Add On MRR) or Closed Lost (reason)</div>
+  </div>
+
+  <h3>Step 1 · Triage the ticket</h3>
+  <ul class="linklist">
+    <li>Read the Subject, Description, Reason For Request and Additional Details.</li>
+    <li>Check the Account is an active Meevo client. Accounts named "Tenant: #####" are real client records; work them as-is.</li>
+    <li>Check for duplicates. Duplicate ticket: close it with Sub Status = Duplicate Record and point to the original ticket number. Open opportunity for the same product: link this ticket to it. Do not create a second opportunity.</li>
+    <li>Confirm the request is in CAE scope. If not, close our ticket with a note and open one for the receiving team.</li>
+  </ul>
+  <div class="callout warn"><strong>WATCH OUT</strong> "Duplicate" is one of our top Closed Lost reasons on opportunities. Most come from creating a new opportunity when one already existed. Always check before you create one.</div>
+
+  <h3>Step 2 · Accept and Step 3 · Research (5 minutes)</h3>
+  <p>Change Status to Accepted; this tells the team you own it. Then spend five minutes on the account before you reach out: business type, locations, current subscription and add-ons; open opportunities and Closed Lost history (did they look at this before, and why didn't they buy?); recent Cases (don't pitch an upgrade into an active fire, acknowledge it first); recent calls in Attention; whether the contact is already in another rep's sequence; and account health.</p>
+
+  <h3>Step 4 · Create or find the opportunity and link it</h3>
+  <p>Every in-scope ticket should end up linked to an opportunity, unless it's a duplicate or the client says no help is needed. From the Account, create a Subscription Amendment opportunity:</p>
+  <table class="compact">
+    <tr><th style="width:26%">Field</th><th>What to enter</th></tr>
+    <tr><td>Opportunity Name</td><td>Amendment – Account Name – Product (e.g., "Amendment – Salon Bloom – Front Desk Advisor")</td></tr>
+    <tr><td>Stage</td><td>Suspect (not contacted yet) or Qualified (interest confirmed on first contact)</td></tr>
+    <tr><td>Close Date</td><td>Before a demo: end of next month. After a demo: match the client's own timeline.</td></tr>
+    <tr><td>Add On MRR</td><td>Estimated monthly value of the add-on</td></tr>
+    <tr><td>Next Step</td><td>What happens next and when, e.g., "11/12 – demo FDA w/ owner"</td></tr>
+    <tr><td>Lead Source / Referral Type</td><td>Match Ticket Origin. Marketing → Website. Support → Referral / Support. Client Success → Referral / Customer Success. Sales → Referral / Sales. Phone → Call-In. Live Chat → Live Chat.</td></tr>
+    <tr><td>Related Case</td><td>The ticket this came from</td></tr>
+  </table>
+  <p>Then go back to the ticket and fill in the Opportunity field so the two records link both ways.</p>
+  <div class="callout"><strong>RULE</strong> Every add-on sale needs a linked opportunity. That's how we track what was sold, who sold it and where it came from.</div>
+
+  <h3>Step 5 · Make contact</h3>
+  <ul class="linklist">
+    <li>Call first and log the attempt. Attention records the call and syncs it to Salesforce.</li>
+    <li>If no answer, leave a voicemail, then enroll the contact in the Ticket Follow Up sequence for that product type in Outreach.</li>
+    <li>If you get them live, run qualifying questions (Discovery with Existing Clients) and move the opportunity to Qualified. If there's a fit, book the demo.</li>
+  </ul>
+  <div class="callout"><strong>RULE</strong> Work the full Ticket Follow Up sequence before you mark an opportunity Non Responsive. Only close it Non Responsive once the sequence finishes with no reply.</div>
+
+  <h3>Step 6 · Close the ticket</h3>
+  <p>Close the ticket once the request is handled: an opportunity was created and linked with first contact made or the client enrolled; it was a simple immediate fulfillment (e.g., a text allotment upgrade already done); it was routed to the right team; or it was a duplicate or no help was needed.</p>
+  <table class="compact">
+    <tr><th style="width:26%">Sub Status</th><th>Use when</th></tr>
+    <tr><td>Issue Resolved</td><td>Handled: opportunity created and linked, or the request was fulfilled</td></tr>
+    <tr><td>Duplicate Record</td><td>Another ticket already covers this request</td></tr>
+    <tr><td>No Assistance Needed</td><td>The client says they didn't need anything, or submitted by mistake</td></tr>
+  </table>
+  <p>Set Status to Closed, pick the Sub Status, write a one or two sentence Resolution (e.g., "Spoke w/ owner, interested in FDA. Opp created, demo set 11/12."), and set Call Nature Sub-Type to the product (Front Desk Advisor, 2-Way SMS, Emma SMS). That field drives reporting on what clients ask for.</p>
+  <div class="callout"><strong>RULE</strong> Don't use Customer Unresponsive on tickets. The ticket closes at enrollment as Issue Resolved, and non-response is tracked on the opportunity.</div>
+  <div class="callout warn"><strong>WATCH OUT</strong> Don't close a ticket with a blank Sub Status or Resolution. If someone opens the record later, they need to know what happened without asking you.</div>
+
+  <h3>Step 7 · Work the opportunity</h3>
+  <table class="compact">
+    <tr><th style="width:18%">Stage</th><th>You move it here when…</th><th style="width:30%">Must be filled in</th></tr>
+    <tr><td>Suspect</td><td>Opportunity created before contact</td><td>Next Step, Close Date</td></tr>
+    <tr><td>Qualified</td><td>You've spoken with a decision-maker and interest is confirmed</td><td>Pain Point / Reason for Purchasing</td></tr>
+    <tr><td>Discovery (optional)</td><td>A separate discovery call happens before the demo</td><td>Discovery notes</td></tr>
+    <tr><td>Demo</td><td>Demo is on the calendar</td><td>Demo Date, Demoed</td></tr>
+    <tr><td>Contract</td><td>Quote has gone out for e-signature</td><td>Add On MRR is final</td></tr>
+    <tr><td>Closed Won</td><td>Quote signed, or simple add-on approved</td><td>Add On MRR. CSM is notified automatically to provision.</td></tr>
+    <tr><td>Closed Lost</td><td>Not moving forward</td><td>Closed Lost Options and Notes</td></tr>
+  </table>
+  <div class="callout"><strong>RULE</strong> These simple add-ons go straight from Qualified to Closed Won, without Demo or Contract: Emma text and email allotment bumps, Emma package upgrades, and 2-Way SMS. Every other add-on goes through Demo and Contract.</div>
+
+  <h3>Step 8 · Close the opportunity</h3>
+  <p><strong>Closed Won:</strong> confirm Add On MRR and product are correct before saving, since moving to Closed Won notifies the CSM to provision. Remove the contact from any active Outreach sequence, then log a final note: what they bought, go-live date, and expansion signals.</p>
+  <p><strong>Closed Lost:</strong> pick the most accurate reason, and write Closed Lost Notes in the client's own words where possible.</p>
+  <table class="compact">
+    <tr><th style="width:24%">Reason</th><th>Use when</th></tr>
+    <tr><td>Non Responsive</td><td>Ticket Follow Up sequence finished with no reply</td></tr>
+    <tr><td>No Longer Interested</td><td>Client engaged, then said no</td></tr>
+    <tr><td>Price</td><td>Cost was the stated reason</td></tr>
+    <tr><td>Future Potential</td><td>Interested but not now. Create an Outreach follow-up task dated for when they said to come back.</td></tr>
+    <tr><td>Inadequate Features</td><td>Product doesn't do what they need. Fill in Inadequate Features Additional Info.</td></tr>
+    <tr><td>Duplicate</td><td>Another opportunity already covers this. Should be rare if Step 1 is done right.</td></tr>
+    <tr><td>Other</td><td>Last resort. Closed Lost Notes are required.</td></tr>
+  </table>
+
+  <h3>Keeping Attention up to date</h3>
+  <ul class="linklist">
+    <li>Every client call is recorded in Attention.</li>
+    <li>After the call, confirm Attention matched it to the right Account and Opportunity. A wrong match sends the sync to the wrong record.</li>
+    <li>CAE demos should be labeled CAE Demo. Correct the AI label if it says "Demo Call" or "Discovery Call".</li>
+    <li>If the client gave product feedback, set the Product Feedback label to Yes.</li>
+  </ul>
+
+  <h3>Daily and weekly hygiene</h3>
+  <ul class="linklist">
+    <li><strong>Daily:</strong> no tickets sitting in New longer than 1 business day; every ticket and opportunity you touched has an updated Status or Next Step with a date.</li>
+    <li><strong>Weekly (Monday):</strong> no open opportunities with a past Close Date (push it with a reason, or close it); nothing in Suspect or Qualified for more than 14 days without activity; last week's calls linked correctly in Attention.</li>
+  </ul>
+
+  <h3>Definitions</h3>
+  <table class="compact">
+    <tr><th style="width:24%">Term</th><th>Meaning</th></tr>
+    <tr><td>Ticket</td><td>A Salesforce Case, record type Client Success Ticket</td></tr>
+    <tr><td>Opportunity</td><td>A Salesforce Opportunity, record type Subscription Amendment</td></tr>
+    <tr><td>Add On MRR</td><td>Monthly recurring revenue added by the add-on</td></tr>
+    <tr><td>Sub Status</td><td>The Case field that records how the ticket was resolved (API: Closed_Reason__c)</td></tr>
+    <tr><td>Sequence</td><td>An automated multi-step outreach cadence in Outreach</td></tr>
+  </table>
+  <p class="owner">Owner: Melanie Hull · Related: <a href="#cae">CAE playbook</a> · <a href="#salesforce">Salesforce processes</a> · <a href="#pipeline">Pipeline &amp; stage rules</a></p>
+</section>
+
 <section class="page" id="inbound" data-role="sdr">
   <h2><span class="tag sdr">SDR</span> Inbound lead expectations</h2>
   <p>Inbound = a demo-request MQL (GetDemo / Demo Form). Speed and follow-through are everything. There are two paths depending on whether the prospect booked a call.</p>
@@ -1784,6 +1938,7 @@ footer{margin-left:var(--sidebar);padding:20px 40px 40px;font-size:.8rem;color:v
     <tr><td>Nov 2026</td><td>PIP Guidelines for Client Account Executives (CAEs), effective January 2027, added under Performance management with the same structure as the AE and SDR guidelines.</td></tr>
     <tr><td>Nov 2026</td><td>Process documents from Ryan Burns added: Salesforce (Parent Account opportunity, data enrichment, bulk cloning, MSA folder), outreach and out-of-office scripts, Booth Renter SDR qualification, competitor data review, membership recapture and client reboards. Bulk cloning and data enrichment content to be confirmed by Ryan.</td></tr>
     <tr><td>Nov 2026</td><td>SE Next Steps Guide (effective 27 July 2026) and the Aha! Ideas proxy-vote process added to the SE section.</td></tr>
+    <tr><td>Nov 2026</td><td>CAE Ticket Intake to Close (Section 01, draft v1.0) added as its own CAE section.</td></tr>
     <tr><td>Nov 2026</td><td>SDR PIP guidelines (Avery Baccala) merged into the PIP block with role differences marked; SDR ramp and quota relief (2.5 weeks training, 33 / 66 / 100%) added to Onboarding &amp; ramp. Melanie Hull is CAE Sales Manager.</td></tr>
   </table>
   <p class="mini" id="dataSheetNote"></p>
